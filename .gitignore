@@ -1,0 +1,13 @@
+# Local credentials; copy .env.example to .env and set the key locally.
+.env
+.env.*
+!.env.example
+
+# Generated reports may contain feature-specific UI observations.
+docs/ui-reviews/*.json
+
+# Folders
+_ProjectDocs/*
+
+# AI Tools
+AGENTS.md

@@ -1,0 +1,11 @@
+{
+  "name": "solat-sunat-app-uiux-director",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage",
+    "gemini-uiux": "node agents/gemini-uiux.mjs design",
+    "gemini-uiux:review": "node agents/gemini-uiux.mjs review"
+  }
+}
