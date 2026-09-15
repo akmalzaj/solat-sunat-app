@@ -3,9 +3,35 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test",
-    "test:coverage": "node --test --experimental-test-coverage",
+    "prebuild": "npm run generate-registry",
+    "build": "next build && node scripts/build-service-worker.mjs",
+    "generate-registry": "node --experimental-strip-types scripts/generate-registry.mjs",
+    "dev": "next dev",
+    "lint": "eslint .",
+    "preview": "serve out -l 3000",
+    "test": "node --test --experimental-strip-types",
+    "test:coverage": "node --test --experimental-strip-types --experimental-test-coverage",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit",
     "gemini-uiux": "node agents/gemini-uiux.mjs design",
     "gemini-uiux:review": "node agents/gemini-uiux.mjs review"
+  },
+  "dependencies": {
+    "next": "16.3.5",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@tailwindcss/postcss": "4.1.18",
+    "@types/node": "26.5.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.3.5",
+    "serve": "14.2.6",
+    "tailwindcss": "4.1.18",
+    "typescript": "5.9.3"
   }
 }

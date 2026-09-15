@@ -1,0 +1,96 @@
+{
+  "id": "solat-awwabin",
+  "slug": "awwabin",
+  "title": "Solat Sunat Awwabin",
+  "titleArabic": "صَلَاةُ الْأَوَّابِينَ",
+  "category": "harian",
+  "shortPurpose": "Solat orang-orang yang sentiasa bertaubat, dilakukan antara waktu Maghrib dan Isyak bagi memelihara iman.",
+  "hukum": "Sunat",
+  "rakaatOptions": [
+    2,
+    4,
+    6
+  ],
+  "timeGuidance": {
+    "description": "Dilakukan antara waktu selepas solat Maghrib (selepas Ba'diyyah Maghrib) sehingga masuk waktu Isyak.",
+    "suggestedTimeOfDay": "maghrib"
+  },
+  "niat": [
+    {
+      "label": "Set 1: Memelihara Iman (2 Rakaat)",
+      "arabic": "أُصَلِّي سُنَّةَ الْأَوَّابِينَ مَعَ حِفْظِ الْإِيمَانِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-awwabina ma'a hifzil-imani rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Awwabin berserta memelihara iman dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Panduan Solat Sunat Awwabin"
+    },
+    {
+      "label": "Set 2: Bertaubat (2 Rakaat)",
+      "arabic": "أُصَلِّي سُنَّةَ الْأَوَّابِينَ مَعَ التَّوْبَةِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-awwabina ma'at-taubati rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Awwabin berserta taubat dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Panduan Solat Sunat Awwabin"
+    },
+    {
+      "label": "Set 3: Istikharah (2 Rakaat)",
+      "arabic": "أُصَلِّي سُنَّةَ الْأَوَّابِينَ مَعَ الِاسْتِخَارَةِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-awwabina ma'al-istikharati rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Awwabin berserta istikharah dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Panduan Solat Sunat Awwabin"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Solat Ba'diyyah Maghrib Terlebih Dahulu",
+      "description": "Menyempurnakan solat fardu Maghrib dan solat sunat Ba'diyyah Maghrib 2 rakaat.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 2,
+      "title": "Niat Solat Awwabin (Setiap 2 Rakaat 1 Salam)",
+      "description": "Mendirikan solat 2 rakaat demi 2 rakaat sehingga 6 rakaat mengikut niat masing-masing.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Rukun Pergerakan",
+      "description": "Membaca Al-Fatihah, surah lazim, rukuk, iktidal, dua sujud, tahiyat akhir dan salam.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan Awwabin",
+      "description": "Rakaat 1: Surah Al-Kafirun. Rakaat 2: Surah Al-Ikhlas (atau membaca surah Al-Falaq dan An-Nas pada set berikutnya).",
+      "recommendedSurahs": [
+        "Al-Kafirun",
+        "Al-Ikhlas",
+        "Al-Falaq",
+        "An-Nas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Amalan solat Awwabin dihidupkan di madrasah, pondok, dan surau di Malaysia ketika waktu menunggu masuknya waktu solat Isyak.",
+  "variationsNotes": "Diriwayatkan hadith bahawa sesiapa yang solat 6 rakaat selepas Maghrib tanpa diselangi perkataan buruk, diberi pahala seperti beribadah 12 tahun (Jami' at-Tirmidhi No. 435).",
+  "doa": [
+    {
+      "title": "Doa Memohon Penetapan Iman Selepas Awwabin",
+      "arabic": "اللَّهُمَّ سَدِّدْنِي بِالْإِيمَانِ، وَاحْفَظْهُ عَلَيَّ فِي حَيَاتِي، وَعِنْدَ وَفَاتِي، وَبَعْدَ مَمَاتِي.",
+      "rumi": "Allahumma saddidni bil-iman, wahfazhu 'alayya fi hayati, wa 'inda wafati, wa ba'da mamati.",
+      "translation": "Ya Allah, tetapkanlah diriku dengan iman, dan peliharalah iman itu ke atasku sepanjang hayatku, tatkala saat kewafatanku, dan selepas kematianku.",
+      "dir": "rtl",
+      "sourceRef": "al-azkar-nawawi",
+      "sourcePage": "Doa Menjaga Iman"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

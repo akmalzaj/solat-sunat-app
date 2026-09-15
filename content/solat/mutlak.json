@@ -1,0 +1,76 @@
+{
+  "id": "solat-mutlak",
+  "slug": "mutlak",
+  "title": "Solat Sunat Mutlak",
+  "titleArabic": "صَلَاةُ النَّفْلِ الْمُطْلَقِ",
+  "category": "harian",
+  "shortPurpose": "Solat sunat umum bagi mendekatkan diri kepada Allah tanpa terikat waktu, bilangan rakaat, atau sebab tertentu.",
+  "hukum": "Sunat",
+  "rakaatOptions": [
+    2,
+    4
+  ],
+  "timeGuidance": {
+    "description": "Bila-bila masa sahaja siang atau malam, kecuali pada 5 waktu yang diharamkan solat sunat tanpa sebab (tahrim).",
+    "suggestedTimeOfDay": "sepanjang-masa"
+  },
+  "niat": [
+    {
+      "label": "2 Rakaat",
+      "arabic": "أُصَلِّي سُنَّةً رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatan rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Sunat Mutlak"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Niat solat sunat mutlak semata-mata kerana Allah.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 2,
+      "title": "Al-Fatihah & Surah Pilihan",
+      "description": "Membaca al-Fatihah dan surah yang dihafal.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Rukuk, I'tidal, Sujud & Salam",
+      "description": "Menyempurnakan setiap rukun perbuatan dengan tumakninah.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Bebas Memilih Surah",
+      "description": "Boleh membaca mana-mana surah dari Al-Quran mengikut kelapangan dan kekhusyukan.",
+      "recommendedSurahs": [
+        "Al-Ikhlas",
+        "Al-Falaq",
+        "An-Nas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Dilakukan ketika mengisi waktu terluang semasa iktikaf di masjid atau ketika menghadiri majlis ilmu sebelum majlis bermula.",
+  "variationsNotes": "5 waktu yang diharamkan solat sunat mutlak: 1. Selepas Subuh hingga matahari terbit. 2. Waktu Syuruk hingga matahari naik setinggi tombak. 3. Waktu rembang (matahari tepat di tengah langit kecuali hari Jumaat). 4. Selepas Asar hingga matahari mula terbenam. 5. Ketika matahari sedang terbenam.",
+  "doa": [
+    {
+      "title": "Doa Memohon Rahmat & Kebaikan",
+      "arabic": "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+      "rumi": "Rabbana atina fid-dunya hasanah wa fil-akhirati hasanah wa qina 'azaban-nar",
+      "translation": "Wahai Tuhan kami, kurniakanlah kepada kami kebaikan di dunia dan kebaikan di akhirat, serta peliharalah kami daripada azab api neraka.",
+      "dir": "rtl",
+      "sourceRef": "sahih-bukhari",
+      "sourcePage": "Kitab al-Da'awat, Hadith No. 6389"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

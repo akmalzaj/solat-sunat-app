@@ -1,0 +1,141 @@
+{
+  "id": "solat-rawatib",
+  "slug": "rawatib",
+  "title": "Solat Sunat Rawatib",
+  "titleArabic": "صَلَاةُ الرَّوَاتِبِ",
+  "category": "harian",
+  "shortPurpose": "Solat pengiring solat fardu lima waktu, menyempurnakan sebarang kekurangan pahala solat fardu.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    2,
+    4,
+    10,
+    12
+  ],
+  "timeGuidance": {
+    "description": "Mengiringi setiap solat fardu: Sebelum (Qabliyyah) bermula selepas azan hingga solat fardu; Selepas (Ba'diyyah) bermula selesai solat fardu hingga habis waktu solat.",
+    "suggestedTimeOfDay": "sepanjang-masa"
+  },
+  "niat": [
+    {
+      "label": "Qabliyyah Subuh (2 Rakaat)",
+      "arabic": "أُصَلِّي سُنَّةَ الصُّبْحِ رَكْعَتَيْنِ قَبْلِيَّةً لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatas-subhi rak'ataini qabliyyatan lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat sebelum Subuh dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Rawatib Subuh"
+    },
+    {
+      "label": "Qabliyyah Zohor (2 Rakaat)",
+      "arabic": "أُصَلِّي سُنَّةَ الظُّهْرِ رَكْعَتَيْنِ قَبْلِيَّةً لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnataz-zuhri rak'ataini qabliyyatan lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat sebelum Zohor dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Rawatib Zohor"
+    },
+    {
+      "label": "Ba'diyyah Maghrib (2 Rakaat)",
+      "arabic": "أُصَلِّي سُنَّةَ الْمَغْرِبِ رَكْعَتَيْنِ بَعْدِيَّةً لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-maghribi rak'ataini ba'diyyatan lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat selepas Maghrib dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Rawatib Maghrib"
+    },
+    {
+      "label": "Ba'diyyah Isyak (2 Rakaat)",
+      "arabic": "أُصَلِّي سُنَّةَ الْعِشَاءِ رَكْعَتَيْنِ بَعْدِيَّةً لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-'isya'i rak'ataini ba'diyyatan lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat selepas Isyak dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Rawatib Isyak"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Niat Mengikut Waktu Fardu",
+      "description": "Menyatakan jenis solat (Qabliyyah atau Ba'diyyah) bersama fardu berkenaan.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 2,
+      "title": "Dua Rakaat Ringkas & Khusyuk",
+      "description": "Membaca Al-Fatihah, surah lazim, rukuk, iktidal, sujud dan tahiyat akhir.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Salam & Wirid Lazim",
+      "description": "Memberi salam dan menyambung zikir atau persiapan solat fardu.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan Rawatib Subuh",
+      "description": "Rasulullah SAW melazimi bacaan Surah Al-Kafirun pada rakaat pertama dan Surah Al-Ikhlas pada rakaat kedua Qabliyyah Subuh.",
+      "recommendedSurahs": [
+        "Al-Kafirun",
+        "Al-Ikhlas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di Malaysia, rawatib Qabliyyah Subuh, Ba'diyyah Maghrib, dan Ba'diyyah Isyak adalah antara yang paling lazim diamalkan di masjid dan di rumah.",
+  "variationsNotes": "10/12 Rakaat Muakkad: 2 Subuh (Qabliyyah), 2 atau 4 Zohor (Qabliyyah), 2 Zohor (Ba'diyyah), 2 Maghrib (Ba'diyyah), 2 Isyak (Ba'diyyah). Ghairu Muakkad: 2 tambahan Zohor Qabliyyah, 2 tambahan Zohor Ba'diyyah, 4 Asar Qabliyyah, 2 Maghrib Qabliyyah, 2 Isyak Qabliyyah.",
+  "doa": [
+    {
+      "title": "Fadhilat Rawatib Hadis Ummu Habibah",
+      "arabic": "مَنْ صَلَّى فِي يَوْمٍ وَلَيْلَةٍ ثِنْتَيْ عَشْرَةَ رَكْعَةً بُنِيَ لَهُ بَيْتٌ فِي الْجَنَّةِ",
+      "rumi": "Man salla fi yaumin wa lailatin thintai 'asyrota rak'atan buniya lahu baitun fil-jannah",
+      "translation": "Barang siapa yang mengerjakan solat sunat dua belas rakaat dalam sehari semalam, nescaya dibina untuknya sebuah rumah di dalam syurga.",
+      "dir": "rtl",
+      "sourceRef": "sahih-muslim",
+      "sourcePage": "Kitab Solat al-Musafirin, Hadith No. 728"
+    }
+  ],
+  "interactiveTool": {
+    "toolType": "rawatib-grid",
+    "muakkadRakaat": 10,
+    "ghairuMuakkadRakaat": 12,
+    "schedule": [
+      {
+        "prayer": "Subuh",
+        "qabliyyah": "2 Rakaat (Muakkad)",
+        "ba'diyyah": "Tiada (Waktu Tahrim)",
+        "isMuakkad": true
+      },
+      {
+        "prayer": "Zohor",
+        "qabliyyah": "2 Rakaat (Muakkad) + 2 (Ghairu)",
+        "ba'diyyah": "2 Rakaat (Muakkad) + 2 (Ghairu)",
+        "isMuakkad": true
+      },
+      {
+        "prayer": "Asar",
+        "qabliyyah": "4 Rakaat (Ghairu Muakkad)",
+        "ba'diyyah": "Tiada (Waktu Tahrim)",
+        "isMuakkad": false
+      },
+      {
+        "prayer": "Maghrib",
+        "qabliyyah": "2 Rakaat (Ghairu Muakkad)",
+        "ba'diyyah": "2 Rakaat (Muakkad)",
+        "isMuakkad": true
+      },
+      {
+        "prayer": "Isyak",
+        "qabliyyah": "2 Rakaat (Ghairu Muakkad)",
+        "ba'diyyah": "2 Rakaat (Muakkad)",
+        "isMuakkad": true
+      }
+    ]
+  },
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

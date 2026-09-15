@@ -1,0 +1,173 @@
+{
+  "id": "solat-tasbih",
+  "slug": "tasbih",
+  "title": "Solat Sunat Tasbih",
+  "titleArabic": "صَلَاةُ التَّسْبِيحِ",
+  "category": "raya_fenomena",
+  "shortPurpose": "Solat khusus mengandungi 300 tasbih memohon keampunan bagi dosa terdahulu, masa kini, sengaja mahupun tidak.",
+  "hukum": "Sunat",
+  "rakaatOptions": [
+    4
+  ],
+  "timeGuidance": {
+    "description": "Boleh ditunaikan pada siang hari (4 rakaat 1 salam) atau pada malam hari (4 rakaat 2 salam). Disarankan sekurang-kurangnya sekali seumur hidup atau seminggu sekali.",
+    "suggestedTimeOfDay": "sepanjang-masa"
+  },
+  "niat": [
+    {
+      "label": "Siang Hari (4 Rakaat 1 Salam)",
+      "arabic": "أُصَلِّي سُنَّةَ التَّسْبِيحِ أَرْبَعَ رَكَعَاتٍ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatat-tasbihi arba'a raka'atin lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat tasbih empat rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Sunat Tasbih"
+    },
+    {
+      "label": "Malam Hari (2 Rakaat 1 Salam)",
+      "arabic": "أُصَلِّي سُنَّةَ التَّسْبِيحِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatat-tasbihi rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat tasbih dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Sunat Tasbih"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Niat solat tasbih berserta takbiratul ihram.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 2,
+      "title": "Qiyam & Bacaan Surah (15x Tasbih)",
+      "description": "Membaca Al-Fatihah dan surah pilihan, kemudian membaca tasbih khusus sebanyak 15 kali sebelum rukuk.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Rukuk (10x Tasbih)",
+      "description": "Membaca tasbih rukuk lazim, disusuli tasbih solat tasbih 10 kali.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "I'tidal (10x Tasbih)",
+      "description": "Bangkit iktidal, membaca tahmid, disusuli tasbih solat tasbih 10 kali.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 5,
+      "title": "Sujud Pertama (10x Tasbih)",
+      "description": "Sujud membaca tasbih sujud biasa, disusuli tasbih solat tasbih 10 kali.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 6,
+      "title": "Duduk Antara Dua Sujud (10x Tasbih)",
+      "description": "Duduk membaca doa rabighfirli, disusuli tasbih solat tasbih 10 kali.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 7,
+      "title": "Sujud Kedua (10x Tasbih)",
+      "description": "Sujud kedua membaca tasbih sujud, disusuli tasbih solat tasbih 10 kali.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 8,
+      "title": "Duduk Istirahah / Tahiyat (10x Tasbih)",
+      "description": "Sebelum berdiri ke rakaat berikutnya (atau semasa duduk tasyahhud sebelum tasyahhud), membaca tasbih 10 kali. Jumlah rakaat = 75x.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 9,
+      "title": "Menyempurnakan 4 Rakaat (Jumlah 300x)",
+      "description": "Ulangi aturan 75 tasbih untuk setiap rakaat sehingga genap 300 tasbih.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan 4 Rakaat",
+      "description": "Rakaat 1: Surah At-Takasur. Rakaat 2: Surah Al-Asr. Rakaat 3: Surah Al-Kafirun. Rakaat 4: Surah Al-Ikhlas.",
+      "recommendedSurahs": [
+        "At-Takasur",
+        "Al-Asr",
+        "Al-Kafirun",
+        "Al-Ikhlas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di Malaysia, solat tasbih sering dilakukan secara berjemaah pada malam-malam berkat seperti Nisfu Sya'ban, 10 malam terakhir Ramadan, atau malam Jumaat di surau dan masjid.",
+  "variationsNotes": "Jika terlupa membaca tasbih di satu posisi (contohnya ketika rukuk), boleh digantikan bilangannya pada posisi berikutnya mengikut pandangan ulama Mazhab Syafi'i.",
+  "doa": [
+    {
+      "title": "Teks Bacaan Tasbih Solat Tasbih (75x per Rakaat)",
+      "arabic": "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ الْعَلِيِّ الْعَظِيمِ",
+      "rumi": "Subhanallah walhamdulillah wa la ilaha illallah wallahu akbar, wa la haula wa la quwwata illa billahil-'aliyyil-'azim",
+      "translation": "Maha Suci Allah, segala puji bagi Allah, tiada Tuhan yang berhak disembah melainkan Allah, dan Allah Maha Besar. Tiada daya dan kekuatan melainkan dengan pertolongan Allah Yang Maha Tinggi lagi Maha Agung.",
+      "dir": "rtl",
+      "sourceRef": "sunan-tirmidhi",
+      "sourcePage": "Kitab al-Solat, Hadith No. 481"
+    },
+    {
+      "title": "Doa Selepas Solat Sunat Tasbih",
+      "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ تَوْفِيقَ أَهْلِ الْهُدَى، وَأَعْمَالَ أَهْلِ الْيَقِينِ، وَمُنَاصَحَةَ أَهْلِ التَّوْبَةِ، وَعَزْمَ أَهْلِ الصَّبْرِ، وَوَجَلَ أَهْلِ الْخَشْيَةِ، وَطَلَبَ أَهْلِ الرَّغْبَةِ، وَتَعَبُّدَ أَهْلِ الْوَرَعِ، وَعِرْفَانَ أَهْلِ الْعِلْمِ حَتَّى أَخَافَكَ.",
+      "rumi": "Allahumma inni as'aluka taufiqa ahlil-huda, wa a'mala ahlil-yaqin, wa munasahata ahlit-taubah, wa 'azma ahlis-sabr, wa wajala ahlil-khasyyah, wa talaba ahlir-raghbah, wa ta'abbuda ahlil-wara', wa 'irfana ahlil-'ilmi hatta akhafak.",
+      "translation": "Ya Allah, sesungguhnya aku memohon kepada-Mu taufik orang-orang yang beroleh petunjuk, amalan orang-orang yang yakin, ketulusan orang-orang yang bertaubat, keazaman orang-orang yang sabar, rasa gerun orang-orang yang takutkan-Mu, pencarian orang-orang yang mencintai rahmat-Mu, ibadah orang-orang yang warak, dan makrifat orang-orang yang berilmu sehingga aku benar-benar takut kepada-Mu.",
+      "dir": "rtl",
+      "sourceRef": "sunan-tirmidhi",
+      "sourcePage": "Bab Doa Solat Tasbih"
+    }
+  ],
+  "interactiveTool": {
+    "toolType": "tasbih-counter",
+    "totalTasbih": 300,
+    "rakaatCount": 4,
+    "tasbihPerRakaat": 75,
+    "positions": [
+      {
+        "positionIndex": 1,
+        "name": "Qiyam selepas bacaan surah",
+        "count": 15
+      },
+      {
+        "positionIndex": 2,
+        "name": "Dalam rukuk selepas tasbih rukuk",
+        "count": 10
+      },
+      {
+        "positionIndex": 3,
+        "name": "Dalam iktidal selepas tahmid",
+        "count": 10
+      },
+      {
+        "positionIndex": 4,
+        "name": "Dalam sujud pertama selepas tasbih sujud",
+        "count": 10
+      },
+      {
+        "positionIndex": 5,
+        "name": "Duduk antara dua sujud selepas doa",
+        "count": 10
+      },
+      {
+        "positionIndex": 6,
+        "name": "Dalam sujud kedua selepas tasbih sujud",
+        "count": 10
+      },
+      {
+        "positionIndex": 7,
+        "name": "Duduk istirahah / sebelum bangkit / tahiyat",
+        "count": 10
+      }
+    ]
+  },
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

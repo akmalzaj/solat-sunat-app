@@ -1,0 +1,88 @@
+{
+  "id": "solat-hajat",
+  "slug": "hajat",
+  "title": "Solat Sunat Hajat",
+  "titleArabic": "صَلَاةُ الْحَاجَةِ",
+  "category": "hajat",
+  "shortPurpose": "Memohon pertolongan, kemudahan jalan keluar, dan keberkatan daripada Allah SWT bagi sesuatu hajat khusus.",
+  "hukum": "Sunat",
+  "rakaatOptions": [
+    2,
+    4,
+    12
+  ],
+  "timeGuidance": {
+    "description": "Bila-bila masa sahaja siang atau malam (kecuali pada waktu makruh tahrim). Waktu paling afdal adalah pada waktu sepertiga akhir malam atau selepas solat Isyak.",
+    "suggestedTimeOfDay": "malam"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةَ الْحَاجَةِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-hajati rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat hajat dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Sunat Hajat"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Menghadirkan hajat dalam hati bersama takbiratul ihram.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 2,
+      "title": "Rakaat Pertama",
+      "description": "Membaca Surah Al-Fatihah disusuli Ayat al-Kursi (atau surah pilihan).",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Rakaat Kedua",
+      "description": "Membaca Surah Al-Fatihah disusuli Surah Al-Ikhlas.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "Sujud Terakhir",
+      "description": "Disunatkan membaca tasbih Nabi Yunus a.s. dalam sujud terakhir dan memohon hajat secara ikhlas.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 5,
+      "title": "Tahiyat Akhir & Salam",
+      "description": "Duduk membaca tasyahhud akhir, memberi salam, disusuli istighfar, selawat dan doa hajat.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Zikir Selepas Salam Solat Hajat",
+      "description": "Membaca Istighfar 10 kali, Selawat ke atas Nabi SAW 10 kali, dan Tasbih 10 kali sebelum menadah tangan berdoa.",
+      "recommendedSurahs": [
+        "Ayat al-Kursi",
+        "Al-Ikhlas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di Malaysia, solat hajat sering diadakan secara berjemaah di sekolah, masjid, dan kediaman sempena peperiksaan awam (SPM/STPM), memohon kesembuhan pesakit, atau kesejahteraan negara.",
+  "variationsNotes": "Solat hajat boleh dilakukan minimum 2 rakaat sehingga 12 rakaat dengan 2 rakaat bagi setiap salam.",
+  "doa": [
+    {
+      "title": "Doa Solat Hajat Masyhur",
+      "arabic": "اللَّهُمَّ إِنَّا نَسْأَلُكَ مُوجِبَاتِ رَحْمَتِكَ، وَعَزَائِمَ مَغْفِرَتِكَ، وَالْغَنِيمَةَ مِنْ كُلِّ بِرٍّ، وَالسَّلَامَةَ مِنْ كُلِّ إِثْمٍ، وَالْفَوْزَ بِالْجَنَّةِ، وَالنَّجَاةَ مِنَ النَّارِ. اللَّهُمَّ إِنَّكَ تَسْمَعُ كَلَامِي، وَتَرَى مَكَانِي، وَتَعْلَمُ سِرِّي وَعَلَانِيَتِي، وَلَا يَخْفَى عَلَيْكَ شَيْءٌ مِنْ أَمْرِي، وَأَنَا الْبَائِسُ الْفَقِيرُ، وَالْمُسْتَغِيثُ الْمُسْتَجِيرُ.",
+      "rumi": "Allahumma inna nas'aluka mujibati rahmatika, wa 'aza'ima maghfiratika, wal-ghanimata min kulli birr, was-salamata min kulli ithm, wal-fauza bil-jannah, wan-najata minan-nar. Allahumma innaka tasma'u kalami, wa tara makani, wa ta'lamu sirri wa 'alaniyati, wa la yakhfa 'alaika syai'un min amri, wa anal-ba'isul-faqir, wal-mustaghithul-mustajir.",
+      "translation": "Ya Allah, sesungguhnya kami memohon kepada-Mu hal-hal yang mewajibkan rahmat-Mu, kepastian keampunan-Mu, keuntungan daripada setiap kebajikan, keselamatan daripada setiap dosa, kejayaan meraih syurga, dan keselamatan daripada api neraka. Ya Allah, sesungguhnya Engkau mendengar perkataanku, melihat tempatku, mengetahui rahsia dan lahiriahku, tiada sesuatu pun daripada urusanku yang tersembunyi daripada-Mu. Daku hamba-Mu yang serba daif lagi fakir, yang memohon pertolongan dan perlindungan.",
+      "dir": "rtl",
+      "sourceRef": "sunan-tirmidhi",
+      "sourcePage": "Kitab al-Solat, Bab Doa al-Hajah"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

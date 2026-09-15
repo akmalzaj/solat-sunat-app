@@ -1,0 +1,114 @@
+{
+  "id": "solat-tarawih",
+  "slug": "tarawih",
+  "title": "Solat Sunat Tarawih",
+  "titleArabic": "صَلَاةُ التَّرَاوِيحِ",
+  "category": "malam",
+  "shortPurpose": "Solat khusus menghidupkan malam-malam Ramadan (Qiam Ramadan) demi meraih keampunan dosa.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    8,
+    20
+  ],
+  "timeGuidance": {
+    "description": "Hanya pada malam bulan Ramadan, dilaksanakan selepas solat fardu Isyak dan solat sunat ba'diyyah Isyak sehingga sebelum terbit fajar Subuh.",
+    "suggestedTimeOfDay": "malam"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةَ التَّرَاوِيحِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatat-tarawihi rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat tarawih dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-tarawih",
+      "sourcePage": "Panduan Solat Sunat Tarawih JAKIM, m/s 7"
+    },
+    {
+      "label": "Makmum",
+      "arabic": "أُصَلِّي سُنَّةَ التَّرَاوِيحِ رَكْعَتَيْنِ مَأْمُومًا لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatat-tarawihi rak'ataini makmuman lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat tarawih dua rakaat sebagai makmum kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-tarawih",
+      "sourcePage": "Panduan Solat Sunat Tarawih JAKIM, m/s 7"
+    },
+    {
+      "label": "Imam",
+      "arabic": "أُصَلِّي سُنَّةَ التَّرَاوِيحِ رَكْعَتَيْنِ إِمَامًا لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatat-tarawihi rak'ataini imaman lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat tarawih dua rakaat sebagai imam kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-tarawih",
+      "sourcePage": "Panduan Solat Sunat Tarawih JAKIM, m/s 7"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Niat solat sunat tarawih dua rakaat bersama takbiratul ihram.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 2,
+      "title": "Al-Fatihah & Surah",
+      "description": "Membaca Al-Fatihah dan surah pilihan mengikut susunan lazim.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Rukuk, I'tidal & Dua Sujud",
+      "description": "Melakukan rukun perbuatan dengan tumakninah.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "Rakaat Kedua & Salam",
+      "description": "Menyempurnakan rakaat kedua, membaca tahiyat akhir dan memberi salam.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 5,
+      "title": "Mengulangi 2 Rakaat demi 2 Rakaat",
+      "description": "Dikerjakan 4 salam (8 rakaat) atau 10 salam (20 rakaat). Diakhiri dengan solat sunat Witir.",
+      "isRukun": false
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Susunan Surah Lazim Tarawih",
+      "description": "Pada rakaat pertama lazimnya dibaca surah-surah lazim bermula daripada At-Takasur hingga Al-Masad, dan rakaat kedua dibaca Surah Al-Ikhlas.",
+      "recommendedSurahs": [
+        "At-Takasur",
+        "Al-Asr",
+        "Al-Humazah",
+        "Al-Fil",
+        "Quraisy",
+        "Al-Ma'un",
+        "Al-Kautsar",
+        "Al-Kafirun",
+        "An-Nasr",
+        "Al-Masad",
+        "Al-Ikhlas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di masjid dan surau Malaysia, sebahagian besar menunaikan 20 rakaat mengikut tradisi para sahabat dan khalifah Umar bin al-Khattab r.a., manakala sebahagian lagi mendirikan 8 rakaat. Diselangi selawat dan bacaan doa antara salam.",
+  "variationsNotes": "Solat tarawih mesti dilakukan dengan 1 salam bagi setiap 2 rakaat. Jika digabungkan 4 rakaat 1 salam, solat tarawih tersebut tidak sah mengikut Mazhab Syafi'i.",
+  "doa": [
+    {
+      "title": "Doa Kamilin Selepas Solat Tarawih",
+      "arabic": "اللَّهُمَّ اجْعَلْنَا بِالْإِيمَانِ كَامِلِينَ، وَلِلْفَرَائِضِ مُؤَدِّينَ، وَلِلصَّلَاةِ حَافِظِينَ، وَلِلزَّكَاةِ فَاعِلِينَ، وَلِمَا عِنْدَكَ طَالِبِينَ، وَلِعَفْوِكَ رَاجِينَ، وَبِالْهُدَى مُتَمَسِّكِينَ، وَعَنِ اللَّغْوِ مُعْرِضِينَ.",
+      "rumi": "Allahummaj'alna bil-imani kamilin, wa lil-fara'idi mu'addin, wa lis-salati hafizin, wa liz-zakati fa'ilin, wa lima 'indaka talibin, wa li'afwika rajin, wa bil-huda mutamassikin, wa 'anil-laghwi mu'ridin.",
+      "translation": "Ya Allah, jadikanlah kami orang-orang yang sempurna imannya, menunaikan segala kewajipan fardu, memelihara solat, mengeluarkan zakat, menuntut apa yang ada di sisi-Mu, mengharapkan keampunan-Mu, berpegang teguh dengan petunjuk, dan berpaling daripada perkara yang sia-sia.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-tarawih",
+      "sourcePage": "Doa Kamilin, m/s 15"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

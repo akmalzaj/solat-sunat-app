@@ -1,0 +1,74 @@
+{
+  "id": "solat-tahiyatul-masjid",
+  "slug": "tahiyatul-masjid",
+  "title": "Solat Sunat Tahiyatul Masjid",
+  "titleArabic": "صَلَاةُ تَحِيَّةِ الْمَسْجِدِ",
+  "category": "harian",
+  "shortPurpose": "Menghormati dan memuliakan masjid sebagai rumah Allah SWT setiap kali memasukinya sebelum duduk.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    2
+  ],
+  "timeGuidance": {
+    "description": "Setiap kali memasuki masjid atau surau yang didirikan solat Jumaat, sebelum seseorang melabuhkan punggung untuk duduk.",
+    "suggestedTimeOfDay": "sepanjang-masa"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةَ تَحِيَّةِ الْمَسْجِدِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnata tahiyyatil-masjidi rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Tahiyatul Masjid dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Tahiyatul Masjid"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Adab Masuk Masjid",
+      "description": "Melangkah dengan kaki kanan dan membaca doa masuk masjid.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 2,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Dilakukan sebelum duduk di dalam masjid.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Menunaikan 2 Rakaat",
+      "description": "Menyempurnakan al-Fatihah, rukuk, sujud, tahiyat akhir dan salam.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan",
+      "description": "Rakaat 1: Surah Al-Kafirun. Rakaat 2: Surah Al-Ikhlas.",
+      "recommendedSurahs": [
+        "Al-Kafirun",
+        "Al-Ikhlas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Jemaah di Malaysia sentiasa mendirikan solat ini setiap kali menghadiri solat Jumaat, termasuk ketika khatib sedang menyampaikan khutbah (dikerjakan secara ringkas/khafifatain mengikut sunnah sahih).",
+  "variationsNotes": "Sekiranya terhalang mendirikan solat (contohnya imam telah memulakan solat fardu atau tiada wuduk), disunatkan menggantikannya dengan membaca zikir 4 kali: 'Subhanallah walhamdulillah wa la ilaha illallah wallahu akbar'.",
+  "doa": [
+    {
+      "title": "Doa Masuk Masjid (Sebelum Solat)",
+      "arabic": "اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+      "rumi": "Allahummaf-tah li abwaba rahmatik",
+      "translation": "Ya Allah, bukakanlah untukku pintu-pintu rahmat-Mu.",
+      "dir": "rtl",
+      "sourceRef": "sahih-muslim",
+      "sourcePage": "Kitab Solat al-Musafirin, Hadith No. 713"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

@@ -1,0 +1,121 @@
+{
+  "id": "solat-wuduk",
+  "slug": "wuduk",
+  "title": "Solat Sunat Wuduk",
+  "titleArabic": "صَلَاةُ سُنَّةِ الْوُضُوءِ",
+  "category": "harian",
+  "shortPurpose": "Menzahirkan kesyukuran atas nikmat bersuci dan menyucikan batin sejurus menyempurnakan wuduk.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    2
+  ],
+  "timeGuidance": {
+    "description": "Dikerjakan sejurus selepas selesai mengambil wuduk dengan sempurna, sebelum anggota wuduk kering atau sebelum batal wuduk.",
+    "suggestedTimeOfDay": "sepanjang-masa"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةَ الْوُضُوءِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-wudu'i rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat wuduk dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Panduan Solat Sunat Wuduk, m/s 12"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Bersuci & Berwuduk Sempurna",
+      "description": "Menyempurnakan wuduk mengikut rukun dan sunat, disusuli bacaan doa selepas wuduk.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 2,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Melafazkan takbiratul ihram sambil menghadirkan niat solat sunat wuduk di dalam hati.",
+      "isRukun": true,
+      "arabic": "اللَّهُ أَكْبَرُ",
+      "rumi": "Allahu Akbar",
+      "translation": "Allah Maha Besar.",
+      "dir": "rtl",
+      "sourceRef": "al-fiqh-al-manhaji"
+    },
+    {
+      "stepNumber": 3,
+      "title": "Membaca Surah Al-Fatihah",
+      "description": "Rukun qauli wajib pada setiap rakaat.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "Rukuk serta Tumakninah",
+      "description": "Membongkokkan badan sehingga kedua tapak tangan memegang lutut dan bertenang seketika.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 5,
+      "title": "I'tidal serta Tumakninah",
+      "description": "Bangkit berdiri tegak dari rukuk dan bertenang seketika.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 6,
+      "title": "Dua Sujud serta Tumakninah",
+      "description": "Sujud meletakkan dahi, kedua tapak tangan, kedua lutut, dan hujung jari kaki ke lantai.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 7,
+      "title": "Duduk Antara Dua Sujud",
+      "description": "Duduk dengan tenang sambil membaca doa memohon keampunan dan rahmat.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 8,
+      "title": "Rakaat Kedua",
+      "description": "Bangkit ke rakaat kedua, membaca al-Fatihah, surah pilihan, rukuk, iktidal, dan dua sujud.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 9,
+      "title": "Tahiyat Akhir & Selawat",
+      "description": "Duduk membaca tasyahhud akhir dan selawat ke atas Nabi Muhammad SAW.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 10,
+      "title": "Memberi Salam",
+      "description": "Salam pertama memalingkan wajah ke kanan (rukun) dan kedua ke kiri (sunat).",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan",
+      "description": "Disunatkan membaca Surah al-Kafirun pada rakaat pertama dan Surah al-Ikhlas pada rakaat kedua selepas al-Fatihah.",
+      "recommendedSurahs": [
+        "Al-Kafirun",
+        "Al-Ikhlas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di surau dan masjid di Malaysia, para jemaah lazimnya mendirikan solat sunat wuduk sebaik selesai berwuduk di kolah atau tempat wuduk sebelum duduk beriktikaf.",
+  "variationsNotes": "Menurut Mazhab Syafi'i (Al-Kafi #1560), pahala dua rakaat wuduk turut terhasil sekiranya seseorang terus mendirikan solat fardu atau solat sunat lain seperti Tahiyatul Masjid sejurus berwuduk.",
+  "doa": [
+    {
+      "title": "Doa Selepas Wuduk & Solat Wuduk",
+      "arabic": "أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ، اللَّهُمَّ اجْعَلْنِي مِنَ التَّوَّابِينَ، وَاجْعَلْنِي مِنَ الْمُتَطَهِّرِينَ، وَاجْعَلْنِي مِنْ عِبَادِكَ الصَّالِحِينَ.",
+      "rumi": "Asyhadu alla ilaha illallahu wahdahu la syarikalah, wa asyhadu anna Muhammadan 'abduhu wa rasuluh. Allahummaj'alni minat-tawwabin, waj'alni minal-mutatahhirin, waj'alni min 'ibadikas-salihin.",
+      "translation": "Aku bersaksi bahawa tiada Tuhan yang berhak disembah melainkan Allah Yang Maha Esa, tiada sekutu bagi-Nya, dan aku bersaksi bahawa Nabi Muhammad hamba dan utusan-Nya. Ya Allah, jadikanlah aku daripada golongan orang yang bertaubat, orang yang sentiasa bersuci, dan jadikanlah aku daripada hamba-hamba-Mu yang soleh.",
+      "dir": "rtl",
+      "sourceRef": "sahih-muslim",
+      "sourcePage": "Kitab al-Taharah, Hadith No. 234"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

@@ -1,0 +1,116 @@
+{
+  "id": "solat-aidiladha",
+  "slug": "aidiladha",
+  "title": "Solat Sunat Aidiladha",
+  "titleArabic": "صَلَاةُ عِيدِ الْأَضْحَى",
+  "category": "raya_fenomena",
+  "shortPurpose": "Menzahirkan pengagungan syiar Islam, kesyukuran, dan pembuka ibadah korban sempena Hari Raya Korban.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    2
+  ],
+  "timeGuidance": {
+    "description": "Pagi 10 Zulhijjah, bermula selepas matahari naik setinggi satu penggalah (~20-28 minit selepas syuruk) hingga sebelum masuk waktu Zuhur. Disunatkan disegerakan berbanding Aidilfitri untuk melapangkan masa menyembelih korban.",
+    "suggestedTimeOfDay": "dhuha"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةً لِعِيدِ الْأَضْحَى رَكْعَتَيْنِ أَدَاءً لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatan li 'idil-adha rak'ataini adaan lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Aidiladha dua rakaat tunai kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Aidiladha"
+    },
+    {
+      "label": "Makmum",
+      "arabic": "أُصَلِّي سُنَّةً لِعِيدِ الْأَضْحَى رَكْعَتَيْنِ مَأْمُومًا لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatan li 'idil-adha rak'ataini makmuman lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Aidiladha dua rakaat sebagai makmum kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Aidiladha"
+    },
+    {
+      "label": "Imam",
+      "arabic": "أُصَلِّي سُنَّةً لِعِيدِ الْأَضْحَى رَكْعَتَيْنِ إِمَامًا لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatan li 'idil-adha rak'ataini imaman lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Aidiladha dua rakaat sebagai imam kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Aidiladha"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Niat solat sunat Aidiladha disertakan ketika takbiratul ihram.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 2,
+      "title": "7 Takbir Tambahan Rakaat Pertama",
+      "description": "Membaca doa iftitah disusuli 7 takbir tambahan diselangi bacaan tasbih.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 3,
+      "title": "Al-Fatihah, Surah, Rukuk & Sujud",
+      "description": "Membaca Al-Fatihah dan surah, serta menyempurnakan rukuk dan sujud.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "5 Takbir Tambahan Rakaat Kedua",
+      "description": "Bangkit dari sujud kedua, bertakbir 5 kali diselangi bacaan tasbih.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 5,
+      "title": "Al-Fatihah, Tahiyat Akhir & Salam",
+      "description": "Membaca Al-Fatihah, surah lazim, tahiyat akhir dan salam.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 6,
+      "title": "Khutbah Aidiladha",
+      "description": "Mendengar khutbah hari raya berkaitan hikmah korban dan ketakwaan Nabi Ibrahim a.s.",
+      "isRukun": false
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Sunat Sebelum Solat Aidiladha",
+      "description": "Disunatkan tidak menjamah makanan sebelum solat sehingga pulang dan menikmati daging korban (berbeza dengan Aidilfitri yang disunatkan makan sedikit tamar sebelum solat).",
+      "recommendedSurahs": [
+        "Al-A'la",
+        "Al-Ghasyiyah"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di Malaysia, solat Aidiladha lazimnya dimulakan sekitar jam 8.00 - 8.30 pagi, lebih awal daripada Aidilfitri, agar proses penyembelihan dan pengagihan lembu/kambing korban dapat disegerakan.",
+  "variationsNotes": "Takbir Muqayyad (takbir mengiringi setiap solat fardu) disyariatkan bermula Subuh hari Arafah (9 Zulhijjah) sehingga waktu Asar hari Tasyriq ke-3 (13 Zulhijjah).",
+  "doa": [
+    {
+      "title": "Doa Selepas Solat Sunat Aidiladha",
+      "arabic": "اللَّهُمَّ تَقَبَّلْ مِنَّا صَلَاتَنَا وَدُعَاءَنَا وَقُرْبَانَنَا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ، وَتُبْ عَلَيْنَا إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ.",
+      "rumi": "Allahumma taqabbal minna salatana wa du'a'ana wa qurbanana innaka antas-sami'ul-'alim, wa tub 'alaina innaka antat-tawwabur-rahim.",
+      "translation": "Ya Allah, terimalah daripada kami solat kami, doa kami, dan ibadah korban kami. Sesungguhnya Engkau Maha Mendengar lagi Maha Mengetahui. Berilah keampunan kepada kami, sesungguhnya Engkau Maha Penerima Taubat lagi Maha Penyayang.",
+      "dir": "rtl",
+      "sourceRef": "al-azkar-nawawi",
+      "sourcePage": "Doa Ibadah Korban"
+    }
+  ],
+  "interactiveTool": {
+    "toolType": "takbir-tracker",
+    "rakaat1Takbir": 7,
+    "rakaat2Takbir": 5,
+    "intermediateTasbih": "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ"
+  },
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

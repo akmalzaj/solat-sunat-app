@@ -1,0 +1,89 @@
+{
+  "id": "solat-tahajjud",
+  "slug": "tahajjud",
+  "title": "Solat Sunat Tahajjud",
+  "titleArabic": "صَلَاةُ التَّهَجُّدِ",
+  "category": "malam",
+  "shortPurpose": "Solat malam yang paling afdal selepas solat fardu, dikerjakan selepas bangun daripada tidur.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    2,
+    4,
+    8
+  ],
+  "timeGuidance": {
+    "description": "Dilakukan pada waktu malam selepas solat Isyak dengan syarat bangun daripada tidur (walaupun tidur seketika). Waktu paling afdal adalah sepertiga akhir malam (~2.30 pagi hingga sebelum Subuh).",
+    "suggestedTimeOfDay": "malam"
+  },
+  "niat": [
+    {
+      "label": "2 Rakaat",
+      "arabic": "أُصَلِّي سُنَّةَ التَّهَجُّدِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatat-tahajjudi rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Tahajjud dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Tahajjud"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Bangun Daripada Tidur & Bersugi",
+      "description": "Bangun pada waktu malam, disunatkan bersugi/menggosok gigi, berwuduk, dan memandang ke langit membaca 10 ayat terakhir Surah Ali Imran.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 2,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Niat solat sunat Tahajjud dua rakaat bersama takbiratul ihram.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Dua Rakaat Khusyuk",
+      "description": "Membaca Al-Fatihah, surah panjang mengikut kemampuan, memanjangkan rukuk dan sujud.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "Tahiyat Akhir & Salam",
+      "description": "Menyempurnakan tasyahhud, selawat dan memberi salam.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 5,
+      "title": "Ditutup dengan Solat Witir",
+      "description": "Disunatkan menutup ibadah malam dengan solat sunat Witir jika belum dilakukan.",
+      "isRukun": false
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan Tahajjud",
+      "description": "Disunatkan membaca surah yang mententeramkan hati seperti Al-Mulk, Al-Sajdah, Al-Waqi'ah, atau ayat-ayat tadabbur.",
+      "recommendedSurahs": [
+        "Al-Mulk",
+        "Al-Sajdah",
+        "Al-Waqi'ah"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di Malaysia, solat Tahajjud diamalkan secara individu pada setiap malam dan diadakan secara berjemaah dalam program qiamullail masjid terutamanya pada 10 malam terakhir Ramadan.",
+  "variationsNotes": "Tiada batasan maksimum bagi rakaat tahajjud; dikerjakan dua rakaat demi dua rakaat.",
+  "doa": [
+    {
+      "title": "Doa Tahajjud Rasulullah SAW (Sahih al-Bukhari)",
+      "arabic": "اللَّهُمَّ لَكَ الْحَمْدُ أَنْتَ قَيِّمُ السَّمَاوَاتِ وَالْأَرْضِ وَمَنْ فِيهِنَّ، وَلَكَ الْحَمْدُ لَكَ مُلْكُ السَّمَاوَاتِ وَالْأَرْضِ وَمَنْ فِيهِنَّ، وَلَكَ الْحَمْدُ أَنْتَ نُورُ السَّمَاوَاتِ وَالْأَرْضِ، وَلَكَ الْحَمْدُ أَنْتَ الْحَقُّ وَوَعْدُكَ الْحَقُّ وَلِقَاؤُكَ حَقٌّ وَقَوْلُكَ حَقٌّ وَالْجَنَّةُ حَقٌّ وَالنَّارُ حَقٌّ وَالنَّبِيُّونَ حَقٌّ وَمُحَمَّدٌ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ حَقٌّ وَالسَّاعَةُ حَقٌّ. اللَّهُمَّ لَكَ أَسْلَمْتُ، وَبِكَ آمَنْتُ، وَعَلَيْكَ تَوَكَّلْتُ، وَإِلَيْكَ أَنَبْتُ، وَبِكَ خَاصَمْتُ، وَإِلَيْكَ حَاكَمْتُ، فَاغْفِرْ لِي مَا قَدَّمْتُ وَمَا أَخَّرْتُ، وَمَا أَسْرَرْتُ وَمَا أَعْلَنْتُ، أَنْتَ الْمُقَدِّمُ وَأَنْتَ الْمُؤَخِّرُ، لَا إِلَهَ إِلَّا أَنْتَ.",
+      "rumi": "Allahumma lakal-hamdu anta qayyimus-samawati wal-ardi wa man fihinna, wa lakal-hamdu laka mulkus-samawati wal-ardi wa man fihinna, wa lakal-hamdu anta nurus-samawati wal-ardi, wa lakal-hamdu antal-haqqu wa wa'dukal-haqqu wa liqa'uka haqqun wa qawluka haqqun wal-jannatu haqqun wan-naru haqqun wan-nabiyyuna haqqun wa Muhammadun sallallahu 'alaihi wa sallama haqqun was-sa'atu haqqun. Allahumma laka aslamtu, wa bika amantu, wa 'alaika tawakkaltu, wa ilaika anabtu, wa bika khasamtu, wa ilaika hakamtu, faghfir li ma qaddamtu wa ma akhkhartu, wa ma asrartu wa ma a'lantu, antal-muqaddimu wa antal-mu'akhkhiru, la ilaha illa anta.",
+      "translation": "Ya Allah, bagi-Mu segala puji, Engkaulah Penegak langit dan bumi serta segala isinya. Bagi-Mu segala puji, milik-Mu kerajaan langit dan bumi serta segala isinya. Bagi-Mu segala puji, Engkaulah Cahaya langit dan bumi. Bagi-Mu segala puji, Engkaulah Yang Maha Benar, janji-Mu benar, pertemuan dengan-Mu benar, firman-Mu benar, syurga itu benar, neraka itu benar, para nabi itu benar, Nabi Muhammad SAW itu benar, dan hari kiamat itu benar. Ya Allah, kepada-Mu aku berserah, dengan-Mu aku beriman, kepada-Mu aku bertawakal, kepada-Mu aku kembali, kerana-Mu aku berjuang, dan kepada-Mu aku berhukum. Maka ampunilah dosaku yang telah lalu dan yang akan datang, yang tersembunyi dan yang nyata. Engkaulah Yang Mendahulukan dan Engkaulah Yang Mengakhirkan, tiada Tuhan melainkan Engkau.",
+      "dir": "rtl",
+      "sourceRef": "sahih-bukhari",
+      "sourcePage": "Kitab al-Tahajjud, Hadith No. 1120"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

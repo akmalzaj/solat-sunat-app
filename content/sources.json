@@ -1,0 +1,112 @@
+[
+  {
+    "id": "jakim-panduan-solat-sunat",
+    "title": "Panduan Sembahyang Sunat",
+    "author": "Jabatan Kemajuan Islam Malaysia (JAKIM)",
+    "publisher": "Jabatan Kemajuan Islam Malaysia (JAKIM)",
+    "year": 2018,
+    "type": "government_religious_authority",
+    "url": "https://www.islam.gov.my",
+    "licenseOrPermission": "Penerbitan Rasmi Agensi Agama Kerajaan Malaysia untuk bimbingan ibadah awam.",
+    "notes": "Rujukan panduan ibadah solat sunat rasmi di Malaysia mengikut Mazhab Syafi'i."
+  },
+  {
+    "id": "jakim-panduan-tarawih",
+    "title": "Panduan Sembahyang Sunat Tarawih",
+    "author": "Jabatan Kemajuan Islam Malaysia (JAKIM)",
+    "publisher": "Jabatan Kemajuan Islam Malaysia (JAKIM)",
+    "year": 2020,
+    "type": "government_religious_authority",
+    "url": "https://www.e-solat.gov.my/portalassets/files/Penerbitan/Panduan-Solat-Tarawih-Jakim---2020.pdf",
+    "licenseOrPermission": "Penerbitan Panduan Rasmi JAKIM.",
+    "notes": "Panduan tatacara solat tarawih, bacaan surah, dan doa kamilin."
+  },
+  {
+    "id": "muftiwp-irsyad",
+    "title": "Koleksi Irsyad Al-Fatwa & Al-Kafi li al-Fatawi (Hukum Solat Sunat)",
+    "author": "Pejabat Mufti Wilayah Persekutuan",
+    "publisher": "Pejabat Mufti Wilayah Persekutuan",
+    "year": 2023,
+    "type": "government_religious_authority",
+    "url": "https://www.muftiwp.gov.my",
+    "licenseOrPermission": "Portal Fatwa Rasmi Kerajaan Wilayah Persekutuan Malaysia.",
+    "notes": "Penjelasan hukum, qada solat sunat, dan kaedah pelaksanaan solat sunat Mazhab Syafi'i."
+  },
+  {
+    "id": "al-fiqh-al-manhaji",
+    "title": "Al-Fiqh al-Manhaji 'ala Madhhab al-Imam al-Shafi'i",
+    "author": "Dr. Mustafa al-Khin, Dr. Mustafa al-Bugha, 'Ali al-Syarbaji",
+    "publisher": "Dar al-Qalam (Terjemahan Jabatan Kemajuan Islam Malaysia)",
+    "year": 2009,
+    "type": "classical_shafii_text",
+    "url": "https://www.e-solat.gov.my",
+    "licenseOrPermission": "Teks fiqh muktabar Mazhab Syafi'i yang diiktiraf di institusi pengajian Islam Malaysia.",
+    "notes": "Hukum, bilangan rakaat, tatacara dan rukun solat sunat mengikut pandangan muktamad Mazhab Syafi'i."
+  },
+  {
+    "id": "al-azkar-nawawi",
+    "title": "Kitab al-Adhkar al-Muntakhabah min Kalam Sayyid al-Abrar",
+    "author": "Imam Yahya bin Sharaf al-Nawawi",
+    "publisher": "Dar al-Fikr",
+    "year": 1994,
+    "type": "classical_shafii_text",
+    "url": "https://sunnah.com",
+    "licenseOrPermission": "Kitab rujukan klasik doa dan zikir harian.",
+    "notes": "Doa witir, istikharah, zikir selepas solat, dan doa-doa masyhur."
+  },
+  {
+    "id": "sahih-bukhari",
+    "title": "Al-Jami' al-Sahih (Sahih al-Bukhari)",
+    "author": "Imam Muhammad bin Isma'il al-Bukhari",
+    "publisher": "Dar Tawq an-Najah",
+    "year": 2001,
+    "type": "hadith_compilation",
+    "url": "https://sunnah.com/bukhari",
+    "licenseOrPermission": "Kitab Hadith Sahih primer domain awam.",
+    "notes": "Hadith dalil solat Tahajjud, Dhuha, Kusuf, Istikharah, dan Wuduk."
+  },
+  {
+    "id": "sahih-muslim",
+    "title": "Al-Musnad al-Sahih (Sahih Muslim)",
+    "author": "Imam Muslim bin al-Hajjaj an-Naysaburi",
+    "publisher": "Dar Ihya' al-Turath al-'Arabi",
+    "year": 1955,
+    "type": "hadith_compilation",
+    "url": "https://sunnah.com/muslim",
+    "licenseOrPermission": "Kitab Hadith Sahih primer domain awam.",
+    "notes": "Hadith dalil solat Rawatib, Awwabin, Musafir, dan Istisqa'."
+  },
+  {
+    "id": "sunan-tirmidhi",
+    "title": "Al-Jami' al-Mukhtasar (Jami' at-Tirmidhi)",
+    "author": "Imam Abu 'Isa Muhammad bin 'Isa at-Tirmidhi",
+    "publisher": "Dar al-Gharb al-Islami",
+    "year": 1998,
+    "type": "hadith_compilation",
+    "url": "https://sunnah.com/tirmidhi",
+    "licenseOrPermission": "Kitab Hadith Sunan domain awam.",
+    "notes": "Hadith fadhilat solat Tasbih (No. 481), Isyraq (No. 586), dan solat Hajat."
+  },
+  {
+    "id": "sunan-abi-dawud",
+    "title": "Sunan Abi Dawud",
+    "author": "Imam Abu Dawud Sulaiman bin al-Ash'ath",
+    "publisher": "Dar ar-Risalah al-'Alamiyyah",
+    "year": 2009,
+    "type": "hadith_compilation",
+    "url": "https://sunnah.com/abudawud",
+    "licenseOrPermission": "Kitab Hadith Sunan domain awam.",
+    "notes": "Hadith tatacara solat Tasbih, Witir, Taubat, dan Istisqa'."
+  },
+  {
+    "id": "riyadus-salihin",
+    "title": "Riyad al-Salihin min Kalam Sayyid al-Mursalin",
+    "author": "Imam Yahya bin Sharaf al-Nawawi",
+    "publisher": "Dar Ibn Kathir",
+    "year": 2007,
+    "type": "classical_shafii_text",
+    "url": "https://sunnah.com/riyadussalihin",
+    "licenseOrPermission": "Kitab rujukan himpunan hadith amalan harian.",
+    "notes": "Bab fadhilat solat-solat sunat dan adab beribadah."
+  }
+]

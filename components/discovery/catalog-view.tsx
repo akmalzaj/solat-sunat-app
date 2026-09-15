@@ -1,0 +1,282 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import Link from "next/link";
+import type { SolatGuide } from "@/lib/content-schema";
+import {
+  getTimeSlotFromHour,
+  getRecommendationForSlot,
+  type TimeSlot,
+} from "@/lib/recommendation";
+import {
+  DEFAULT_PREFERENCES,
+  STORAGE_KEYS,
+  toggleBookmark,
+} from "@/lib/preferences";
+import { useStorageState } from "@/lib/storage";
+
+type CategoryFilter = "semua" | "harian" | "malam" | "hajat" | "raya_fenomena";
+
+interface CatalogViewProps {
+  initialGuides: readonly SolatGuide[];
+}
+
+export function CatalogView({ initialGuides }: CatalogViewProps) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>("semua");
+  const [bookmarks, setBookmarks] = useStorageState<string[]>(
+    STORAGE_KEYS.BOOKMARKS,
+    DEFAULT_PREFERENCES.bookmarks
+  );
+  const [timeSlot] = useState<TimeSlot>(() => {
+    const hour = new Date().getHours();
+    return getTimeSlotFromHour(hour);
+  });
+
+  const handleToggleBookmark = (slug: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const updated = toggleBookmark(bookmarks, slug);
+    setBookmarks(updated);
+  };
+
+  const recommendation = useMemo(() => {
+    return getRecommendationForSlot(timeSlot, initialGuides);
+  }, [timeSlot, initialGuides]);
+
+  const filteredGuides = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+    return initialGuides.filter((guide) => {
+      // Filter category
+      if (selectedCategory !== "semua" && guide.category !== selectedCategory) {
+        return false;
+      }
+      // Filter query
+      if (!query) return true;
+      return (
+        guide.title.toLowerCase().includes(query) ||
+        guide.slug.toLowerCase().includes(query) ||
+        guide.shortPurpose.toLowerCase().includes(query) ||
+        guide.category.toLowerCase().includes(query) ||
+        guide.titleArabic.includes(query)
+      );
+    });
+  }, [initialGuides, selectedCategory, searchQuery]);
+
+  return (
+    <div className="catalog-container">
+      {/* Discovery & Filter Bar */}
+      <section className="discovery-bar" aria-label="Carian dan kategori">
+        <div className="search-box">
+          <svg className="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <input
+            type="search"
+            className="search-input"
+            placeholder="Cari solat sunat (cth. Dhuha, Tahajjud, Hajat, Witir)..."
+            aria-label="Cari solat sunat"
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              if (selectedCategory !== "semua") {
+                setSelectedCategory("semua");
+              }
+            }}
+          />
+          {searchQuery && (
+            <button
+              type="button"
+              className="clear-search-button"
+              onClick={() => setSearchQuery("")}
+              aria-label="Padam carian"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+
+        <div className="category-chips" role="tablist" aria-label="Kategori solat">
+          <button
+            type="button"
+            className={`chip ${selectedCategory === "semua" ? "active" : ""}`}
+            role="tab"
+            aria-selected={selectedCategory === "semua"}
+            onClick={() => setSelectedCategory("semua")}
+          >
+            Semua
+          </button>
+          <button
+            type="button"
+            className={`chip ${selectedCategory === "harian" ? "active" : ""}`}
+            role="tab"
+            aria-selected={selectedCategory === "harian"}
+            onClick={() => setSelectedCategory("harian")}
+          >
+            Harian
+          </button>
+          <button
+            type="button"
+            className={`chip ${selectedCategory === "malam" ? "active" : ""}`}
+            role="tab"
+            aria-selected={selectedCategory === "malam"}
+            onClick={() => setSelectedCategory("malam")}
+          >
+            Malam &amp; Qiam
+          </button>
+          <button
+            type="button"
+            className={`chip ${selectedCategory === "hajat" ? "active" : ""}`}
+            role="tab"
+            aria-selected={selectedCategory === "hajat"}
+            onClick={() => setSelectedCategory("hajat")}
+          >
+            Hajat &amp; Doa
+          </button>
+          <button
+            type="button"
+            className={`chip ${selectedCategory === "raya_fenomena" ? "active" : ""}`}
+            role="tab"
+            aria-selected={selectedCategory === "raya_fenomena"}
+            onClick={() => setSelectedCategory("raya_fenomena")}
+          >
+            Raya &amp; Khusus
+          </button>
+        </div>
+      </section>
+
+      {/* Time-of-day Discovery Suggestion Card (Compact below discovery bar) */}
+      {!searchQuery && selectedCategory === "semua" && (
+        <section className="recommendation-card" aria-label="Cadangan masa kini">
+          <div className="recommendation-header">
+            <span className="recommendation-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+              CADANGAN WAKTU PERANTI: {recommendation.title.toUpperCase()}
+            </span>
+          </div>
+          <div className="recommendation-links">
+            {recommendation.guides.map((g) => (
+              <Link key={g.slug} href={`/solat/${g.slug}/`} className="recommendation-chip">
+                <span>{g.title}</span>
+                <span className="recommendation-arrow">→</span>
+              </Link>
+            ))}
+          </div>
+          <p className="recommendation-disclaimer">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            {recommendation.disclaimer}
+          </p>
+        </section>
+      )}
+
+      {/* Guide Card Grid / Empty State */}
+      <section aria-labelledby="catalog-heading">
+        <div className="catalog-header-row">
+          <h2 id="catalog-heading">
+            {searchQuery
+              ? `Hasil Carian (${filteredGuides.length})`
+              : selectedCategory !== "semua"
+              ? `Panduan ${selectedCategory.replace("_", " & ").toUpperCase()} (${filteredGuides.length})`
+              : "Semua Panduan Solat Sunat"}
+          </h2>
+          {searchQuery && (
+            <button
+              type="button"
+              className="text-action-button"
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("semua");
+              }}
+            >
+              Padam Carian
+            </button>
+          )}
+        </div>
+
+        {filteredGuides.length === 0 ? (
+          <div className="empty-state" role="status">
+            <div className="empty-state-icon" aria-hidden="true">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+                <line x1="8" y1="11" x2="14" y2="11" />
+              </svg>
+            </div>
+            <h3>Tiada Panduan Ditemui</h3>
+            <p>
+              Tiada padanan panduan solat sunat ditemui untuk carian &ldquo;{searchQuery}&rdquo;.
+              Sila cuba kata kunci lain atau pilih kategori sedia ada.
+            </p>
+            <button
+              type="button"
+              className="cta-button"
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedCategory("semua");
+              }}
+            >
+              Padam Carian &amp; Papar Semua
+            </button>
+          </div>
+        ) : (
+          <div className="guide-grid">
+            {filteredGuides.map((guide) => {
+              const bookmarked = bookmarks.includes(guide.slug);
+              return (
+                <Link key={guide.slug} className="guide-card" href={`/solat/${guide.slug}/`}>
+                  <div className="guide-card-header">
+                    <span className="category-badge">
+                      {guide.slug === "contoh-struktur" ? "Sampel Ujian" : guide.category.toUpperCase()}
+                    </span>
+                    <span className="rakaat-badge">{guide.rakaatOptions.join("/")} Rakaat</span>
+                  </div>
+
+                  <h3>{guide.title}</h3>
+                  <p className="arabic-card-sub" lang="ar" dir="rtl">
+                    {guide.titleArabic}
+                  </p>
+                  <p className="guide-card-summary">{guide.shortPurpose}</p>
+
+                  <div className="guide-card-footer">
+                    <span className={`status-badge ${guide.reviewStatus}`}>
+                      {guide.reviewStatus === "needs-review" ? "Belum disemak" : "Disemak"}
+                    </span>
+                    <div className="guide-card-actions">
+                      <button
+                        type="button"
+                        className={`bookmark-card-button ${bookmarked ? "active" : ""}`}
+                        aria-label={bookmarked ? `Nyah tanda buku ${guide.title}` : `Simpan tanda buku ${guide.title}`}
+                        onClick={(e) => handleToggleBookmark(guide.slug, e)}
+                      >
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill={bookmarked ? "currentColor" : "none"}
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          aria-hidden="true"
+                        >
+                          <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
+                        </svg>
+                      </button>
+                      <span className="card-cta">Buka →</span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        )}
+      </section>
+    </div>
+  );
+}

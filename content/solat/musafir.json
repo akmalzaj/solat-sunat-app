@@ -1,0 +1,74 @@
+{
+  "id": "solat-musafir",
+  "slug": "musafir",
+  "title": "Solat Sunat Musafir",
+  "titleArabic": "صَلَاةُ السَّفَرِ",
+  "category": "hajat",
+  "shortPurpose": "Memohon perlindungan, keselamatan, dan kelancaran daripada Allah SWT ketika hendak memulakan perjalanan atau sejurus tiba.",
+  "hukum": "Sunat",
+  "rakaatOptions": [
+    2
+  ],
+  "timeGuidance": {
+    "description": "Sebelum bertolak meninggalkan rumah, atau sebaik tiba di destinasi / kembali ke tempat kediaman (dilakukan di masjid terdekat atau di rumah).",
+    "suggestedTimeOfDay": "sepanjang-masa"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةَ السَّفَرِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatas-safari rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat musafir dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Musafir"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Dilakukan sebelum keluar melangkah meninggalkan rumah musafir.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 2,
+      "title": "Rakaat 1 & 2",
+      "description": "Membaca Al-Fatihah, surah lazim, rukuk, iktidal, sujud dua kali dan tahiyat akhir.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Salam & Doa Musafir",
+      "description": "Memberi salam dan membaca doa memohon keselamatan musafir.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan Musafir",
+      "description": "Rakaat 1: Surah Al-Kafirun. Rakaat 2: Surah Al-Ikhlas.",
+      "recommendedSurahs": [
+        "Al-Kafirun",
+        "Al-Ikhlas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Umat Islam di Malaysia lazimnya menunaikan solat ini sebelum berangkat menunaikan ibadah Haji, Umrah, atau perjalanan jauh ke luar negeri.",
+  "variationsNotes": "Disunatkan juga menunaikan solat sunat dua rakaat sebaik sahaja pulang dari musafir di masjid kariah sebelum masuk ke rumah mengikut sunnah Rasulullah SAW.",
+  "doa": [
+    {
+      "title": "Doa Memulakan Musafir (Sahih Muslim)",
+      "arabic": "اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى، اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ، اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ وَالْخَلِيفَةُ فِي الْأَهْلِ.",
+      "rumi": "Allahumma inna nas'aluka fi safarina haza al-birra wat-taqwa, wa minal-'amali ma tarda, Allahumma hawwin 'alaina safarana haza watwi 'anna bu'dahu, Allahumma antas-sahibu fis-safari wal-khalifatu fil-ahli.",
+      "translation": "Ya Allah, sesungguhnya kami memohon kepada-Mu dalam perjalanan kami ini kebajikan dan ketakwaan, serta amalan yang Engkau redhai. Ya Allah, permudahkanlah perjalanan kami ini dan dekatkanlah kejauhannya. Ya Allah, Engkaulah Teman dalam perjalanan dan Penjaga bagi keluarga yang ditinggalkan.",
+      "dir": "rtl",
+      "sourceRef": "sahih-muslim",
+      "sourcePage": "Kitab al-Hajj, Hadith No. 1342"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

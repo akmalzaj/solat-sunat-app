@@ -1,0 +1,86 @@
+{
+  "id": "solat-taubat",
+  "slug": "taubat",
+  "title": "Solat Sunat Taubat",
+  "titleArabic": "صَلَاةُ التَّوْبَةِ",
+  "category": "malam",
+  "shortPurpose": "Solat khusus menyesali keterlanjuran dosa serta memohon keampunan yang tulus daripada Allah SWT.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    2
+  ],
+  "timeGuidance": {
+    "description": "Bila-bila masa sahaja sebaik tersedar daripada dosa dan kesalahan. Waktu paling afdal adalah pada waktu sunyi malam (sepertiga akhir malam).",
+    "suggestedTimeOfDay": "malam"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةَ التَّوْبَةِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatat-taubati rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat taubat dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Sunat Taubat"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Menghadirkan Penyesalan yang Sungguh",
+      "description": "Syarat taubat nasuha: menyesali dosa, berhenti serta-merta, dan berazam tidak mengulanginya.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 2,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Takbiratul ihram berserta niat solat sunat taubat.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Dua Rakaat Sempurna",
+      "description": "Membaca al-Fatihah, surah lazim, rukuk, iktidal, sujud dan tahiyat akhir.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "Sujud Akhir & Istighfar",
+      "description": "Sunat memanjangkan sujud akhir sambil memohon ampun dengan penuh khusyuk dan linangan air mata.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 5,
+      "title": "Salam & Membaca Sayyidul Istighfar",
+      "description": "Memberi salam dan melazimkan istighfar serta doa taubat.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan Taubat",
+      "description": "Rakaat 1: Surah Al-Kafirun. Rakaat 2: Surah Al-Ikhlas (atau Surah Al-Falaq / An-Nas).",
+      "recommendedSurahs": [
+        "Al-Kafirun",
+        "Al-Ikhlas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di Malaysia, solat taubat sering diiringi dengan bacaan istighfar 100 kali dan doa Nabi Yunus a.s. dalam sujud akhir atau selepas salam.",
+  "variationsNotes": "Jika dosa melibatkan hak sesama manusia, syarat sah taubat mestilah mengembalikan hak tersebut atau memohon kemaafan dan kehalalan daripadanya.",
+  "doa": [
+    {
+      "title": "Sayyidul Istighfar (Penghulu Istighfar)",
+      "arabic": "اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ بِذَنْبِي فَاغْفِرْ لِي فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ.",
+      "rumi": "Allahumma anta rabbi la ilaha illa anta, khalaqtani wa ana 'abduka, wa ana 'ala 'ahdika wa wa'dika mastata'tu, a'uzu bika min syarri ma sana'tu, abu'u laka bini'matika 'alayya, wa abu'u bizanbi faghfir li fa-innahu la yaghfiruz-zunuba illa anta.",
+      "translation": "Ya Allah, Engkaulah Tuhanku, tiada Tuhan yang berhak disembah melainkan Engkau. Engkaulah yang menciptakanku dan aku adalah hamba-Mu. Aku berada dalam perjanjian dan janji-Mu sekadar kemampuanku. Aku berlindung dengan-Mu daripada kejahatan apa yang telah aku lakukan. Aku mengakui nikmat-Mu ke atasku dan aku mengakui dosaku, maka ampunilah aku, sesungguhnya tiada yang dapat mengampunkan segala dosa melainkan Engkau.",
+      "dir": "rtl",
+      "sourceRef": "sahih-bukhari",
+      "sourcePage": "Kitab al-Da'awat, Hadith No. 6306"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

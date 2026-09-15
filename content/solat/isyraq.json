@@ -1,0 +1,82 @@
+{
+  "id": "solat-isyraq",
+  "slug": "isyraq",
+  "title": "Solat Sunat Isyraq",
+  "titleArabic": "صَلَاةُ الْإِشْرَاقِ",
+  "category": "harian",
+  "shortPurpose": "Solat sunat awal pagi sejurus matahari terbit sempurna bagi meraih ganjaran pahala haji dan umrah.",
+  "hukum": "Sunat",
+  "rakaatOptions": [
+    2
+  ],
+  "timeGuidance": {
+    "description": "Kira-kira 12 hingga 20 minit selepas waktu Syuruk (apabila matahari naik setinggi satu tombak/penggalah melepasi waktu tahrim).",
+    "suggestedTimeOfDay": "isyraq"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةَ الْإِشْرَاقِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-isyraqi rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Isyraq dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Bab Solat Isyraq"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Menunggu Waktu Selepas Syuruk",
+      "description": "Duduk berzikir selepas solat Subuh berjemaah sehingga matahari naik melepasi waktu larangan solat (~15 minit selepas syuruk).",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 2,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Niat solat sunat Isyraq dua rakaat bersama takbir.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Rakaat Pertama & Kedua",
+      "description": "Membaca Al-Fatihah, surah lazim, rukuk, iktidal, sujud dan tahiyat akhir.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "Salam & Wirid",
+      "description": "Memberi salam dan membaca doa memohon keberkatan hari.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan Isyraq",
+      "description": "Rakaat 1: Surah Ad-Dhuha atau Surah Asy-Syams. Rakaat 2: Surah Al-Insyirah atau Surah Al-Kafirun.",
+      "recommendedSurahs": [
+        "Ad-Dhuha",
+        "Asy-Syams",
+        "Al-Insyirah",
+        "Al-Kafirun"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Jemaah di Malaysia lazimnya kekal berada di masjid selepas Subuh dengan mengikuti kuliah subuh atau tadarus sehingga waktu Isyraq masuk sebelum menunaikan solat ini.",
+  "variationsNotes": "Sebahagian ulama Syafi'iyyah menyamakan solat Isyraq dengan solat Dhuha pada waktu awalnya, manakala sebahagian lagi menganggapnya sebagai dua solat sunat yang berasingan.",
+  "doa": [
+    {
+      "title": "Doa Selepas Solat Sunat Isyraq",
+      "arabic": "الْحَمْدُ لِلَّهِ الَّذِي جَعَلَ الْيَوْمَ عَافِيَةً وَجَاءَ بِالشَّمْسِ مِنْ مَطْلَعِهَا، اللَّهُمَّ ارْزُقْنِي خَيْرَ هَذَا الْيَوْمِ وَادْفَعْ عَنِّي شَرَّهُ، اللَّهُمَّ نَوِّرْ قَلْبِي بِنُورِ هِدَايَتِكَ كَمَا نَوَّرْتَ الْأَرْضَ بِنُورِ شَمْسِكَ أَبَدًا أَبَدًا بِرَحْمَتِكَ يَا أَرْحَمَ الرَّاحِمِينَ.",
+      "rumi": "Alhamdulillahillazi ja'alal-yauma 'afiyatan wa ja'a bisy-syamsi min matla'iha, Allahummar-zuqni khaira hazal-yaumi wadfa' 'anni syarrahu, Allahumma nawwir qalbi binuri hidayatika kama nawwartal-arda binuri syamsika abadan abada, birahmatika ya arhamar-rahimin.",
+      "translation": "Segala puji bagi Allah yang menjadikan hari ini penuh kesejahteraan dan menerbitkan matahari dari tempat terbitnya. Ya Allah, kurniakanlah kepadaku kebaikan hari ini dan jauhkanlah daripadaku keburukannya. Ya Allah, terangilah hatiku dengan cahaya hidayah-Mu sebagaimana Engkau menerangi bumi dengan cahaya matahari-Mu buat selama-lamanya, dengan rahmat-Mu wahai Tuhan Yang Maha Pengasih.",
+      "dir": "rtl",
+      "sourceRef": "al-azkar-nawawi",
+      "sourcePage": "Doa Awal Pagi"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

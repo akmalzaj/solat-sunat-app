@@ -1,0 +1,116 @@
+{
+  "id": "solat-gerhana-matahari",
+  "slug": "gerhana-matahari",
+  "title": "Solat Sunat Gerhana Matahari (Kusuf)",
+  "titleArabic": "صَلَاةُ كُسُوفِ الشَّمْسِ",
+  "category": "raya_fenomena",
+  "shortPurpose": "Solat khas 2 rakaat dengan 2 qiyam dan 2 rukuk setiap rakaat ketika berlakunya fenomena gerhana matahari.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    2
+  ],
+  "timeGuidance": {
+    "description": "Bermula apabila fenomena gerhana matahari mula kelihatan sehingga matahari terang semula.",
+    "suggestedTimeOfDay": "sepanjang-masa"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةَ الْكُسُوفِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-kusufi rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat gerhana matahari dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Sunat Gerhana"
+    },
+    {
+      "label": "Makmum",
+      "arabic": "أُصَلِّي سُنَّةَ الْكُسُوفِ رَكْعَتَيْنِ مَأْمُومًا لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-kusufi rak'ataini makmuman lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat gerhana matahari dua rakaat sebagai makmum kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Sunat Gerhana"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Niat & Qiyam Pertama Rakaat 1",
+      "description": "Takbiratul ihram bersama niat, membaca doa iftitah, Al-Fatihah dan surah panjang (contohnya Surah Al-Baqarah).",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 2,
+      "title": "Rukuk Pertama Rakaat 1",
+      "description": "Rukuk yang panjang dengan bertasbih.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "I'tidal & Qiyam Kedua Rakaat 1",
+      "description": "Bangkit iktidal, kemudian membaca Al-Fatihah dan surah kedua yang lebih pendek dari surah pertama.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "Rukuk Kedua & I'tidal Rakaat 1",
+      "description": "Rukuk kedua yang panjang (lebih pendek dari rukuk pertama), diikuti iktidal.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 5,
+      "title": "Dua Sujud Rakaat 1",
+      "description": "Sujud dua kali yang panjang diselangi duduk antara dua sujud.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 6,
+      "title": "Rakaat Kedua (2 Qiyam & 2 Rukuk)",
+      "description": "Bangkit ke rakaat kedua dan mengulangi susunan 2 qiyam, 2 rukuk, iktidal, dan 2 sujud.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 7,
+      "title": "Tahiyat Akhir, Salam & Khutbah",
+      "description": "Duduk membaca tasyahhud akhir, memberi salam, disusuli khutbah gerhana oleh khatib.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Berciri Sirr (Perlahan) pada Bacaan",
+      "description": "Bagi gerhana matahari (Kusuf), bacaan surah disunatkan secara sirr (perlahan) mengikut Mazhab Syafi'i, berbeza dengan gerhana bulan (Khusuf) yang dibaca jahar (kuat).",
+      "recommendedSurahs": [
+        "Al-Baqarah",
+        "Ali Imran",
+        "An-Nisa'",
+        "Al-Ma'idah"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di Malaysia, solat gerhana diselaraskan oleh Jabatan Agama Islam Negeri (JAIN) dengan hebahan rasmi waktu gerhana dari unit falak, diadakan secara berjemaah di masjid negeri dan kariah.",
+  "variationsNotes": "Keunikan solat gerhana ialah adanya 2 rukuk dan 2 kali bacaan Fatihah dalam setiap satu rakaat. Tidak sah mengikut imam solat fardu yang berbeza tatacara.",
+  "doa": [
+    {
+      "title": "Peringatan Gerhana (Sahih al-Bukhari)",
+      "arabic": "إِنَّ الشَّمْسَ وَالْقَمَرَ آيَتَانِ مِنْ آيَاتِ اللَّهِ لَا يَنْكَسِفَانِ لِمَوْتِ أَحَدٍ وَلَا لِحَيَاتِهِ، فَإِذَا رَأَيْتُمُوهُمَا فَادْعُوا اللَّهَ وَصَلُّوا حَتَّى يَنْجَلِيَ",
+      "rumi": "Innasy-syamsa wal-qamara ayatani min ayatillah, la yankasifani li mauti ahadin wa la lihayatih, fa-iza ra'aitumuhuma fad'ullaha wa sallu hatta yanjaliya",
+      "translation": "Sesungguhnya matahari dan bulan adalah dua tanda daripada tanda-tanda kebesaran Allah. Keduanya tidak gerhana kerana kematian seseorang mahupun kelahirannya. Maka apabila kamu melihatnya, berdoalah kepada Allah dan solatlah sehingga gerhana itu selesai.",
+      "dir": "rtl",
+      "sourceRef": "sahih-bukhari",
+      "sourcePage": "Kitab al-Kusuf, Hadith No. 1044"
+    }
+  ],
+  "interactiveTool": {
+    "toolType": "kusuf-visualizer",
+    "rakaatCount": 2,
+    "qiyamPerRakaat": 2,
+    "rukukPerRakaat": 2,
+    "sequenceDescription": "Setiap rakaat mempunyai 2 kali Qiyam (Fatihah + Surah) dan 2 kali Rukuk sebelum turun bersujud dua kali."
+  },
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

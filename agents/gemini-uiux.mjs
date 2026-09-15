@@ -7,6 +7,86 @@ import { fileURLToPath } from "node:url";
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const supportedImageTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
 const severities = new Set(["blocker", "high", "medium", "low"]);
+export const RETRYABLE_STATUS_CODES = new Set([408, 429, 500, 502, 503, 504]);
+
+export async function fetchWithRetry(
+  url,
+  options,
+  {
+    maxRetries = 3,
+    baseDelayMs = 1000,
+    maxDelayMs = 15000,
+    fetchImpl = fetch,
+    logger = undefined,
+  } = {}
+) {
+  let lastResponse;
+  let lastError;
+
+  for (let attempt = 0; attempt <= maxRetries; attempt++) {
+    try {
+      const response = await fetchImpl(url, options);
+      if (response.ok) {
+        return response;
+      }
+
+      lastResponse = response;
+
+      if (!RETRYABLE_STATUS_CODES.has(response.status) || attempt === maxRetries) {
+        let detail = "";
+        if (typeof response.json === "function") {
+          try {
+            const errorBody = await response.json();
+            detail = errorBody?.error?.message || errorBody?.error?.status || "";
+          } catch {
+            // ignore JSON parse error on non-json response
+          }
+        }
+        const detailSuffix = detail ? ` - ${detail}.` : ".";
+        throw new Error(`Gemini request failed with HTTP ${response.status}${detailSuffix}`);
+      }
+
+      if (logger && baseDelayMs > 0) {
+        logger(`[Gemini API] Received HTTP ${response.status}. Retrying in exponential backoff (attempt ${attempt + 1}/${maxRetries})...`);
+      }
+
+      if (baseDelayMs > 0) {
+        const jitter = Math.random() * 300;
+        const delay = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt)) + jitter;
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
+    } catch (err) {
+      lastError = err;
+      if (err.message?.startsWith("Gemini request failed with HTTP")) {
+        throw err;
+      }
+      if (attempt === maxRetries) {
+        throw lastError;
+      }
+      if (baseDelayMs > 0) {
+        const jitter = Math.random() * 300;
+        const delay = Math.min(maxDelayMs, baseDelayMs * Math.pow(2, attempt)) + jitter;
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
+    }
+  }
+
+  if (lastResponse) {
+    let detail = "";
+    if (typeof lastResponse.json === "function") {
+      try {
+        const errorBody = await lastResponse.json();
+        detail = errorBody?.error?.message || errorBody?.error?.status || "";
+      } catch {
+        // ignore
+      }
+    }
+    const detailSuffix = detail ? ` - ${detail}.` : ".";
+    throw new Error(`Gemini request failed with HTTP ${lastResponse.status}${detailSuffix}`);
+  }
+
+  throw lastError;
+}
 
 export const DIRECTOR_REPORT_SCHEMA = {
   type: "object",
@@ -187,12 +267,20 @@ export async function runCli(options, { env = {}, fetchImpl = fetch } = {}) {
   const context = options.context ? await readFile(projectPath(options.context, "context"), "utf8") : "";
   const image = options.screenshot ? await readScreenshot(options.screenshot) : undefined;
   const request = buildDirectorRequest({ mode, brief: options.brief, context, image, model: config.model });
-  const response = await fetchImpl(`${config.endpoint}/models/${encodeURIComponent(config.model)}:generateContent`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "x-goog-api-key": config.apiKey },
-    body: JSON.stringify(toGenerateContentRequest(request)),
-  });
-  if (!response.ok) throw new Error(`Gemini request failed with HTTP ${response.status}.`);
+  const response = await fetchWithRetry(
+    `${config.endpoint}/models/${encodeURIComponent(config.model)}:generateContent`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": config.apiKey },
+      body: JSON.stringify(toGenerateContentRequest(request)),
+    },
+    {
+      fetchImpl,
+      baseDelayMs: fetchImpl === fetch ? 1000 : 0,
+      maxRetries: 3,
+      logger: (msg) => process.stderr.write(`${msg}\n`),
+    },
+  );
   const responseBody = await response.json();
   const text = responseBody?.candidates?.[0]?.content?.parts?.map((part) => part.text || "").join("");
   if (!text) throw new Error("Gemini returned no review content.");

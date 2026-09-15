@@ -1,0 +1,124 @@
+{
+  "id": "solat-aidilfitri",
+  "slug": "aidilfitri",
+  "title": "Solat Sunat Aidilfitri",
+  "titleArabic": "صَلَاةُ عِيدِ الْفِطْرِ",
+  "category": "raya_fenomena",
+  "shortPurpose": "Menzahirkan syiar kegembiraan dan kesyukuran atas kemenangan menyempurnakan ibadah Ramadan.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    2
+  ],
+  "timeGuidance": {
+    "description": "Pagi 1 Syawal, bermula selepas matahari terbit dan naik setinggi satu penggalah (~28 minit selepas syuruk) hingga sebelum gelincir matahari (masuk waktu Zuhur).",
+    "suggestedTimeOfDay": "dhuha"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةَ عِيدِ الْفِطْرِ رَكْعَتَيْنِ أَدَاءً لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnata 'idil-fitri rak'ataini adaan lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Aidilfitri dua rakaat tunai kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Panduan Solat Hari Raya"
+    },
+    {
+      "label": "Makmum",
+      "arabic": "أُصَلِّي سُنَّةَ عِيدِ الْفِطْرِ رَكْعَتَيْنِ مَأْمُومًا لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnata 'idil-fitri rak'ataini makmuman lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Aidilfitri dua rakaat sebagai makmum kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Panduan Solat Hari Raya"
+    },
+    {
+      "label": "Imam",
+      "arabic": "أُصَلِّي سُنَّةَ عِيدِ الْفِطْرِ رَكْعَتَيْنِ إِمَامًا لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnata 'idil-fitri rak'ataini imaman lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Aidilfitri dua rakaat sebagai imam kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Panduan Solat Hari Raya"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Niat & Takbiratul Ihram",
+      "description": "Mengangkat takbiratul ihram dengan menghadirkan niat solat sunat Aidilfitri dalam hati.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 2,
+      "title": "Doa Iftitah & 7 Takbir Tambahan",
+      "description": "Membaca doa iftitah disusuli 7 kali takbir tambahan pada rakaat pertama. Setiap sela takbir disunatkan membaca tasbih.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 3,
+      "title": "Surah Al-Fatihah & Surah Pilihan",
+      "description": "Membaca Al-Fatihah (rukun), kemudian disunatkan membaca Surah Qaf atau Surah Al-A'la.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "Rukuk, I'tidal & Dua Sujud Rakaat Pertama",
+      "description": "Menyempurnakan rukun fi'li dengan tumakninah.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 5,
+      "title": "Bangkit ke Rakaat Kedua & 5 Takbir Tambahan",
+      "description": "Bangkit dengan takbir intiqalat, kemudian bertakbir 5 kali diselangi tasbih.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 6,
+      "title": "Al-Fatihah, Rukuk, Sujud, Tahiyat Akhir & Salam",
+      "description": "Membaca Al-Fatihah, surah lazim, menyempurnakan rukun hingga salam.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 7,
+      "title": "Mendengar Khutbah Hari Raya",
+      "description": "Sunat mendengar dua khutbah Hari Raya sekiranya solat dilakukan secara berjemaah.",
+      "isRukun": false
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan Solat Hari Raya",
+      "description": "Rakaat pertama: Surah Al-A'la (atau Surah Qaf). Rakaat kedua: Surah Al-Ghasyiyah (atau Surah Al-Qamar).",
+      "recommendedSurahs": [
+        "Al-A'la",
+        "Al-Ghasyiyah",
+        "Qaf",
+        "Al-Qamar"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Masyarakat Islam Malaysia mengumandangkan takbir raya sejak malam 1 Syawal hingga sebelum solat dimulakan. Selepas solat, jemaah mendengar khutbah Aidilfitri dan bersalaman memohon kemaafan.",
+  "variationsNotes": "Takbir tambahan 7 kali dan 5 kali hukumnya sunat hay'ah. Jika imam terlupa dan terus membaca al-Fatihah, tidak perlu sujud sahwi dan tidak perlu mengulang takbir tersebut.",
+  "doa": [
+    {
+      "title": "Doa Selepas Solat Sunat Aidilfitri",
+      "arabic": "اللَّهُمَّ تَقَبَّلْ مِنَّا صَلَاتَنَا وَدُعَاءَنَا إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ، وَتُبْ عَلَيْنَا إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ. اللَّهُمَّ اجْعَلْ دِينَنَا دِينَ النَّبِيِّ مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ، وَإِيمَانَنَا إِيمَانَ الْمُؤْمِنِينَ.",
+      "rumi": "Allahumma taqabbal minna salatana wa du'a'ana innaka antas-sami'ul-'alim, wa tub 'alaina innaka antat-tawwabur-rahim. Allahummaj'al dinana dinan-nabiyyi Muhammadin sallallahu 'alaihi wa sallam, wa imanana imanal-mu'minin.",
+      "translation": "Ya Allah, terimalah solat kami dan doa kami, sesungguhnya Engkau Maha Mendengar lagi Maha Mengetahui. Terimalah taubat kami, sesungguhnya Engkau Maha Penerima Taubat lagi Maha Penyayang. Ya Allah, jadikanlah agama kami mengikut agama Nabi Muhammad SAW, dan keimanan kami seperti keimanan orang-orang yang beriman.",
+      "dir": "rtl",
+      "sourceRef": "al-azkar-nawawi",
+      "sourcePage": "Doa Hari Raya"
+    }
+  ],
+  "interactiveTool": {
+    "toolType": "takbir-tracker",
+    "rakaat1Takbir": 7,
+    "rakaat2Takbir": 5,
+    "intermediateTasbih": "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ"
+  },
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

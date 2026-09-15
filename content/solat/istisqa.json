@@ -1,0 +1,104 @@
+{
+  "id": "solat-istisqa",
+  "slug": "istisqa",
+  "title": "Solat Sunat Istisqa'",
+  "titleArabic": "صَلَاةُ الِاسْتِسْقَاءِ",
+  "category": "raya_fenomena",
+  "shortPurpose": "Solat khusus memohon hujan rahmat daripada Allah SWT ketika berlakunya kemarau panjang atau ketiadaan air.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    2
+  ],
+  "timeGuidance": {
+    "description": "Ditunaikan pada waktu pagi atau siang hari di kawasan lapang (musolla), terutamanya selepas masyarakat berpuasa tiga hari berturut-turut, bertaubat dan bersedekah.",
+    "suggestedTimeOfDay": "dhuha"
+  },
+  "niat": [
+    {
+      "label": "Sendirian",
+      "arabic": "أُصَلِّي سُنَّةَ الِاسْتِسْقَاءِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-istisqa'i rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Istisqa' dua rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Istisqa'"
+    },
+    {
+      "label": "Makmum",
+      "arabic": "أُصَلِّي سُنَّةَ الِاسْتِسْقَاءِ رَكْعَتَيْنِ مَأْمُومًا لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-istisqa'i rak'ataini makmuman lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Istisqa' dua rakaat sebagai makmum kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Istisqa'"
+    },
+    {
+      "label": "Imam",
+      "arabic": "أُصَلِّي سُنَّةَ الِاسْتِسْقَاءِ رَكْعَتَيْنِ إِمَامًا لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-istisqa'i rak'ataini imaman lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat Istisqa' dua rakaat sebagai imam kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Solat Istisqa'"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Persediaan Taubat & Puasa 3 Hari",
+      "description": "Pemerintah atau ulama memerintahkan orang ramai bertaubat, bersedekah, mendamaikan sengketa, dan berpuasa 3 hari sebelum keluar pada hari ke-4.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 2,
+      "title": "Keluar dengan Pakaian Sederhana & Rendah Diri",
+      "description": "Menuju ke kawasan lapang dengan penuh ketundukan (khusyuk dan tawaduk).",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 3,
+      "title": "Solat 2 Rakaat dengan Takbir Tambahan",
+      "description": "Sama seperti Solat Hari Raya: 7 takbir pada rakaat pertama dan 5 takbir pada rakaat kedua.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "Khutbah & Membalikkan Selendang (Rida')",
+      "description": "Khatib berkhutbah memperbanyakkan istighfar, kemudian membalikkan kain selendang sebagai simbolik mengharapkan perubahan cuaca daripada kemarau kepada hujan.",
+      "isRukun": false
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Memperbanyakkan Istighfar",
+      "description": "Khutbah pertama dimulakan dengan 9 kali istighfar dan khutbah kedua dengan 7 kali istighfar.",
+      "recommendedSurahs": [
+        "Al-A'la",
+        "Al-Ghasyiyah"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di Malaysia, solat istisqa' dianjurkan oleh Jabatan Mufti atau Majlis Agama Islam Negeri apabila fenomena cuaca panas melampau (El Nino) atau penyusutan paras empangan air berlaku.",
+  "variationsNotes": "Khatib dan jemaah disunatkan menadah tangan dengan belakang tapak tangan menghadap ke langit semasa memohon doa hujan sebagai isyarat menolak bala dan kemarau.",
+  "doa": [
+    {
+      "title": "Doa Meminta Hujan Masyhur (Rasulullah SAW)",
+      "arabic": "اللَّهُمَّ اسْقِنَا غَيْثًا مُغِيثًا مَرِيئًا مَرِيعًا نَافِعًا غَيْرَ ضَارٍّ عَاجِلًا غَيْرَ آجِلٍ. اللَّهُمَّ أَغِثْنَا، اللَّهُمَّ أَغِثْنَا، اللَّهُمَّ أَغِثْنَا. اللَّهُمَّ اسْقِ عِبَادَكَ وَبَهَائِمَكَ وَانْشُرْ رَحْمَتَكَ وَأَحْيِ بَلَدَكَ الْمَيِّتَ.",
+      "rumi": "Allahummas-qina ghaithan mughithan mari'an mari'an nafi'an ghaira darrin 'ajilan ghaira ajil. Allahumma aghithna, Allahumma aghithna, Allahumma aghithna. Allahummas-qi 'ibadaka wa baha'imaka wansyur rahmataka wa ahyi baladakal-mayyit.",
+      "translation": "Ya Allah, siramilah kami dengan hujan yang menyelamatkan, menyegarkan, menyuburkan, membawa manfaat dan tidak mendatangkan mudarat, segera dan tidak bertangguh. Ya Allah, tolonglah kami dengan hujan (3x). Ya Allah, berilah minum kepada hamba-hamba-Mu dan haiwan ternakan-Mu, sebarkanlah rahmat-Mu, dan hidupkanlah bumi negeri-Mu yang mati.",
+      "dir": "rtl",
+      "sourceRef": "sunan-abi-dawud",
+      "sourcePage": "Kitab al-Solat, Hadith No. 1169"
+    }
+  ],
+  "interactiveTool": {
+    "toolType": "takbir-tracker",
+    "rakaat1Takbir": 7,
+    "rakaat2Takbir": 5,
+    "intermediateTasbih": "سُبْحَانَ اللَّهِ وَالْحَمْدُ لِلَّهِ وَلَا إِلَهَ إِلَّا اللَّهُ وَاللَّهُ أَكْبَرُ"
+  },
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}

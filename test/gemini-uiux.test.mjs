@@ -3,11 +3,13 @@ import test from "node:test";
 
 import {
   buildDirectorRequest,
+  fetchWithRetry,
   parseArgs,
   parseDotEnv,
   projectPath,
   readGeminiConfig,
   readScreenshot,
+  RETRYABLE_STATUS_CODES,
   runCli,
   toGenerateContentRequest,
   validateDirectorReport,
@@ -171,4 +173,60 @@ test("runCli rejects project-path escapes and API failures", async () => {
     ),
     /HTTP 429/,
   );
+});
+
+test("fetchWithRetry retries on 503 and succeeds on subsequent recovery", async () => {
+  let callCount = 0;
+  const mockFetch = async () => {
+    callCount++;
+    if (callCount < 3) {
+      return { ok: false, status: 503 };
+    }
+    return { ok: true, status: 200, text: async () => "recovered" };
+  };
+
+  const response = await fetchWithRetry(
+    "https://example.com/api",
+    {},
+    { fetchImpl: mockFetch, maxRetries: 3, baseDelayMs: 0 }
+  );
+
+  assert.equal(response.ok, true);
+  assert.equal(callCount, 3);
+});
+
+test("fetchWithRetry aborts immediately without retry on non-retryable 400 client error", async () => {
+  let callCount = 0;
+  const mockFetch = async () => {
+    callCount++;
+    return {
+      ok: false,
+      status: 400,
+      json: async () => ({ error: { message: "Invalid argument", status: "INVALID_ARGUMENT" } }),
+    };
+  };
+
+  await assert.rejects(
+    fetchWithRetry("https://example.com/api", {}, { fetchImpl: mockFetch, maxRetries: 3, baseDelayMs: 0 }),
+    /HTTP 400 - Invalid argument\./
+  );
+  assert.equal(callCount, 1);
+});
+
+test("fetchWithRetry exhausts retries and includes detailed error message from response payload", async () => {
+  let callCount = 0;
+  const mockFetch = async () => {
+    callCount++;
+    return {
+      ok: false,
+      status: 503,
+      json: async () => ({ error: { message: "The model is overloaded. Please try again later." } }),
+    };
+  };
+
+  await assert.rejects(
+    fetchWithRetry("https://example.com/api", {}, { fetchImpl: mockFetch, maxRetries: 2, baseDelayMs: 0 }),
+    /HTTP 503 - The model is overloaded\. Please try again later\./
+  );
+  assert.equal(callCount, 3); // initial attempt + 2 retries
 });

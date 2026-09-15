@@ -1,0 +1,112 @@
+{
+  "id": "solat-witir",
+  "slug": "witir",
+  "title": "Solat Sunat Witir",
+  "titleArabic": "صَلَاةُ سُنَّةِ الْوِتْرِ",
+  "category": "malam",
+  "shortPurpose": "Solat ganjil sebagai penutup segala solat malam dan ibadah qiamullail.",
+  "hukum": "Sunat Muakkad",
+  "rakaatOptions": [
+    1,
+    3,
+    5,
+    7,
+    9,
+    11
+  ],
+  "timeGuidance": {
+    "description": "Bermula selepas menunaikan solat fardu Isyak (dan ba'diyyah) sehingga terbit fajar sadiq (masuk waktu Subuh). Paling afdal di penghujung malam bagi yang bangun bertahajjud.",
+    "suggestedTimeOfDay": "malam"
+  },
+  "niat": [
+    {
+      "label": "2 Rakaat Pertama (Daripada Witir)",
+      "arabic": "أُصَلِّي سُنَّةً مِنَ الْوِتْرِ رَكْعَتَيْنِ لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatan minal-witri rak'ataini lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat dua rakaat daripada solat witir kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Bab Solat Witir"
+    },
+    {
+      "label": "1 Rakaat Terakhir",
+      "arabic": "أُصَلِّي سُنَّةَ الْوِتْرِ رَكْعَةً لِلَّهِ تَعَالَى",
+      "rumi": "Usolli sunnatal-witri rak'atan lillahi ta'ala",
+      "translation": "Sahaja aku solat sunat witir satu rakaat kerana Allah Taala.",
+      "dir": "rtl",
+      "sourceRef": "jakim-panduan-solat-sunat",
+      "sourcePage": "Bab Solat Witir"
+    }
+  ],
+  "essentialSteps": [
+    {
+      "stepNumber": 1,
+      "title": "Niat & Takbiratul Ihram (Set 2 Rakaat)",
+      "description": "Berniat dua rakaat daripada witir bersama takbiratul ihram.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 2,
+      "title": "Rakaat Pertama & Kedua",
+      "description": "Membaca Al-Fatihah dan surah, rukuk, iktidal, sujud dua kali, dan duduk tahiyat akhir berserta salam.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 3,
+      "title": "Bangkit untuk 1 Rakaat Penutup",
+      "description": "Berdiri semula, berniat satu rakaat witir dengan takbiratul ihram.",
+      "isRukun": true
+    },
+    {
+      "stepNumber": 4,
+      "title": "Bacaan Surah & Doa Qunut (Separuh Akhir Ramadan)",
+      "description": "Membaca surah lazim. Mulai malam ke-16 Ramadan, sunat membaca doa qunut pada iktidal rakaat terakhir.",
+      "isRukun": false
+    },
+    {
+      "stepNumber": 5,
+      "title": "Rukuk, Sujud, Tahiyat Akhir & Salam",
+      "description": "Menyempurnakan rukun fi'li dan qauli sehingga salam penutup.",
+      "isRukun": true
+    }
+  ],
+  "recommendedPractice": [
+    {
+      "title": "Surah Pilihan Witir 3 Rakaat",
+      "description": "Rakaat 1: Surah Al-A'la. Rakaat 2: Surah Al-Kafirun. Rakaat 3: Surah Al-Ikhlas, Al-Falaq, dan An-Nas.",
+      "recommendedSurahs": [
+        "Al-A'la",
+        "Al-Kafirun",
+        "Al-Ikhlas",
+        "Al-Falaq",
+        "An-Nas"
+      ]
+    }
+  ],
+  "commonLocalPractice": "Di Malaysia, solat witir lazimnya ditunaikan 3 rakaat (2 rakaat 1 salam + 1 rakaat 1 salam) secara berjemaah selepas solat Tarawih sepanjang Ramadan, disusuli wirid 'Subhanal Malikil Quddus' 3 kali.",
+  "variationsNotes": "Boleh dikerjakan secara bersambung (wasal) 3 rakaat dengan 1 salam tanpa tahiyat awal mengikut Mazhab Syafi'i, namun cara fasal (2 rakaat salam + 1 rakaat salam) adalah lebih afdal.",
+  "doa": [
+    {
+      "title": "Zikir Selepas Salam Witir (3x)",
+      "arabic": "سُبْحَانَ الْمَلِكِ الْقُدُّوسِ",
+      "rumi": "Subhanal-malikil-quddus",
+      "translation": "Maha Suci Allah Tuhan Yang Memiliki Kerajaan lagi Maha Suci.",
+      "dir": "rtl",
+      "sourceRef": "sunan-abi-dawud",
+      "sourcePage": "Hadith No. 1430"
+    },
+    {
+      "title": "Doa Solat Witir Masyhur",
+      "arabic": "اللَّهُمَّ إِنَّا نَسْأَلُكَ إِيمَانًا دَائِمًا، وَنَسْأَلُكَ قَلْبًا خَاشِعًا، وَنَسْأَلُكَ عِلْمًا نَافِعًا، وَنَسْأَلُكَ يَقِينًا صَادِقًا، وَنَسْأَلُكَ عَمَلًا صَالِحًا، وَنَسْأَلُكَ دِينًا قَيِّمًا، وَنَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ، وَنَسْأَلُكَ تَمَامَ الْعَافِيَةِ، وَنَسْأَلُكَ الشُّكْرَ عَلَى الْعَافِيَةِ، وَنَسْأَلُكَ الْغِنَى عَنِ النَّاسِ.",
+      "rumi": "Allahumma inna nas'aluka imanan da'iman, wa nas'aluka qalban khasyi'an, wa nas'aluka 'ilman nafi'an, wa nas'aluka yaqinan sadiqan, wa nas'aluka 'amalan salihan, wa nas'aluka dinan qayyiman, wa nas'aluka al-'afwa wal-'afiyah, wa nas'aluka tamamal-'afiyah, wa nas'aluka asy-syukra 'alal-'afiyah, wa nas'aluka al-ghina 'anin-nas.",
+      "translation": "Ya Allah, sesungguhnya kami memohon kepada-Mu iman yang berkekalan, hati yang khusyuk, ilmu yang bermanfaat, keyakinan yang benar, amal yang soleh, agama yang lurus, keampunan dan kesejahteraan, kesempurnaan afiat, rasa syukur atas afiat, dan kecukupan daripada bergantung kepada manusia.",
+      "dir": "rtl",
+      "sourceRef": "al-azkar-nawawi",
+      "sourcePage": "Bab Doa Solat Witir"
+    }
+  ],
+  "contentVersion": "1.0.0",
+  "lastReviewedAt": "2026-09-15",
+  "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
+  "reviewStatus": "needs-review"
+}
