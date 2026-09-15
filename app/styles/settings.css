@@ -1,0 +1,83 @@
+/* 12. Settings & Themes */
+.settings-section {
+  border-top: 1px solid var(--line);
+  padding: 1.5rem 0;
+}
+.theme-toggle-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.theme-pill {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  min-height: 44px;
+  transition: all 0.15s ease;
+}
+.theme-pill:hover {
+  border-color: var(--brand);
+}
+.theme-pill.active {
+  background: var(--brand-subtle);
+  border-color: var(--brand);
+  color: var(--brand);
+  font-weight: 800;
+}
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+@media (min-width: 640px) {
+  .setting-item {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.setting-info {
+  flex: 1;
+}
+.danger-button {
+  background: var(--surface);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  min-height: 44px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.danger-button:hover {
+  background: var(--danger);
+  color: #ffffff;
+}
+.metadata-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  margin-bottom: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.metadata-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--brand);
+  flex-shrink: 0;
+}

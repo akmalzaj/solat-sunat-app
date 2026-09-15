@@ -1,0 +1,55 @@
+/* 11. Mod Khusyuk Focus Mode (Issue #2 Implementation) */
+body.mod-khusyuk-active,
+.mod-khusyuk-active {
+  background: var(--canvas);
+}
+body.mod-khusyuk-active .topbar,
+body.mod-khusyuk-active .bottom-nav,
+body.mod-khusyuk-active .sticky-reader-toolbar,
+body.mod-khusyuk-active .notice,
+body.mod-khusyuk-active .metadata-banner,
+.mod-khusyuk-active .topbar,
+.mod-khusyuk-active .bottom-nav,
+.mod-khusyuk-active .sticky-reader-toolbar,
+.mod-khusyuk-active .notice,
+.mod-khusyuk-active .metadata-banner {
+  display: none !important;
+}
+.khusyuk-exit-bar {
+  position: sticky;
+  top: 1rem;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  pointer-events: none;
+}
+.khusyuk-exit-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface-elevated);
+  border: 2px solid var(--brand);
+  color: var(--brand);
+  font-size: 0.875rem;
+  font-weight: 800;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  min-height: 44px;
+  outline: 3px solid transparent;
+  transition: all 0.15s ease;
+}
+.khusyuk-exit-btn:hover {
+  background: var(--brand);
+  color: #ffffff;
+}
+.khusyuk-exit-btn:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.reader-bottom-buffer {
+  height: 90px;
+}

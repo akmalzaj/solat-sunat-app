@@ -1,0 +1,26 @@
+/* Base document styles: reset, typography, focus rings, and the page shell. */
+
+* { box-sizing: border-box; }
+html { background: var(--canvas); }
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+@media (max-width: 639px) {
+  main {
+    padding-bottom: 6rem;
+  }
+}
+
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.shell { width: min(100% - 2rem, 68rem); margin-inline: auto; }

@@ -1,0 +1,80 @@
+/* Design tokens: fonts, color palette, and light/dark theme variables.
+   Imported first so every later rule can resolve var(--…) from :root. */
+
+@font-face {
+  font-family: "Amiri";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/amiri-arabic-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Amiri";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/amiri-arabic-700-normal.woff2") format("woff2");
+}
+
+:root {
+  --canvas: #f7f7f2;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-subtle: #f0f3f0;
+  --ink: #13231f;
+  --muted: #52655f;
+  --brand: #0f3d36;
+  --brand-subtle: #e7efe9;
+  --accent: #b7791f;
+  --line: #d8e0d9;
+  --focus: #005fcc;
+  --danger: #b91c1c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --canvas: #10201c;
+    --surface: #182b25;
+    --surface-elevated: #213831;
+    --surface-subtle: #142520;
+    --ink: #f1f7f2;
+    --muted: #c1d0c7;
+    --brand: #88c9b9;
+    --brand-subtle: #1d3d34;
+    --accent: #efbf69;
+    --line: #365148;
+    --focus: #8fc7ff;
+    --danger: #f87171;
+  }
+}
+
+html[data-theme="dark"] {
+  --canvas: #10201c;
+  --surface: #182b25;
+  --surface-elevated: #213831;
+  --surface-subtle: #142520;
+  --ink: #f1f7f2;
+  --muted: #c1d0c7;
+  --brand: #88c9b9;
+  --brand-subtle: #1d3d34;
+  --accent: #efbf69;
+  --line: #365148;
+  --focus: #8fc7ff;
+  --danger: #f87171;
+}
+
+html[data-theme="light"] {
+  --canvas: #f7f7f2;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-subtle: #f0f3f0;
+  --ink: #13231f;
+  --muted: #52655f;
+  --brand: #0f3d36;
+  --brand-subtle: #e7efe9;
+  --accent: #b7791f;
+  --line: #d8e0d9;
+  --focus: #005fcc;
+  --danger: #b91c1c;
+}

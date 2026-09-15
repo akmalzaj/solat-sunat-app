@@ -1,0 +1,213 @@
+/* =========================================================================
+   PHASE 3: CORE READING EXPERIENCE, DISCOVERY, SETTINGS & MOD KHUSYUK
+   ========================================================================= */
+
+/* 1. Recommendation Discovery Card */
+.recommendation-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-inline-start: 4px solid var(--accent);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+.recommendation-header {
+  margin-bottom: 0.5rem;
+}
+.recommendation-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--brand-subtle);
+  color: var(--brand);
+  font-size: 0.725rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.375rem;
+}
+.recommendation-desc {
+  font-size: 0.9375rem;
+  color: var(--ink);
+  margin: 0.25rem 0 0.75rem;
+}
+.recommendation-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.recommendation-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  padding: 0.375rem 0.75rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  min-height: 44px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+.recommendation-chip:hover {
+  background: var(--brand-subtle);
+  border-color: var(--brand);
+  color: var(--brand);
+}
+.recommendation-arrow {
+  color: var(--brand);
+}
+.recommendation-disclaimer {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0;
+}
+/* Reserves the recommendation card's height before the device-time card
+   renders post-mount, so the guide grid does not shift (CLS above the fold). */
+.recommendation-card-placeholder {
+  min-height: 9.25rem;
+  visibility: hidden;
+}
+
+/* 2. Catalog & Discovery */
+.catalog-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.catalog-header-row h2 {
+  margin: 0;
+}
+.clear-search-button {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 50%;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.clear-search-button:hover {
+  color: var(--ink);
+}
+.text-action-button {
+  background: transparent;
+  border: none;
+  color: var(--brand);
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0.25rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+.text-action-button.danger {
+  color: var(--danger);
+}
+.guide-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.bookmark-card-button {
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: 0.5rem;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  position: relative;
+  z-index: 2;
+}
+.bookmark-card-button:hover {
+  color: var(--accent);
+  background: var(--brand-subtle);
+}
+.bookmark-card-button.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--surface);
+}
+.arabic-card-sub {
+  font-family: "Amiri", serif;
+  direction: rtl;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--brand);
+  margin: 0 0 0.5rem;
+}
+
+/* 3. Empty States */
+.empty-state {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 1rem;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.empty-state-icon {
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.empty-state h2, .empty-state h3 {
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+}
+.empty-state p {
+  color: var(--muted);
+  max-width: 28rem;
+  margin: 0 0 1.5rem;
+  font-size: 0.9375rem;
+}
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand);
+  color: #ffffff;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  min-height: 44px;
+  transition: opacity 0.15s ease;
+}
+.cta-button:hover {
+  opacity: 0.9;
+}
+.cta-button.secondary {
+  background: var(--surface-subtle);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.cta-button.secondary:hover {
+  background: var(--brand-subtle);
+  color: var(--brand);
+}
