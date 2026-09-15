@@ -222,7 +222,7 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
                 <article key={guide.slug} className="guide-card">
                   <div className="guide-card-header">
                     <span className="category-badge">
-                      {guide.slug === "contoh-struktur" ? "Sampel Ujian" : guide.category.toUpperCase()}
+                      {guide.category.toUpperCase()}
                     </span>
                     <span className="rakaat-badge">{guide.rakaatOptions.join("/")} Rakaat</span>
                   </div>

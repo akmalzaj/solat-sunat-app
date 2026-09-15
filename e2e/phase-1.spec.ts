@@ -1,12 +1,12 @@
 import { expect, test } from "@playwright/test";
 
-test("home and the statically generated sample guide are readable", async ({ page }) => {
+test("home and the statically generated first guide are readable", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: /panduan yang tenang/i })).toBeVisible();
   await page.screenshot({ path: "playwright/screenshots/phase-1-home.png", fullPage: true });
-  await page.getByRole("link", { name: /contoh struktur panduan/i }).click();
-  await expect(page.getByRole("heading", { name: "Contoh struktur panduan" })).toBeVisible();
-  await expect(page.getByText(/jangan gunakan sebagai panduan ibadah/i)).toBeVisible();
+  await page.getByRole("link", { name: /buka panduan solat sunat aidiladha/i }).click();
+  await expect(page.getByRole("heading", { name: "Solat Sunat Aidiladha" })).toBeVisible();
+  await expect(page.getByText(/belum disemak/i).first()).toBeVisible();
   await page.screenshot({ path: "playwright/screenshots/phase-1-reader.png", fullPage: true });
 });
 
@@ -24,7 +24,7 @@ test("home reflows without horizontal overflow on tablet and mobile", async ({ p
 });
 
 test("manifest and previously opened guide remain available offline", async ({ page, context }) => {
-  await page.goto("/solat/contoh-struktur/");
+  await page.goto("/solat/aidiladha/");
   await expect(page.locator('link[rel="manifest"]')).toHaveAttribute("href", /manifest/);
   await page.waitForFunction(async () => {
     const registration = await navigator.serviceWorker.ready;
@@ -32,7 +32,7 @@ test("manifest and previously opened guide remain available offline", async ({ p
   });
   await context.setOffline(true);
   await page.reload();
-  await expect(page.getByRole("heading", { name: "Contoh struktur panduan" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Solat Sunat Aidiladha" })).toBeVisible();
 });
 
 test("navigation and touch targets satisfy >=44px across viewports", async ({ page }) => {
@@ -78,8 +78,8 @@ test("mobile viewport displays guide card above the fold without scrolling", asy
   // Notice badge provides non-color text cue
   await expect(page.getByText("PERINGATAN STATUS")).toBeVisible();
 
-  // Guide card is visible above the 812px viewport fold
-  const guideCard = page.locator("article.guide-card", { hasText: /contoh struktur panduan/i }).first();
+  // The first real guide card is visible above the 812px viewport fold
+  const guideCard = page.locator("article.guide-card", { hasText: /solat sunat aidiladha/i }).first();
   await expect(guideCard).toBeVisible();
   const box = await guideCard.boundingBox();
   expect(box).not.toBeNull();

@@ -10,10 +10,10 @@ import {
 import { useStorageState } from "@/lib/storage";
 
 interface BookmarksViewProps {
-  allGuides: readonly SolatGuide[];
+  guides: readonly SolatGuide[];
 }
 
-export function BookmarksView({ allGuides }: BookmarksViewProps) {
+export function BookmarksView({ guides }: BookmarksViewProps) {
   const [bookmarks, setBookmarks] = useStorageState<string[]>(
     STORAGE_KEYS.BOOKMARKS,
     DEFAULT_PREFERENCES.bookmarks
@@ -30,7 +30,7 @@ export function BookmarksView({ allGuides }: BookmarksViewProps) {
     }
   };
 
-  const bookmarkedGuides = allGuides.filter((g) => bookmarks.includes(g.slug));
+  const bookmarkedGuides = guides.filter((g) => bookmarks.includes(g.slug));
 
   if (bookmarkedGuides.length === 0) {
     return (

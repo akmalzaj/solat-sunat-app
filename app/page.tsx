@@ -1,6 +1,6 @@
 import { SiteHeader } from "@/components/site-header";
 import { CatalogView } from "@/components/discovery/catalog-view";
-import { allGuides } from "@/content/registry";
+import { guides } from "@/content/registry";
 
 export default function HomePage() {
   return (
@@ -28,8 +28,10 @@ export default function HomePage() {
           </aside>
         </section>
 
-        {/* Carian pantas & kategori: Cari solat sunat, Semua, Waktu, Hajat/Doa, Rawatib, Khusus */}
-        <CatalogView initialGuides={allGuides} />
+        {/* Carian pantas & kategori: Cari solat sunat, Semua, Waktu, Hajat/Doa, Rawatib, Khusus.
+            Real guides only — the structural sample stays reachable at its route but is
+            excluded from discovery (catalog, search, categories, bookmarking). */}
+        <CatalogView initialGuides={guides} />
       </main>
     </>
   );

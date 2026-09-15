@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "@/components/site-header";
 import { BookmarksView } from "@/components/bookmarks/bookmarks-view";
-import { allGuides } from "@/content/registry";
+import { guides } from "@/content/registry";
 
 export const metadata: Metadata = {
   title: "Simpanan Luar Talian",
@@ -21,7 +21,9 @@ export default function SimpananPage() {
           Capaian pantas tanpa sambungan internet untuk panduan yang kerap anda amalkan di surau, masjid, atau ketika bermusafir.
         </p>
 
-        <BookmarksView allGuides={allGuides} />
+        {/* Real guides only: a bookmark persisted before the sample was hidden
+            from discovery is silently ignored instead of resurfacing it here. */}
+        <BookmarksView guides={guides} />
       </main>
     </>
   );

@@ -15,6 +15,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const guide = findGuide((await params).slug);
   if (!guide) return { title: "Panduan tidak ditemui" };
   // The root layout template appends "| Panduan Solat Sunat"; supply the bare title.
+  // The structural sample is a test fixture, not reviewed content: keep it out of
+  // search indexes even though its route stays statically generated for the tests.
+  if (guide.slug === "contoh-struktur") {
+    return { title: guide.title, robots: { index: false, follow: false } };
+  }
   return { title: guide.title };
 }
 
