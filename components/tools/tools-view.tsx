@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { allGuides, findGuide } from "@/content/registry";
+import { trackTakbirComplete, trackTasbihComplete } from "@/lib/analytics";
 import type { InteractiveToolConfig } from "@/lib/content-schema";
 import { PREFERENCE_KEYS, STORAGE_KEYS } from "@/lib/preferences";
 import { useStorageState } from "@/lib/storage";
@@ -73,11 +74,30 @@ export function ToolsView() {
     );
   }
 
+  const handleAdvanceTasbih = () => {
+    const next = advanceTasbihProgress(tasbihProgress, tasbih);
+    updateTasbih(next);
+    giveFeedback();
+    // Report the milestone once, at the tap that crosses into "complete".
+    if (next.completed === tasbih.totalTasbih && tasbihProgress.completed < tasbih.totalTasbih) {
+      trackTasbihComplete(next.completed, tasbih.totalTasbih);
+    }
+  };
+
+  const handleAdvanceTakbir = () => {
+    const next = takbirCompleted + 1;
+    updateTakbir(next);
+    giveFeedback();
+    if (next >= takbirTotal && takbirCompleted < takbirTotal && effectiveTakbirSlug) {
+      trackTakbirComplete(effectiveTakbirSlug, takbirTotal, takbirTotal);
+    }
+  };
+
   return (
     <div className="tools-container">
-      <aside className="notice" aria-label="Had penggunaan alatan">
-        <span className="notice-badge">UNTUK PERSEDIAAN</span>
-        <p>Alatan ini untuk pembelajaran dan persediaan sahaja, bukan untuk dikendalikan semasa menunaikan solat. Semua urutan dan kiraan dipaparkan daripada konfigurasi yang telah disemak.</p>
+      <aside className="notice" aria-label="Penafian penggunaan alatan">
+        <span className="notice-badge">PENAFIAN (DISCLAIMER):</span>
+        <p>Alatan (Tools) ini adalah bagi tujuan pembelajaran dan persediaan sahaja, dan bukan untuk digunakan semasa menunaikan ibadah solat. Semua urutan dan kiraan yang dipaparkan adalah daripada konfigurasi yang telah disemak.</p>
       </aside>
 
       <nav className="tool-links" aria-label="Pilih alatan pembelajaran">
@@ -97,7 +117,7 @@ export function ToolsView() {
         <p className="meta">{tasbihProgress.completed} daripada {tasbih.totalTasbih} tasbih disemak.</p>
         <div className="tool-controls">
           <button type="button" className="tool-secondary-button" onClick={() => updateTasbih(retreatTasbihProgress(tasbihProgress))} aria-label="Kurang satu tasbih">−1</button>
-          <button type="button" className="tool-primary-button" onClick={() => { updateTasbih(advanceTasbihProgress(tasbihProgress, tasbih)); giveFeedback(); }} aria-label="Tambah satu tasbih">+1</button>
+          <button type="button" className="tool-primary-button" onClick={handleAdvanceTasbih} aria-label="Tambah satu tasbih">+1</button>
           <button type="button" className="tool-secondary-button" onClick={() => updateTasbih(resetTasbihProgress())} aria-label="Set semula kemajuan tasbih">Set semula</button>
         </div>
         <ol className="tool-sequence" aria-label="Urutan pergerakan Solat Tasbih">
@@ -152,7 +172,7 @@ export function ToolsView() {
             <p className="meta">{takbirCompleted} daripada {takbirTotal} takbir disemak.</p>
             <div className="tool-controls">
               <button type="button" className="tool-secondary-button" onClick={() => updateTakbir(takbirCompleted - 1)} aria-label="Kurang satu takbir">−1</button>
-              <button type="button" className="tool-primary-button" onClick={() => { updateTakbir(takbirCompleted + 1); giveFeedback(); }} aria-label="Tambah satu takbir">+1</button>
+              <button type="button" className="tool-primary-button" onClick={handleAdvanceTakbir} aria-label="Tambah satu takbir">+1</button>
               <button type="button" className="tool-secondary-button" onClick={() => updateTakbir(0)} aria-label="Set semula kemajuan takbir">Set semula</button>
             </div>
           </>

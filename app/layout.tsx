@@ -1,18 +1,31 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { ServiceWorkerProvider } from "@/components/service-worker-provider";
 import { BottomNav } from "@/components/bottom-nav";
 
+// Public by design (visible in page source); must be set at build time.
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 export const metadata: Metadata = {
-  applicationName: "Panduan Solat Sunat",
+  metadataBase: new URL("https://solat.wiki"),
+  applicationName: "SolatWiki",
   title: {
-    default: "Panduan Solat Sunat",
-    template: "%s | Panduan Solat Sunat",
+    default: "SolatWiki - Panduan Solat Sunat & Doa",
+    template: "%s | SolatWiki",
   },
-  description: "Panduan solat sunat yang boleh diakses selepas dimuat turun.",
-  appleWebApp: { capable: true, title: "Solat Sunat", statusBarStyle: "default" },
+  description: "SolatWiki: Panduan Solat Sunat dan Doa Untuk Semua",
+  appleWebApp: { capable: true, title: "SolatWiki", statusBarStyle: "default" },
   formatDetection: { telephone: false },
+  openGraph: {
+    title: "SolatWiki - Panduan Solat Sunat & Doa",
+    description: "SolatWiki: Panduan Solat Sunat dan Doa Untuk Semua",
+    url: "https://solat.wiki",
+    siteName: "SolatWiki",
+    locale: "ms_MY",
+    type: "website",
+  },
 };
 
 export const viewport: Viewport = {
@@ -37,6 +50,12 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           {children}
           <BottomNav />
         </ServiceWorkerProvider>
+        {/* Load GA only in production with an ID configured, keeping dev/preview
+            traffic out of the reports. Pageviews on client-side navigations are
+            tracked automatically via GA4 Enhanced Measurement. */}
+        {process.env.NODE_ENV === "production" && GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+        )}
       </body>
     </html>
   );

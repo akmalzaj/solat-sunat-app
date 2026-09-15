@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
+import { trackPwaUpdateApply } from "@/lib/analytics";
 
 export function ServiceWorkerProvider({ children }: Readonly<{ children: ReactNode }>) {
   const [updateAvailable, setUpdateAvailable] = useState(false);
@@ -41,6 +42,7 @@ export function ServiceWorkerProvider({ children }: Readonly<{ children: ReactNo
     const registration = await navigator.serviceWorker.getRegistration("/");
     if (!registration?.waiting) return;
     refreshRequested.current = true;
+    trackPwaUpdateApply();
     registration.waiting.postMessage({ type: "SKIP_WAITING" });
   };
 

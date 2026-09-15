@@ -1,8 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { SolatGuide, SourceItem } from "@/lib/content-schema";
+import {
+  trackBookmarkAdded,
+  trackBookmarkRemoved,
+  trackKhusyukModeEnter,
+  trackReadingComplete,
+} from "@/lib/analytics";
 import {
   DEFAULT_PREFERENCES,
   type FontSizeScale,
@@ -38,6 +44,7 @@ export function GuideReader({ guide, primarySource }: GuideReaderProps) {
 
   const [isKhusyuk, setIsKhusyuk] = useState<boolean>(false);
   const [selectedNiatIndex, setSelectedNiatIndex] = useState<number>(0);
+  const bottomBufferRef = useRef<HTMLDivElement | null>(null);
 
   const isBookmarked = bookmarks.includes(guide.slug);
 
@@ -56,9 +63,34 @@ export function GuideReader({ guide, primarySource }: GuideReaderProps) {
     };
   }, [isKhusyuk]);
 
+  // Report reading completion once per guide mount: when the bottom buffer
+  // sentinel scrolls into view, the reader has reached the end of the guide.
+  useEffect(() => {
+    const node = bottomBufferRef.current;
+    if (!node || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        trackReadingComplete(guide);
+        observer.disconnect();
+      }
+    });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [guide]);
+
   const handleToggleBookmark = () => {
     const updated = toggleBookmark(bookmarks, guide.slug);
     setBookmarks(updated);
+    if (updated.includes(guide.slug)) {
+      trackBookmarkAdded(guide, "reader");
+    } else {
+      trackBookmarkRemoved(guide, "reader");
+    }
+  };
+
+  const handleEnterKhusyuk = () => {
+    setIsKhusyuk(true);
+    trackKhusyukModeEnter(guide.slug);
   };
 
   const handleChangeFontSize = (size: FontSizeScale) => {
@@ -116,7 +148,7 @@ export function GuideReader({ guide, primarySource }: GuideReaderProps) {
           isBookmarked={isBookmarked}
           onToggleBookmark={handleToggleBookmark}
           isKhusyuk={isKhusyuk}
-          onToggleKhusyuk={() => setIsKhusyuk(true)}
+          onToggleKhusyuk={handleEnterKhusyuk}
         />
       )}
 
@@ -125,7 +157,7 @@ export function GuideReader({ guide, primarySource }: GuideReaderProps) {
         {/* Header Metadata */}
         <div className="reader-header">
           <p className="eyebrow">
-            {guide.category.toUpperCase()} · {guide.hukum} · {guide.rakaatOptions.join(", ")} RAKAAT
+            {(guide.category === "raya_fenomena" ? "PERISTIWA" : guide.category.toUpperCase())} · {guide.hukum} · {guide.rakaatOptions.join(", ")} RAKAAT
           </p>
           <h1 className="guide-title">{guide.title}</h1>
           <p className="arabic guide-arabic-title" lang="ar" dir="rtl">
@@ -340,8 +372,8 @@ export function GuideReader({ guide, primarySource }: GuideReaderProps) {
           </div>
         </section>
 
-        {/* Extra Bottom Spacing for Khusyuk Buffer */}
-        <div className="reader-bottom-buffer" aria-hidden="true" />
+        {/* Extra Bottom Spacing for Khusyuk Buffer (reading-completion sentinel) */}
+        <div ref={bottomBufferRef} className="reader-bottom-buffer" aria-hidden="true" />
       </main>
     </div>
   );

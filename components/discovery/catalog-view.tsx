@@ -1,8 +1,15 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import type { SolatGuide } from "@/lib/content-schema";
+import {
+  trackBookmarkAdded,
+  trackBookmarkRemoved,
+  trackGuideOpen,
+  trackSearch,
+  type GuideOpenEntry,
+} from "@/lib/analytics";
 import {
   getTimeSlotFromHour,
   getRecommendationForSlot,
@@ -18,13 +25,14 @@ import { useStorageState } from "@/lib/storage";
 type CategoryFilter = "semua" | "harian" | "malam" | "hajat" | "raya_fenomena";
 
 const TIME_SLOT_REFRESH_MS = 30 * 60 * 1000;
+const SEARCH_DEBOUNCE_MS = 800;
 
 const CATEGORY_LABELS: Record<CategoryFilter, string> = {
   semua: "Semua",
   harian: "Harian",
   malam: "Malam & Qiam",
   hajat: "Hajat & Doa",
-  raya_fenomena: "Raya & Khusus",
+  raya_fenomena: "Peristiwa",
 };
 
 interface CatalogViewProps {
@@ -34,6 +42,7 @@ interface CatalogViewProps {
 export function CatalogView({ initialGuides }: CatalogViewProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>("semua");
+  const lastTrackedSearchRef = useRef<string>("");
   const [bookmarks, setBookmarks] = useStorageState<string[]>(
     STORAGE_KEYS.BOOKMARKS,
     DEFAULT_PREFERENCES.bookmarks
@@ -52,6 +61,13 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
   const handleToggleBookmark = (slug: string) => {
     const updated = toggleBookmark(bookmarks, slug);
     setBookmarks(updated);
+    const guide = initialGuides.find((g) => g.slug === slug);
+    if (!guide) return;
+    if (updated.includes(slug)) {
+      trackBookmarkAdded(guide, "catalog");
+    } else {
+      trackBookmarkRemoved(guide, "catalog");
+    }
   };
 
   const recommendation = useMemo(() => {
@@ -77,6 +93,24 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
       );
     });
   }, [initialGuides, selectedCategory, searchQuery]);
+
+  // Report searches once the user pauses typing: one event per term instead of
+  // one per keystroke, skipping empty queries and immediate repeats.
+  useEffect(() => {
+    const term = searchQuery.trim();
+    if (!term || term === lastTrackedSearchRef.current) return;
+    const timer = setTimeout(() => {
+      trackSearch(term, filteredGuides.length);
+      lastTrackedSearchRef.current = term;
+    }, SEARCH_DEBOUNCE_MS);
+    return () => clearTimeout(timer);
+  }, [searchQuery, filteredGuides]);
+
+  const guideOpenEntry: GuideOpenEntry = searchQuery.trim()
+    ? "search"
+    : selectedCategory !== "semua"
+      ? "category"
+      : "browse";
 
   return (
     <div className="catalog-container">
@@ -142,7 +176,12 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
             </div>
             <div className="recommendation-links">
               {recommendation.guides.map((g) => (
-                <Link key={g.slug} href={`/solat/${g.slug}/`} className="recommendation-chip">
+                <Link
+                  key={g.slug}
+                  href={`/solat/${g.slug}/`}
+                  className="recommendation-chip"
+                  onClick={() => trackGuideOpen(g.slug, "recommendation", timeSlot ?? undefined)}
+                >
                   <span>{g.title}</span>
                   <span className="recommendation-arrow">→</span>
                 </Link>
@@ -222,7 +261,7 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
                 <article key={guide.slug} className="guide-card">
                   <div className="guide-card-header">
                     <span className="category-badge">
-                      {guide.category.toUpperCase()}
+                      {guide.category === "raya_fenomena" ? "PERISTIWA" : guide.category.toUpperCase()}
                     </span>
                     <span className="rakaat-badge">{guide.rakaatOptions.join("/")} Rakaat</span>
                   </div>
@@ -231,6 +270,7 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
                     className="guide-card-link"
                     href={`/solat/${guide.slug}/`}
                     aria-label={`Buka panduan ${guide.title}`}
+                    onClick={() => trackGuideOpen(guide.slug, guideOpenEntry)}
                   >
                     <h3>{guide.title}</h3>
                     <p className="arabic-card-sub" lang="ar" dir="rtl">
@@ -240,9 +280,6 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
                   </Link>
 
                   <div className="guide-card-footer">
-                    <span className={`status-badge ${guide.reviewStatus}`}>
-                      {guide.reviewStatus === "needs-review" ? "Belum disemak" : "Disemak"}
-                    </span>
                     <div className="guide-card-actions">
                       <button
                         type="button"

@@ -3,6 +3,11 @@
 import Link from "next/link";
 import type { SolatGuide } from "@/lib/content-schema";
 import {
+  trackBookmarkRemoved,
+  trackBookmarksClearedAll,
+  trackGuideOpen,
+} from "@/lib/analytics";
+import {
   DEFAULT_PREFERENCES,
   STORAGE_KEYS,
   toggleBookmark,
@@ -19,18 +24,21 @@ export function BookmarksView({ guides }: BookmarksViewProps) {
     DEFAULT_PREFERENCES.bookmarks
   );
 
+  const bookmarkedGuides = guides.filter((g) => bookmarks.includes(g.slug));
+
   const handleToggleBookmark = (slug: string) => {
     const updated = toggleBookmark(bookmarks, slug);
     setBookmarks(updated);
+    const guide = bookmarkedGuides.find((g) => g.slug === slug);
+    if (guide) trackBookmarkRemoved(guide, "simpanan");
   };
 
   const handleClearAll = () => {
     if (window.confirm("Adakah anda pasti ingin mengosongkan semua panduan yang disimpan?")) {
+      trackBookmarksClearedAll(bookmarkedGuides.length);
       setBookmarks([]);
     }
   };
-
-  const bookmarkedGuides = guides.filter((g) => bookmarks.includes(g.slug));
 
   if (bookmarkedGuides.length === 0) {
     return (
@@ -68,7 +76,7 @@ export function BookmarksView({ guides }: BookmarksViewProps) {
         {bookmarkedGuides.map((guide) => (
           <article key={guide.slug} className="guide-card">
             <div className="guide-card-header">
-              <span className="category-badge">{guide.category.toUpperCase()}</span>
+              <span className="category-badge">{guide.category === "raya_fenomena" ? "PERISTIWA" : guide.category.toUpperCase()}</span>
               <span className="rakaat-badge">{guide.rakaatOptions.join("/")} Rakaat</span>
             </div>
 
@@ -76,6 +84,7 @@ export function BookmarksView({ guides }: BookmarksViewProps) {
               className="guide-card-link"
               href={`/solat/${guide.slug}/`}
               aria-label={`Buka panduan ${guide.title}`}
+              onClick={() => trackGuideOpen(guide.slug, "simpanan")}
             >
               <h3>{guide.title}</h3>
               <p className="arabic-card-sub" lang="ar" dir="rtl">

@@ -10,6 +10,7 @@ import {
   type ThemeMode,
 } from "@/lib/preferences";
 import { clearAllAppData, useStorageState } from "@/lib/storage";
+import { trackAppDataReset } from "@/lib/analytics";
 
 let reducedMotionQuery: MediaQueryList | null = null;
 
@@ -76,6 +77,7 @@ export function SettingsView() {
         "Adakah anda pasti ingin memadam semua data tetapan dan penanda buku tempatan? Tindakan ini tidak boleh diundur."
       )
     ) {
+      trackAppDataReset(bookmarks.length);
       clearAllAppData();
       document.documentElement.removeAttribute("data-theme");
       setTheme("system");
@@ -133,30 +135,30 @@ export function SettingsView() {
 
         <div className="setting-item">
           <div className="setting-info">
-            <strong>Saiz Fon Arab Lalai</strong>
+            <strong>Saiz Font Arab (Default)</strong>
             <p className="meta">Saiz teks al-Quran dan zikir pada halaman panduan.</p>
           </div>
-          <div className="font-size-pills" role="group" aria-label="Saiz fon Arab lalai">
+          <div className="theme-toggle-group" role="group" aria-label="Saiz font Arab (Default)">
             <button
               type="button"
-              className={`pill-btn ${fontSize === "kecil" ? "active" : ""}`}
+              className={`theme-pill ${fontSize === "kecil" ? "active" : ""}`}
               onClick={() => handleFontSizeChange("kecil")}
             >
-              Kecil (1.5rem)
+              Kecil
             </button>
             <button
               type="button"
-              className={`pill-btn ${fontSize === "biasa" ? "active" : ""}`}
+              className={`theme-pill ${fontSize === "biasa" ? "active" : ""}`}
               onClick={() => handleFontSizeChange("biasa")}
             >
-              Biasa (2.0rem)
+              Biasa
             </button>
             <button
               type="button"
-              className={`pill-btn ${fontSize === "besar" ? "active" : ""}`}
+              className={`theme-pill ${fontSize === "besar" ? "active" : ""}`}
               onClick={() => handleFontSizeChange("besar")}
             >
-              Besar (2.8rem)
+              Besar
             </button>
           </div>
         </div>
@@ -254,7 +256,7 @@ export function SettingsView() {
             <strong>Mazhab Rujukan:</strong> Mazhab Syafi&apos;i muktabar berpandukan penerbitan rasmi Jabatan Kemajuan Islam Malaysia (JAKIM) dan Pejabat Mufti Wilayah Persekutuan.
           </p>
           <p className="meta" style={{ marginTop: "0.5rem" }}>
-            Versi Aplikasi: 1.0.0 (Fasa 3 Core Reading Experience) · Dilesenkan untuk bimbingan ibadah umum.
+            Versi Aplikasi: 1.0.0
           </p>
           <div style={{ marginTop: "0.75rem" }}>
             <Link href="/bantuan/" className="cta-button secondary">

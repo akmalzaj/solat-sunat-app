@@ -1,5 +1,5 @@
 {
-  "name": "solat-sunat-app-uiux-director",
+  "name": "solatwiki",
   "private": true,
   "type": "module",
   "scripts": {
@@ -17,6 +17,7 @@
     "gemini-uiux:review": "node agents/gemini-uiux.mjs review"
   },
   "dependencies": {
+    "@next/third-parties": "^16.3.5",
     "next": "16.3.5",
     "react": "19.3.0",
     "react-dom": "19.3.0",
