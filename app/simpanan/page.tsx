@@ -5,7 +5,7 @@ import { BookmarksView } from "@/components/bookmarks/bookmarks-view";
 import { guides } from "@/content/registry";
 
 export const metadata: Metadata = {
-  title: "Simpanan Luar Talian",
+  title: "Simpanan Panduan Luar Talian (Offline)",
   description: "Senarai panduan solat sunat yang disimpan untuk capaian pantas tanpa sambungan internet.",
 };
 
@@ -15,10 +15,9 @@ export default function SimpananPage() {
       <SiteHeader />
       <main className="shell reader">
         <Link className="back" href="/">← Kembali ke halaman utama</Link>
-        <p className="eyebrow">Simpanan Luar Talian</p>
-        <h1>Panduan yang Disimpan</h1>
+        <h1 className="eyebrow page-title">Simpanan Panduan Luar Talian (Offline)</h1>
         <p className="lede">
-          Capaian pantas tanpa sambungan internet untuk panduan yang kerap anda amalkan di surau, masjid, atau ketika bermusafir.
+          Capaian pantas tanpa internet untuk panduan yang kerap anda amalkan.
         </p>
 
         {/* Real guides only: a bookmark persisted before the sample was hidden

@@ -23,6 +23,15 @@ h1 {
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   margin: .25rem 0 .45rem;
 }
+/* Larger emphasis variant for single-title pages (e.g. Simpanan offline list) */
+.page-title {
+  font-size: clamp(2rem, 6vw, 3rem);
+  margin: .25rem 0 .55rem;
+}
+/* Home hero: capped so each forced line of the two-line title stays on one line */
+.hero h1.page-title {
+  font-size: clamp(1.75rem, 4.5vw, 2rem);
+}
 h2 {
   font-size: clamp(1.15rem, 3vw, 1.5rem);
   margin-bottom: 0.5rem;
@@ -44,6 +53,10 @@ h2 {
   .hero h1 {
     font-size: clamp(1.25rem, 4.5vw, 1.5rem);
     margin: 0.1rem 0 0.25rem;
+  }
+  /* Big eyebrow title on the home hero keeps its size on mobile */
+  .hero h1.page-title {
+    font-size: clamp(1.25rem, 4.5vw, 1.75rem);
   }
   .hero .lede {
     display: none;

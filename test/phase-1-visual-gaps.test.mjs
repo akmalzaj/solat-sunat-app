@@ -116,9 +116,9 @@ test("Gap 4: Guide card uses responsive grid and structured metadata badges", ()
   assert.match(css, /guide-grid/);
   assert.match(css, /grid-template-columns/);
 
-  const home = source("app/page.tsx");
+  const discovery = source("components/discovery/catalog-view.tsx");
   // Category chip and rakaat badge
-  assert.match(home, /chip|badge|rakaat/i);
+  assert.match(discovery, /chip|badge|rakaat/i);
 });
 
 test("Gap 5: Surface elevation tokens and WCAG 2.2 non-color status notices", () => {
@@ -135,6 +135,6 @@ test("Gap 5: Surface elevation tokens and WCAG 2.2 non-color status notices", ()
   assert.match(css, /--danger:\s*#f87171/);
 
   // Status notice has text badge indicator, not color alone
-  const home = source("app/page.tsx");
-  assert.match(home, /notice-badge|PERINGATAN|STATUS/i);
+  const noticeSource = source("app/bantuan/page.tsx");
+  assert.match(noticeSource, /notice-badge|PENAFIAN|STATUS/i);
 });

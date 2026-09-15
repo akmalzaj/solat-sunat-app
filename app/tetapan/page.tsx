@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SettingsView } from "@/components/settings/settings-view";
 
 export const metadata: Metadata = {
-  title: "Tetapan & Metodologi",
+  title: "Tetapan Sistem & Sumber Fiqh",
   description: "Tetapan paparan, metodologi fiqh, dan maklumat sumber rujukan.",
 };
 
@@ -14,8 +14,7 @@ export default function TetapanPage() {
       <SiteHeader />
       <main className="shell reader">
         <Link className="back" href="/">← Kembali ke halaman utama</Link>
-        <p className="eyebrow">Tetapan &amp; Metodologi</p>
-        <h1>Tetapan &amp; Sumber Fiqh</h1>
+        <h1 className="eyebrow page-title">Tetapan Sistem &amp; Sumber Fiqh</h1>
         <p className="lede">Pengurusan saiz fon, tema paparan, dan rujukan autoriti fiqh Shafi&apos;i.</p>
 
         <SettingsView />
