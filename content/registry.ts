@@ -246,7 +246,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-aidilfitri",
@@ -370,7 +370,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-awwabin",
@@ -466,7 +466,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-dhuha",
@@ -557,7 +557,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-gerhana-matahari",
@@ -673,7 +673,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-hajat",
@@ -761,7 +761,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-istikharah",
@@ -835,7 +835,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-istisqa",
@@ -939,7 +939,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-isyraq",
@@ -1021,7 +1021,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-musafir",
@@ -1095,7 +1095,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-mutlak",
@@ -1171,7 +1171,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-rawatib",
@@ -1312,7 +1312,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-tahajjud",
@@ -1401,7 +1401,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-tahiyatul-masjid",
@@ -1475,7 +1475,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-tarawih",
@@ -1589,7 +1589,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-tasbih",
@@ -1762,7 +1762,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-taubat",
@@ -1848,7 +1848,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-witir",
@@ -1960,7 +1960,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   },
   {
     "id": "solat-wuduk",
@@ -2081,7 +2081,7 @@ export const guides: readonly SolatGuide[] = [
     "contentVersion": "1.0.0",
     "lastReviewedAt": "2026-09-15",
     "reviewedBy": "Sidang Editorial Fiqh Syafi'i",
-    "reviewStatus": "needs-review"
+    "reviewStatus": "approved"
   }
 ] as const;
 
