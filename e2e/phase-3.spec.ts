@@ -8,9 +8,9 @@ test("Phase 3: discovery search and category filter work seamlessly with empty s
   await expect(page.getByText(/Cadangan berdasarkan waktu peranti; bukan penentu waktu ibadah tepat/i)).toBeVisible();
 
   // Test category filtering: click "Malam & Qiam"
-  const malamChip = page.getByRole("tab", { name: /Malam & Qiam/i });
+  const malamChip = page.getByRole("button", { name: /Malam & Qiam/i });
   await malamChip.click();
-  await expect(malamChip).toHaveAttribute("aria-selected", "true");
+  await expect(malamChip).toHaveAttribute("aria-pressed", "true");
   await expect(page.getByRole("heading", { name: /Panduan MALAM/i })).toBeVisible();
   await expect(page.getByRole("link", { name: /Solat Sunat Tahajjud/i })).toBeVisible();
   await expect(page.getByRole("link", { name: /Solat Sunat Witir/i })).toBeVisible();

@@ -27,7 +27,11 @@ export function ServiceWorkerProvider({ children }: Readonly<{ children: ReactNo
           if (installing.state === "installed") showWaitingUpdate(registration);
         });
       });
-    }).catch(() => undefined);
+    }).catch((error: unknown) => {
+      // A failed registration means offline mode silently stops working; leave a
+      // breadcrumb instead of swallowing the error.
+      console.error("Service worker registration failed:", error);
+    });
 
     return () => navigator.serviceWorker.removeEventListener("controllerchange", onControllerChange);
   }, []);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import type { SolatGuide } from "@/lib/content-schema";
 import {
@@ -17,6 +17,16 @@ import { useStorageState } from "@/lib/storage";
 
 type CategoryFilter = "semua" | "harian" | "malam" | "hajat" | "raya_fenomena";
 
+const TIME_SLOT_REFRESH_MS = 30 * 60 * 1000;
+
+const CATEGORY_LABELS: Record<CategoryFilter, string> = {
+  semua: "Semua",
+  harian: "Harian",
+  malam: "Malam & Qiam",
+  hajat: "Hajat & Doa",
+  raya_fenomena: "Raya & Khusus",
+};
+
 interface CatalogViewProps {
   initialGuides: readonly SolatGuide[];
 }
@@ -28,19 +38,24 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
     STORAGE_KEYS.BOOKMARKS,
     DEFAULT_PREFERENCES.bookmarks
   );
-  const [timeSlot] = useState<TimeSlot>(() => {
-    const hour = new Date().getHours();
-    return getTimeSlotFromHour(hour);
-  });
+  // Computed after mount: the device time is unavailable during prerender, and
+  // deriving it at build time would freeze the recommendation at the build hour.
+  const [timeSlot, setTimeSlot] = useState<TimeSlot | null>(null);
 
-  const handleToggleBookmark = (slug: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  useEffect(() => {
+    const updateSlot = () => setTimeSlot(getTimeSlotFromHour(new Date().getHours()));
+    updateSlot();
+    const interval = setInterval(updateSlot, TIME_SLOT_REFRESH_MS);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleToggleBookmark = (slug: string) => {
     const updated = toggleBookmark(bookmarks, slug);
     setBookmarks(updated);
   };
 
   const recommendation = useMemo(() => {
+    if (!timeSlot) return null;
     return getRecommendationForSlot(timeSlot, initialGuides);
   }, [timeSlot, initialGuides]);
 
@@ -97,84 +112,57 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
           )}
         </div>
 
-        <div className="category-chips" role="tablist" aria-label="Kategori solat">
-          <button
-            type="button"
-            className={`chip ${selectedCategory === "semua" ? "active" : ""}`}
-            role="tab"
-            aria-selected={selectedCategory === "semua"}
-            onClick={() => setSelectedCategory("semua")}
-          >
-            Semua
-          </button>
-          <button
-            type="button"
-            className={`chip ${selectedCategory === "harian" ? "active" : ""}`}
-            role="tab"
-            aria-selected={selectedCategory === "harian"}
-            onClick={() => setSelectedCategory("harian")}
-          >
-            Harian
-          </button>
-          <button
-            type="button"
-            className={`chip ${selectedCategory === "malam" ? "active" : ""}`}
-            role="tab"
-            aria-selected={selectedCategory === "malam"}
-            onClick={() => setSelectedCategory("malam")}
-          >
-            Malam &amp; Qiam
-          </button>
-          <button
-            type="button"
-            className={`chip ${selectedCategory === "hajat" ? "active" : ""}`}
-            role="tab"
-            aria-selected={selectedCategory === "hajat"}
-            onClick={() => setSelectedCategory("hajat")}
-          >
-            Hajat &amp; Doa
-          </button>
-          <button
-            type="button"
-            className={`chip ${selectedCategory === "raya_fenomena" ? "active" : ""}`}
-            role="tab"
-            aria-selected={selectedCategory === "raya_fenomena"}
-            onClick={() => setSelectedCategory("raya_fenomena")}
-          >
-            Raya &amp; Khusus
-          </button>
+        <div className="category-chips" role="group" aria-label="Kategori solat">
+          {(["semua", "harian", "malam", "hajat", "raya_fenomena"] as const).map((category) => (
+            <button
+              key={category}
+              type="button"
+              className={`chip ${selectedCategory === category ? "active" : ""}`}
+              aria-pressed={selectedCategory === category}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {CATEGORY_LABELS[category]}
+            </button>
+          ))}
         </div>
       </section>
 
       {/* Time-of-day Discovery Suggestion Card (Compact below discovery bar) */}
       {!searchQuery && selectedCategory === "semua" && (
-        <section className="recommendation-card" aria-label="Cadangan masa kini">
-          <div className="recommendation-header">
-            <span className="recommendation-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+        recommendation ? (
+          <section className="recommendation-card" aria-label="Cadangan masa kini">
+            <div className="recommendation-header">
+              <span className="recommendation-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                CADANGAN WAKTU PERANTI: {recommendation.title.toUpperCase()}
+              </span>
+            </div>
+            <div className="recommendation-links">
+              {recommendation.guides.map((g) => (
+                <Link key={g.slug} href={`/solat/${g.slug}/`} className="recommendation-chip">
+                  <span>{g.title}</span>
+                  <span className="recommendation-arrow">→</span>
+                </Link>
+              ))}
+            </div>
+            <p className="recommendation-disclaimer">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <circle cx="12" cy="12" r="10" />
-                <polyline points="12 6 12 12 16 14" />
+                <line x1="12" y1="16" x2="12" y2="12" />
+                <line x1="12" y1="8" x2="12.01" y2="8" />
               </svg>
-              CADANGAN WAKTU PERANTI: {recommendation.title.toUpperCase()}
-            </span>
-          </div>
-          <div className="recommendation-links">
-            {recommendation.guides.map((g) => (
-              <Link key={g.slug} href={`/solat/${g.slug}/`} className="recommendation-chip">
-                <span>{g.title}</span>
-                <span className="recommendation-arrow">→</span>
-              </Link>
-            ))}
-          </div>
-          <p className="recommendation-disclaimer">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="16" x2="12" y2="12" />
-              <line x1="12" y1="8" x2="12.01" y2="8" />
-            </svg>
-            {recommendation.disclaimer}
-          </p>
-        </section>
+              {recommendation.disclaimer}
+            </p>
+          </section>
+        ) : (
+          // The recommendation is computed after mount (device time is
+          // unavailable during prerender). Reserving its slot keeps the guide
+          // grid from shifting when the card appears (CLS above the fold).
+          <div className="recommendation-card recommendation-card-placeholder" aria-hidden="true" />
+        )
       )}
 
       {/* Guide Card Grid / Empty State */}
@@ -184,7 +172,7 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
             {searchQuery
               ? `Hasil Carian (${filteredGuides.length})`
               : selectedCategory !== "semua"
-              ? `Panduan ${selectedCategory.replace("_", " & ").toUpperCase()} (${filteredGuides.length})`
+              ? `Panduan ${CATEGORY_LABELS[selectedCategory].toUpperCase()} (${filteredGuides.length})`
               : "Semua Panduan Solat Sunat"}
           </h2>
           {searchQuery && (
@@ -231,7 +219,7 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
             {filteredGuides.map((guide) => {
               const bookmarked = bookmarks.includes(guide.slug);
               return (
-                <Link key={guide.slug} className="guide-card" href={`/solat/${guide.slug}/`}>
+                <article key={guide.slug} className="guide-card">
                   <div className="guide-card-header">
                     <span className="category-badge">
                       {guide.slug === "contoh-struktur" ? "Sampel Ujian" : guide.category.toUpperCase()}
@@ -239,11 +227,17 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
                     <span className="rakaat-badge">{guide.rakaatOptions.join("/")} Rakaat</span>
                   </div>
 
-                  <h3>{guide.title}</h3>
-                  <p className="arabic-card-sub" lang="ar" dir="rtl">
-                    {guide.titleArabic}
-                  </p>
-                  <p className="guide-card-summary">{guide.shortPurpose}</p>
+                  <Link
+                    className="guide-card-link"
+                    href={`/solat/${guide.slug}/`}
+                    aria-label={`Buka panduan ${guide.title}`}
+                  >
+                    <h3>{guide.title}</h3>
+                    <p className="arabic-card-sub" lang="ar" dir="rtl">
+                      {guide.titleArabic}
+                    </p>
+                    <p className="guide-card-summary">{guide.shortPurpose}</p>
+                  </Link>
 
                   <div className="guide-card-footer">
                     <span className={`status-badge ${guide.reviewStatus}`}>
@@ -254,7 +248,7 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
                         type="button"
                         className={`bookmark-card-button ${bookmarked ? "active" : ""}`}
                         aria-label={bookmarked ? `Nyah tanda buku ${guide.title}` : `Simpan tanda buku ${guide.title}`}
-                        onClick={(e) => handleToggleBookmark(guide.slug, e)}
+                        onClick={() => handleToggleBookmark(guide.slug)}
                       >
                         <svg
                           width="20"
@@ -271,7 +265,7 @@ export function CatalogView({ initialGuides }: CatalogViewProps) {
                       <span className="card-cta">Buka →</span>
                     </div>
                   </div>
-                </Link>
+                </article>
               );
             })}
           </div>

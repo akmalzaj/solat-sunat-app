@@ -73,13 +73,13 @@ test("mobile viewport displays guide card above the fold without scrolling", asy
 
   // Discovery bar and category chips are visible
   await expect(page.getByRole("searchbox", { name: "Cari solat sunat" })).toBeVisible();
-  await expect(page.getByRole("tab", { name: "Semua" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Semua" })).toBeVisible();
 
   // Notice badge provides non-color text cue
   await expect(page.getByText("PERINGATAN STATUS")).toBeVisible();
 
   // Guide card is visible above the 812px viewport fold
-  const guideCard = page.getByRole("link", { name: /contoh struktur panduan/i });
+  const guideCard = page.locator("article.guide-card", { hasText: /contoh struktur panduan/i }).first();
   await expect(guideCard).toBeVisible();
   const box = await guideCard.boundingBox();
   expect(box).not.toBeNull();

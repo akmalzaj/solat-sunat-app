@@ -6,6 +6,7 @@ import type { SolatGuide, SourceItem } from "@/lib/content-schema";
 import {
   DEFAULT_PREFERENCES,
   type FontSizeScale,
+  PREFERENCE_KEYS,
   STORAGE_KEYS,
   toggleBookmark,
 } from "@/lib/preferences";
@@ -23,15 +24,15 @@ export function GuideReader({ guide, primarySource }: GuideReaderProps) {
     DEFAULT_PREFERENCES.bookmarks
   );
   const [fontSize, setFontSize] = useStorageState<FontSizeScale>(
-    "solat_sunat_font_size",
+    PREFERENCE_KEYS.FONT_SIZE,
     DEFAULT_PREFERENCES.fontSize
   );
   const [showRumi, setShowRumi] = useStorageState<boolean>(
-    "solat_sunat_show_rumi",
+    PREFERENCE_KEYS.SHOW_RUMI,
     DEFAULT_PREFERENCES.showRumi
   );
   const [showTranslation, setShowTranslation] = useStorageState<boolean>(
-    "solat_sunat_show_translation",
+    PREFERENCE_KEYS.SHOW_TRANSLATION,
     DEFAULT_PREFERENCES.showTranslation
   );
 
@@ -158,13 +159,12 @@ export function GuideReader({ guide, primarySource }: GuideReaderProps) {
           <div className="section-title-row">
             <h2 id="niat-title">Lafaz Niat</h2>
             {guide.niat.length > 1 && (
-              <div className="niat-variation-selector" role="tablist" aria-label="Pilihan lafaz niat">
+              <div className="niat-variation-selector" role="group" aria-label="Pilihan lafaz niat">
                 {guide.niat.map((n, idx) => (
                   <button
                     key={idx}
                     type="button"
-                    role="tab"
-                    aria-selected={selectedNiatIndex === idx}
+                    aria-pressed={selectedNiatIndex === idx}
                     className={`variation-tab ${selectedNiatIndex === idx ? "active" : ""}`}
                     onClick={() => setSelectedNiatIndex(idx)}
                   >

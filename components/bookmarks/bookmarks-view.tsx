@@ -7,7 +7,7 @@ import {
   STORAGE_KEYS,
   toggleBookmark,
 } from "@/lib/preferences";
-import { clearAllAppData, useStorageState } from "@/lib/storage";
+import { useStorageState } from "@/lib/storage";
 
 interface BookmarksViewProps {
   allGuides: readonly SolatGuide[];
@@ -19,9 +19,7 @@ export function BookmarksView({ allGuides }: BookmarksViewProps) {
     DEFAULT_PREFERENCES.bookmarks
   );
 
-  const handleToggleBookmark = (slug: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleToggleBookmark = (slug: string) => {
     const updated = toggleBookmark(bookmarks, slug);
     setBookmarks(updated);
   };
@@ -68,24 +66,30 @@ export function BookmarksView({ allGuides }: BookmarksViewProps) {
 
       <div className="guide-grid">
         {bookmarkedGuides.map((guide) => (
-          <Link key={guide.slug} className="guide-card" href={`/solat/${guide.slug}/`}>
+          <article key={guide.slug} className="guide-card">
             <div className="guide-card-header">
               <span className="category-badge">{guide.category.toUpperCase()}</span>
               <span className="rakaat-badge">{guide.rakaatOptions.join("/")} Rakaat</span>
             </div>
 
-            <h3>{guide.title}</h3>
-            <p className="arabic-card-sub" lang="ar" dir="rtl">
-              {guide.titleArabic}
-            </p>
-            <p className="guide-card-summary">{guide.shortPurpose}</p>
+            <Link
+              className="guide-card-link"
+              href={`/solat/${guide.slug}/`}
+              aria-label={`Buka panduan ${guide.title}`}
+            >
+              <h3>{guide.title}</h3>
+              <p className="arabic-card-sub" lang="ar" dir="rtl">
+                {guide.titleArabic}
+              </p>
+              <p className="guide-card-summary">{guide.shortPurpose}</p>
+            </Link>
 
             <div className="guide-card-footer">
               <button
                 type="button"
                 className="bookmark-card-button active"
                 aria-label={`Padam tanda buku ${guide.title}`}
-                onClick={(e) => handleToggleBookmark(guide.slug, e)}
+                onClick={() => handleToggleBookmark(guide.slug)}
                 title="Padam daripada simpanan"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -94,7 +98,7 @@ export function BookmarksView({ allGuides }: BookmarksViewProps) {
               </button>
               <span className="card-cta">Buka panduan →</span>
             </div>
-          </Link>
+          </article>
         ))}
       </div>
     </div>

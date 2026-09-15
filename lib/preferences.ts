@@ -23,15 +23,24 @@ export const STORAGE_KEYS = {
   TOOL_PROGRESS: "solat_sunat_tool_progress_v1",
 } as const;
 
+export const PREFERENCE_KEYS = {
+  THEME: "solat_sunat_theme",
+  FONT_SIZE: "solat_sunat_font_size",
+  SHOW_RUMI: "solat_sunat_show_rumi",
+  SHOW_TRANSLATION: "solat_sunat_show_translation",
+  HAPTICS_ENABLED: "solat_sunat_haptics_enabled",
+} as const;
+
+/** Single source of truth for every local storage key this app owns. */
 export const APP_STORAGE_KEYS = [
   STORAGE_KEYS.PREFERENCES,
   STORAGE_KEYS.BOOKMARKS,
   STORAGE_KEYS.TOOL_PROGRESS,
-  "solat_sunat_theme",
-  "solat_sunat_font_size",
-  "solat_sunat_show_rumi",
-  "solat_sunat_show_translation",
-  "solat_sunat_haptics_enabled",
+  PREFERENCE_KEYS.THEME,
+  PREFERENCE_KEYS.FONT_SIZE,
+  PREFERENCE_KEYS.SHOW_RUMI,
+  PREFERENCE_KEYS.SHOW_TRANSLATION,
+  PREFERENCE_KEYS.HAPTICS_ENABLED,
 ] as const;
 
 export function clampFontSize(val: unknown): FontSizeScale {

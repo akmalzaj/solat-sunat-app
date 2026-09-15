@@ -14,7 +14,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const guide = findGuide((await params).slug);
   if (!guide) return { title: "Panduan tidak ditemui" };
-  return { title: `${guide.title} | Panduan Solat Sunat` };
+  // The root layout template appends "| Panduan Solat Sunat"; supply the bare title.
+  return { title: guide.title };
 }
 
 export default async function GuidePage({ params }: PageProps) {

@@ -3,46 +3,75 @@
 import { useMemo, useState } from "react";
 import { allGuides, findGuide } from "@/content/registry";
 import type { InteractiveToolConfig } from "@/lib/content-schema";
-import { STORAGE_KEYS } from "@/lib/preferences";
+import { PREFERENCE_KEYS, STORAGE_KEYS } from "@/lib/preferences";
 import { useStorageState } from "@/lib/storage";
 import {
   advanceTasbihProgress,
-  createTasbihProgress,
   getActiveTasbihPositionIndex,
   getTakbirProgressLabel,
   getTasbihProgressLabel,
   resetTasbihProgress,
   retreatTasbihProgress,
   type TasbihProgress,
-  type TasbihToolConfig,
 } from "@/lib/tool-progress";
 
 type ToolProgressStore = { tasbih?: TasbihProgress; takbir?: Record<string, number> };
 
-function getTool<T extends InteractiveToolConfig["toolType"]>(slug: string, type: T): Extract<InteractiveToolConfig, { toolType: T }> {
+/**
+ * Returns the reviewed tool configuration for a canonical slug, or undefined when
+ * the registry does not carry it. Never throws: a registry drift must degrade the
+ * tools page, not white-screen it.
+ */
+function getTool<T extends InteractiveToolConfig["toolType"]>(
+  slug: string,
+  type: T,
+): Extract<InteractiveToolConfig, { toolType: T }> | undefined {
   const tool = findGuide(slug)?.interactiveTool;
-  if (!tool || tool.toolType !== type) throw new Error(`Missing reviewed ${type} configuration for ${slug}.`);
+  if (!tool || tool.toolType !== type) return undefined;
+  // Safe: toolType has just been verified to match at runtime.
   return tool as Extract<InteractiveToolConfig, { toolType: T }>;
+}
+
+function MissingToolNotice() {
+  return (
+    <aside className="notice" role="alert" aria-label="Konfigurasi alatan tidak lengkap">
+      <span className="notice-badge">KANDUNGAN BELUM SIAP</span>
+      <p>Konfigurasi alatan yang telah disemak belum tersedia untuk bahagian ini. Sila muat semula halaman atau semak semula kandungan aplikasi.</p>
+    </aside>
+  );
 }
 
 export function ToolsView() {
   const [progress, setProgress] = useStorageState<ToolProgressStore>(STORAGE_KEYS.TOOL_PROGRESS, {});
-  const [hapticsEnabled] = useStorageState<boolean>("solat_sunat_haptics_enabled", true);
+  const [hapticsEnabled] = useStorageState<boolean>(PREFERENCE_KEYS.HAPTICS_ENABLED, true);
   const tasbih = useMemo(() => getTool("tasbih", "tasbih-counter"), []);
   const rawatib = useMemo(() => getTool("rawatib", "rawatib-grid"), []);
   const kusuf = useMemo(() => getTool("gerhana-matahari", "kusuf-visualizer"), []);
   const takbirGuides = useMemo(() => allGuides.filter((guide) => guide.interactiveTool?.toolType === "takbir-tracker"), []);
-  const [selectedTakbirSlug, setSelectedTakbirSlug] = useState("aidilfitri");
-  const selectedTakbir = getTool(selectedTakbirSlug, "takbir-tracker");
-  const tasbihProgress = progress.tasbih ?? createTasbihProgress(tasbih as TasbihToolConfig);
-  const takbirCompleted = Math.min(Math.max(progress.takbir?.[selectedTakbirSlug] ?? 0, 0), 12);
+  const [selectedTakbirSlug, setSelectedTakbirSlug] = useState<string>("");
+  const effectiveTakbirSlug = takbirGuides.some((guide) => guide.slug === selectedTakbirSlug)
+    ? selectedTakbirSlug
+    : takbirGuides[0]?.slug ?? "";
+  const selectedTakbir = effectiveTakbirSlug ? getTool(effectiveTakbirSlug, "takbir-tracker") : undefined;
+  // Derived from the reviewed configuration instead of a hardcoded total.
+  const takbirTotal = selectedTakbir ? selectedTakbir.rakaat1Takbir + selectedTakbir.rakaat2Takbir : 0;
+  const tasbihProgress = progress.tasbih ?? resetTasbihProgress();
+  const takbirCompleted = Math.min(Math.max(progress.takbir?.[effectiveTakbirSlug] ?? 0, 0), takbirTotal);
   const updateTasbih = (next: TasbihProgress) => setProgress({ ...progress, tasbih: next });
-  const updateTakbir = (next: number) => setProgress({ ...progress, takbir: { ...progress.takbir, [selectedTakbirSlug]: Math.min(Math.max(next, 0), 12) } });
+  const updateTakbir = (next: number) => setProgress({ ...progress, takbir: { ...progress.takbir, [effectiveTakbirSlug]: Math.min(Math.max(next, 0), takbirTotal) } });
   const giveFeedback = () => {
     if (hapticsEnabled && typeof navigator !== "undefined" && "vibrate" in navigator) navigator.vibrate(10);
   };
 
-  const activeTasbihPosition = getActiveTasbihPositionIndex(tasbihProgress, tasbih as TasbihToolConfig);
+  const activeTasbihPosition = tasbih ? getActiveTasbihPositionIndex(tasbihProgress, tasbih) : 0;
+
+  if (!tasbih || !rawatib || !kusuf) {
+    return (
+      <div className="tools-container">
+        <MissingToolNotice />
+      </div>
+    );
+  }
 
   return (
     <div className="tools-container">
@@ -98,7 +127,7 @@ export function ToolsView() {
         <fieldset className="tool-choice-group">
           <legend>Pilih panduan takbir</legend>
           {takbirGuides.map((guide) => {
-            const isSelected = selectedTakbirSlug === guide.slug;
+            const isSelected = effectiveTakbirSlug === guide.slug;
             return (
               <label key={guide.slug} className={`tool-choice-pill ${isSelected ? "active" : ""}`}>
                 <input
@@ -113,17 +142,23 @@ export function ToolsView() {
             );
           })}
         </fieldset>
-        <p className="meta"><strong>{selectedTakbir.rakaat1Takbir} kali takbir tambahan</strong> pada rakaat pertama dan <strong>{selectedTakbir.rakaat2Takbir} kali</strong> pada rakaat kedua.</p>
-        <p className="arabic tool-arabic" lang="ar" dir="rtl">{selectedTakbir.intermediateTasbih}</p>
-        <p className="meta">Tasbih dibaca antara takbir seperti dirujuk dalam panduan terpilih.</p>
-        <p className="tool-progress-label" aria-live="polite">{getTakbirProgressLabel(takbirCompleted, selectedTakbir)}</p>
-        <progress aria-label="Kemajuan takbir" value={takbirCompleted} max={12} />
-        <p className="meta">{takbirCompleted} daripada 12 takbir disemak.</p>
-        <div className="tool-controls">
-          <button type="button" className="tool-secondary-button" onClick={() => updateTakbir(takbirCompleted - 1)} aria-label="Kurang satu takbir">−1</button>
-          <button type="button" className="tool-primary-button" onClick={() => { updateTakbir(takbirCompleted + 1); giveFeedback(); }} aria-label="Tambah satu takbir">+1</button>
-          <button type="button" className="tool-secondary-button" onClick={() => updateTakbir(0)} aria-label="Set semula kemajuan takbir">Set semula</button>
-        </div>
+        {selectedTakbir ? (
+          <>
+            <p className="meta"><strong>{selectedTakbir.rakaat1Takbir} kali takbir tambahan</strong> pada rakaat pertama dan <strong>{selectedTakbir.rakaat2Takbir} kali</strong> pada rakaat kedua.</p>
+            <p className="arabic tool-arabic" lang="ar" dir="rtl">{selectedTakbir.intermediateTasbih}</p>
+            <p className="meta">Tasbih dibaca antara takbir seperti dirujuk dalam panduan terpilih.</p>
+            <p className="tool-progress-label" aria-live="polite">{getTakbirProgressLabel(takbirCompleted, selectedTakbir)}</p>
+            <progress aria-label="Kemajuan takbir" value={takbirCompleted} max={takbirTotal} />
+            <p className="meta">{takbirCompleted} daripada {takbirTotal} takbir disemak.</p>
+            <div className="tool-controls">
+              <button type="button" className="tool-secondary-button" onClick={() => updateTakbir(takbirCompleted - 1)} aria-label="Kurang satu takbir">−1</button>
+              <button type="button" className="tool-primary-button" onClick={() => { updateTakbir(takbirCompleted + 1); giveFeedback(); }} aria-label="Tambah satu takbir">+1</button>
+              <button type="button" className="tool-secondary-button" onClick={() => updateTakbir(0)} aria-label="Set semula kemajuan takbir">Set semula</button>
+            </div>
+          </>
+        ) : (
+          <MissingToolNotice />
+        )}
       </section>
 
       {/* 3. Jadual Rawatib (Responsive Cards on mobile, Table on desktop/tablet) */}

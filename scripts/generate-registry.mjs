@@ -10,16 +10,23 @@ const registryPath = path.join(projectRoot, "content", "registry.ts");
 
 async function generateRegistry() {
   const sourcesRaw = await readFile(sourcesPath, "utf8");
-  const sources = JSON.parse(sourcesRaw);
+  let sources;
+  try {
+    sources = JSON.parse(sourcesRaw);
+  } catch (err) {
+    throw new Error(`Failed to parse ${sourcesPath}: ${err.message}`);
+  }
 
   const files = (await readdir(solatDir)).filter((f) => f.endsWith(".json"));
-  const guides = [];
 
-  for (const file of files) {
+  const guides = await Promise.all(files.map(async (file) => {
     const filePath = path.join(solatDir, file);
-    const content = await readFile(filePath, "utf8");
-    guides.push(JSON.parse(content));
-  }
+    try {
+      return JSON.parse(await readFile(filePath, "utf8"));
+    } catch (err) {
+      throw new Error(`Failed to parse ${filePath}: ${err.message}`);
+    }
+  }));
 
   // Sort guides deterministically by slug
   guides.sort((a, b) => a.slug.localeCompare(b.slug));

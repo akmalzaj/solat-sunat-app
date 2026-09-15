@@ -5,38 +5,46 @@ import Link from "next/link";
 import {
   DEFAULT_PREFERENCES,
   type FontSizeScale,
+  PREFERENCE_KEYS,
   STORAGE_KEYS,
   type ThemeMode,
 } from "@/lib/preferences";
 import { clearAllAppData, useStorageState } from "@/lib/storage";
 
+let reducedMotionQuery: MediaQueryList | null = null;
+
+/** Hoisted so useSyncExternalStore's getSnapshot returns a stable value without
+ * constructing a new MediaQueryList on every call. */
+function getReducedMotionQuery(): MediaQueryList | null {
+  if (typeof window === "undefined" || !window.matchMedia) return null;
+  reducedMotionQuery ??= window.matchMedia("(prefers-reduced-motion: reduce)");
+  return reducedMotionQuery;
+}
+
 export function SettingsView() {
-  const [theme, setTheme] = useStorageState<ThemeMode>("solat_sunat_theme", "system");
+  const [theme, setTheme] = useStorageState<ThemeMode>(PREFERENCE_KEYS.THEME, "system");
   const [fontSize, setFontSize] = useStorageState<FontSizeScale>(
-    "solat_sunat_font_size",
+    PREFERENCE_KEYS.FONT_SIZE,
     DEFAULT_PREFERENCES.fontSize
   );
   const [showRumi, setShowRumi] = useStorageState<boolean>(
-    "solat_sunat_show_rumi",
+    PREFERENCE_KEYS.SHOW_RUMI,
     DEFAULT_PREFERENCES.showRumi
   );
   const [showTranslation, setShowTranslation] = useStorageState<boolean>(
-    "solat_sunat_show_translation",
+    PREFERENCE_KEYS.SHOW_TRANSLATION,
     DEFAULT_PREFERENCES.showTranslation
   );
   const [bookmarks, setBookmarks] = useStorageState<string[]>(STORAGE_KEYS.BOOKMARKS, []);
-  const [hapticsEnabled, setHapticsEnabled] = useStorageState<boolean>("solat_sunat_haptics_enabled", true);
+  const [hapticsEnabled, setHapticsEnabled] = useStorageState<boolean>(PREFERENCE_KEYS.HAPTICS_ENABLED, true);
   const prefersReducedMotion = useSyncExternalStore(
     (callback) => {
-      if (typeof window === "undefined" || !window.matchMedia) return () => {};
-      const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const mq = getReducedMotionQuery();
+      if (!mq) return () => {};
       mq.addEventListener("change", callback);
       return () => mq.removeEventListener("change", callback);
     },
-    () => {
-      if (typeof window === "undefined" || !window.matchMedia) return false;
-      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    },
+    () => getReducedMotionQuery()?.matches ?? false,
     () => false
   );
   const [resetMessage, setResetMessage] = useState<string>("");

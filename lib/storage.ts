@@ -1,15 +1,34 @@
 import { useSyncExternalStore } from "react";
+import { z } from "zod";
+import { APP_STORAGE_KEYS, PREFERENCE_KEYS, STORAGE_KEYS } from "./preferences.ts";
 
-const APP_STORAGE_KEYS = [
-  "solat_sunat_prefs_v1",
-  "solat_sunat_bookmarks_v1",
-  "solat_sunat_tool_progress_v1",
-  "solat_sunat_theme",
-  "solat_sunat_font_size",
-  "solat_sunat_show_rumi",
-  "solat_sunat_show_translation",
-  "solat_sunat_haptics_enabled",
-] as const;
+/**
+ * Per-key runtime schemas. localStorage is an untrusted boundary (corruption,
+ * older app versions, other tabs): structurally invalid values fall back to the
+ * provided default instead of reaching render code.
+ */
+const STORED_VALUE_SCHEMAS: Record<string, z.ZodType> = {
+  [STORAGE_KEYS.PREFERENCES]: z.object({
+    fontSize: z.enum(["kecil", "biasa", "besar"]),
+    showRumi: z.boolean(),
+    showTranslation: z.boolean(),
+    theme: z.enum(["system", "light", "dark"]),
+    bookmarks: z.array(z.string()),
+  }),
+  [STORAGE_KEYS.BOOKMARKS]: z.array(z.string()),
+  // Partial-shape by design: unknown keys pass through (never stripped), so
+  // progress written by a newer app version survives an older build. One
+  // invalid field falls back to the default for the whole key.
+  [STORAGE_KEYS.TOOL_PROGRESS]: z.object({
+    tasbih: z.object({ completed: z.number().int().min(0) }).optional(),
+    takbir: z.record(z.string(), z.number().int().min(0)).optional(),
+  }),
+  [PREFERENCE_KEYS.THEME]: z.enum(["system", "light", "dark"]),
+  [PREFERENCE_KEYS.FONT_SIZE]: z.enum(["kecil", "biasa", "besar"]),
+  [PREFERENCE_KEYS.SHOW_RUMI]: z.boolean(),
+  [PREFERENCE_KEYS.SHOW_TRANSLATION]: z.boolean(),
+  [PREFERENCE_KEYS.HAPTICS_ENABLED]: z.boolean(),
+};
 
 /**
  * Safe local storage adapter for client-side persistence.
@@ -34,9 +53,15 @@ export function getStorageItem<T>(key: string, fallback: T): T {
       memoryCache.set(key, { raw: null, parsed: fallback });
       return fallback;
     }
-    const parsed = JSON.parse(raw) as T;
+    const parsed: unknown = JSON.parse(raw);
+    const schema = STORED_VALUE_SCHEMAS[key];
+    if (schema && !schema.safeParse(parsed).success) {
+      // Structurally invalid stored value: fall back rather than render untrusted data.
+      memoryCache.set(key, { raw, parsed: fallback });
+      return fallback;
+    }
     memoryCache.set(key, { raw, parsed });
-    return parsed;
+    return parsed as T;
   } catch {
     return fallback;
   }
@@ -117,7 +142,12 @@ export function useStorageState<T>(key: string, fallback: T): [T, (val: T) => vo
   );
 
   const setValue = (val: T) => {
-    setStorageItem(key, val);
+    const persisted = setStorageItem(key, val);
+    if (!persisted) {
+      // Surface persistence failures (quota exceeded, private browsing) instead of
+      // letting the UI state silently diverge from what is actually stored.
+      console.error(`Failed to persist "${key}" to local storage; the change will be lost on reload.`);
+    }
   };
 
   return [value, setValue];

@@ -14,7 +14,16 @@ self.addEventListener("install", (event) => {
 });
 
 self.addEventListener("message", (event) => {
-  if (event.data?.type === "SKIP_WAITING") {
+  // Only honour activation requests from same-origin clients. Compare parsed
+  // origins: a prefix check would also accept e.g. https://origin.attacker.com.
+  const sourceUrl = event.source && "url" in event.source ? event.source.url : "";
+  let isSameOriginClient = false;
+  try {
+    isSameOriginClient = new URL(sourceUrl).origin === self.location.origin;
+  } catch {
+    // Unparseable source URL: refuse rather than guess.
+  }
+  if (event.data?.type === "SKIP_WAITING" && isSameOriginClient) {
     void self.skipWaiting();
   }
 });

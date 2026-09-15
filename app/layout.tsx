@@ -26,7 +26,9 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem("solat_sunat_theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();`,
+            // setStorageItem persists JSON ("dark" with quotes); parse it, but also
+            // accept a raw "dark"/"light" for values written by older versions.
+            __html: `(function(){try{var r=localStorage.getItem("solat_sunat_theme");var t=r;try{t=JSON.parse(r)}catch(e){}if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();`,
           }}
         />
       </head>

@@ -15,7 +15,13 @@ export const SourceItemSchema = z.object({
   publisher: z.string().min(1),
   year: z.number().int().optional().nullable(),
   type: SourceTypeSchema,
-  url: z.string().url().optional(),
+  // z.string().url() alone accepts javascript: schemes; only https is trusted
+  // because source URLs are rendered as clickable links.
+  url: z
+    .string()
+    .url()
+    .refine((value) => value.startsWith("https://"), "Source URL must use https")
+    .optional(),
   licenseOrPermission: z.string().min(1),
   notes: z.string().min(1),
 });
