@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { sources } from "@/content/registry";
 
 export const metadata: Metadata = {
-  title: "Bantuan, Metodologi & Sumber | Panduan Solat Sunat",
+  title: "Bantuan, Metodologi & Sumber",
   description: "Metodologi penyusunan panduan ibadah, daftar sumber rujukan muktabar, dan saluran maklum balas.",
 };
 
@@ -17,7 +17,7 @@ export default function BantuanPage() {
         <p className="eyebrow">Tadbir Urus &amp; Metodologi</p>
         <h1>Bantuan, Sumber &amp; Metodologi Fiqh</h1>
         <p className="lede">
-          Panduan Solat Sunat &amp; Doa dibangunkan khusus berpandukan Mazhab Syafi&apos;i yang menjadi amalan rasmi umat Islam di Malaysia.
+          SolatWiki dibangunkan khusus berpandukan Mazhab Syafi&apos;i yang menjadi amalan rasmi umat Islam di Malaysia.
         </p>
 
         <aside className="notice" aria-label="Penafian autoriti agama">

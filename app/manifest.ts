@@ -4,9 +4,9 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Panduan Solat Sunat",
-    short_name: "Solat Sunat",
-    description: "Panduan solat sunat untuk dibaca selepas dimuat turun.",
+    name: "SolatWiki - Panduan Solat Sunat & Doa",
+    short_name: "SolatWiki",
+    description: "SolatWiki: Panduan Solat Sunat dan Doa Untuk Semua",
     start_url: "/",
     display: "standalone",
     background_color: "#f7f7f2",

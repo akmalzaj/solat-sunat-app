@@ -14,8 +14,8 @@ export function SiteHeader() {
   return (
     <header className="topbar" role="banner">
       <div className="shell topbar-content">
-        <Link className="brand" href="/" aria-label="Halaman Utama Panduan Solat Sunat">
-          Panduan Solat Sunat
+        <Link className="brand" href="/" aria-label="Halaman Utama SolatWiki">
+          SolatWiki
         </Link>
         <nav className="nav-desktop" aria-label="Navigasi utama">
           <Link href="/" className={`nav-link ${isUtama ? "active" : ""}`} aria-current={isUtama ? "page" : undefined}>Utama</Link>
