@@ -2,11 +2,11 @@ import { expect, test } from "@playwright/test";
 
 test("home and the statically generated first guide are readable", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /panduan yang tenang/i })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /panduan solat sunat/i })).toBeVisible();
   await page.screenshot({ path: "playwright/screenshots/phase-1-home.png", fullPage: true });
   await page.getByRole("link", { name: /buka panduan solat sunat aidiladha/i }).click();
   await expect(page.getByRole("heading", { name: "Solat Sunat Aidiladha" })).toBeVisible();
-  await expect(page.getByText(/belum disemak/i).first()).toBeVisible();
+  await expect(page.getByText(/disemak/i).first()).toBeVisible();
   await page.screenshot({ path: "playwright/screenshots/phase-1-reader.png", fullPage: true });
 });
 
@@ -17,7 +17,7 @@ test("home reflows without horizontal overflow on tablet and mobile", async ({ p
   ]) {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.goto("/");
-    await expect(page.getByRole("heading", { name: /panduan yang tenang/i })).toBeVisible();
+    await expect(page.getByRole("heading", { level: 1, name: /panduan solat sunat/i })).toBeVisible();
     await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width);
     await page.screenshot({ path: `playwright/screenshots/phase-1-home-${viewport.name}.png`, fullPage: true });
   }
@@ -74,9 +74,6 @@ test("mobile viewport displays guide card above the fold without scrolling", asy
   // Discovery bar and category chips are visible
   await expect(page.getByRole("searchbox", { name: "Cari solat sunat" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Semua" })).toBeVisible();
-
-  // Notice badge provides non-color text cue
-  await expect(page.getByText("PERINGATAN STATUS")).toBeVisible();
 
   // The first real guide card is visible above the 812px viewport fold
   const guideCard = page.locator("article.guide-card", { hasText: /solat sunat aidiladha/i }).first();

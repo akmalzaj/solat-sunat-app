@@ -3,8 +3,8 @@ import { expect, test } from "@playwright/test";
 test("Phase 4: learning aids are config-driven, accessible, and make their preparation-only boundary clear", async ({ page }) => {
   await page.goto("/alatan/");
 
-  await expect(page.getByRole("heading", { name: "Alatan Persediaan Ibadah" })).toBeVisible();
-  await expect(page.getByText(/untuk pembelajaran dan persediaan sahaja/i)).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Alatan.*Persediaan Ibadah/i })).toBeVisible();
+  await expect(page.getByText(/pembelajaran dan semakan/i)).toBeVisible();
 
   await page.getByRole("link", { name: /Pelan Tasbih/i }).click();
   await expect(page.getByRole("heading", { name: /Pelan Solat Tasbih/i })).toBeVisible();
@@ -48,7 +48,7 @@ test("Phase 4: tools remain contained at mobile, tablet, and desktop breakpoints
   ]) {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.goto("/alatan/");
-    await expect(page.getByRole("heading", { name: "Alatan Persediaan Ibadah" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: /Alatan.*Persediaan Ibadah/i })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 
     if (viewport.name === "mobile") {

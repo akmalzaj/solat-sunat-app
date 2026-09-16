@@ -2,10 +2,10 @@ import { expect, test } from "@playwright/test";
 
 test("Phase 2: canonical solat guides are discoverable and render rich authentic content", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /panduan yang tenang/i })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /panduan solat sunat/i })).toBeVisible();
 
   // Verify canonical guide cards are displayed
-  const dhuhaCard = page.getByRole("link", { name: /solat sunat dhuha/i });
+  const dhuhaCard = page.getByRole("link", { name: /buka panduan solat sunat dhuha/i });
   await expect(dhuhaCard).toBeVisible();
 
   // Click on Solat Sunat Dhuha

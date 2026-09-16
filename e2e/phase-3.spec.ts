@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("Phase 3: discovery search and category filter work seamlessly with empty state recovery", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /panduan yang tenang/i })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /panduan solat sunat/i })).toBeVisible();
 
   // Test recommendation card exists and has disclaimer
   await expect(page.getByText(/Cadangan berdasarkan waktu peranti; bukan penentu waktu ibadah tepat/i)).toBeVisible();
@@ -30,7 +30,7 @@ test("Phase 3: discovery search and category filter work seamlessly with empty s
   const resetBtn = page.getByRole("button", { name: "Padam Carian & Papar Semua" });
   await resetBtn.click();
   await expect(page.getByRole("heading", { name: "Semua Panduan Solat Sunat" })).toBeVisible();
-  await expect(page.getByRole("link", { name: /Solat Sunat Dhuha/i })).toBeVisible();
+  await expect(page.getByRole("link", { name: /buka panduan solat sunat dhuha/i })).toBeVisible();
 });
 
 test("Phase 3: guide reader display controls, font scaling, and toggles", async ({ page }) => {
@@ -136,7 +136,7 @@ test("Phase 3: bookmarks toggle, persistence, and empty state", async ({ page })
 
 test("Phase 3: settings theme switcher applies data-theme and persists", async ({ page }) => {
   await page.goto("/tetapan/");
-  await expect(page.getByRole("heading", { name: /Tetapan & Sumber Fiqh/i })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Tetapan.*Sumber Fiqh/i })).toBeVisible();
 
   // Switch to Dark theme
   const darkBtn = page.getByRole("button", { name: /Gelap \(Forest Night\)/i });
@@ -158,7 +158,7 @@ test("Phase 3: capture visual evidence screenshots for Gemini visual QA", async 
   // 1. Home page with discovery and recommendations
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.goto("/");
-  await expect(page.getByRole("heading", { name: /panduan yang tenang/i })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: /panduan solat sunat/i })).toBeVisible();
   await page.screenshot({ path: "playwright/screenshots/phase-3-home.png", fullPage: true });
 
   // 2. Reader screen with toolbar and Arabic typography
