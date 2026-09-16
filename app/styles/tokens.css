@@ -26,6 +26,9 @@
   --muted: #52655f;
   --brand: #0f3d36;
   --brand-subtle: #e7efe9;
+  /* Text color that meets WCAG AA on top of --brand / --danger in this theme. */
+  --brand-contrast: #ffffff;
+  --danger-contrast: #ffffff;
   --accent: #b7791f;
   --line: #d8e0d9;
   --focus: #005fcc;
@@ -42,6 +45,8 @@
     --muted: #c1d0c7;
     --brand: #88c9b9;
     --brand-subtle: #1d3d34;
+    --brand-contrast: #10201c;
+    --danger-contrast: #10201c;
     --accent: #efbf69;
     --line: #365148;
     --focus: #8fc7ff;
@@ -58,6 +63,8 @@ html[data-theme="dark"] {
   --muted: #c1d0c7;
   --brand: #88c9b9;
   --brand-subtle: #1d3d34;
+  --brand-contrast: #10201c;
+  --danger-contrast: #10201c;
   --accent: #efbf69;
   --line: #365148;
   --focus: #8fc7ff;
@@ -73,6 +80,8 @@ html[data-theme="light"] {
   --muted: #52655f;
   --brand: #0f3d36;
   --brand-subtle: #e7efe9;
+  --brand-contrast: #ffffff;
+  --danger-contrast: #ffffff;
   --accent: #b7791f;
   --line: #d8e0d9;
   --focus: #005fcc;

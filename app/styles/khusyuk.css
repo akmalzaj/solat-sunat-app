@@ -44,7 +44,7 @@ body.mod-khusyuk-active .metadata-banner,
 }
 .khusyuk-exit-btn:hover {
   background: var(--brand);
-  color: #ffffff;
+  color: var(--brand-contrast);
 }
 .khusyuk-exit-btn:focus-visible {
   outline: 3px solid var(--focus);
