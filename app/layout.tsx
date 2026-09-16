@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import Script from "next/script";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { ServiceWorkerProvider } from "@/components/service-worker-provider";
 import { BottomNav } from "@/components/bottom-nav";
@@ -66,19 +65,37 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           <BottomNav />
         </ServiceWorkerProvider>
         {/* Load GA only in production with an ID configured, keeping dev/preview
-            traffic out of the reports. Pageviews on client-side navigations are
-            tracked automatically via GA4 Enhanced Measurement. */}
+            traffic out of the reports. lazyOnload defers gtag.js to browser idle
+            time so it never competes with hydration or the LCP (release
+            performance budget, Phase 5). Events queue on window.dataLayer until
+            gtag.js consumes them, so nothing is lost by the delay; navigations
+            that happen before idle load are not recorded. Pageviews on
+            client-side navigations are tracked automatically via GA4 Enhanced
+            Measurement. */}
         {process.env.NODE_ENV === "production" && GA_MEASUREMENT_ID && (
-          <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="lazyOnload"
+            />
+            <Script
+              id="ga-init"
+              strategy="lazyOnload"
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`,
+              }}
+            />
+          </>
         )}
         {/* Load Microsoft Clarity (heatmaps + session recordings) on the same
-            production-only gate as GA. Inline content is the official Clarity
-            snippet with our build-time project ID interpolated — no user input
-            flows into it. afterInteractive keeps it render-blocking-free. */}
+            production-only gate as GA, also deferred to idle time so session
+            recording setup does not compete with first paint. Inline content is
+            the official Clarity snippet with our build-time project ID
+            interpolated — no user input flows into it. */}
         {process.env.NODE_ENV === "production" && CLARITY_PROJECT_ID && (
           <Script
             id="microsoft-clarity"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
             dangerouslySetInnerHTML={{
               __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_PROJECT_ID}");`,
             }}
