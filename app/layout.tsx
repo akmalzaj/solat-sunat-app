@@ -5,13 +5,14 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { ServiceWorkerProvider } from "@/components/service-worker-provider";
 import { BottomNav } from "@/components/bottom-nav";
+import { SITE_URL } from "@/lib/site";
 
 // Public by design (visible in page source); must be set at build time.
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 const CLARITY_PROJECT_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://solat.wiki"),
+  metadataBase: new URL(SITE_URL),
   applicationName: "SolatWiki",
   title: {
     default: "SolatWiki - Panduan Solat Sunat & Doa",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "SolatWiki - Panduan Solat Sunat & Doa",
     description: "SolatWiki: Panduan Solat Sunat dan Doa Untuk Semua",
-    url: "https://solat.wiki",
+    url: SITE_URL,
     siteName: "SolatWiki",
     locale: "ms_MY",
     type: "website",

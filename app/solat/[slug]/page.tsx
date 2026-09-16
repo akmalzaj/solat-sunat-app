@@ -15,9 +15,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const guide = findGuide((await params).slug);
   if (!guide) return { title: "Panduan tidak ditemui" };
   // The root layout template appends "| SolatWiki"; supply the bare title.
-  // The structural sample is a test fixture, not reviewed content: keep it out of
-  // search indexes even though its route stays statically generated for the tests.
-  if (guide.slug === "contoh-struktur") {
+  // The structural sample is a test fixture, and unreviewed guidance must not
+  // surface in search indexes — keep both out even though their routes stay
+  // statically generated for the tests (sitemap.ts excludes them the same way).
+  if (guide.slug === "contoh-struktur" || guide.reviewStatus !== "approved") {
     return { title: guide.title, robots: { index: false, follow: false } };
   }
   return { title: guide.title };
