@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { ServiceWorkerProvider } from "@/components/service-worker-provider";
@@ -7,6 +8,7 @@ import { BottomNav } from "@/components/bottom-nav";
 
 // Public by design (visible in page source); must be set at build time.
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const CLARITY_PROJECT_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://solat.wiki"),
@@ -55,6 +57,19 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             tracked automatically via GA4 Enhanced Measurement. */}
         {process.env.NODE_ENV === "production" && GA_MEASUREMENT_ID && (
           <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />
+        )}
+        {/* Load Microsoft Clarity (heatmaps + session recordings) on the same
+            production-only gate as GA. Inline content is the official Clarity
+            snippet with our build-time project ID interpolated — no user input
+            flows into it. afterInteractive keeps it render-blocking-free. */}
+        {process.env.NODE_ENV === "production" && CLARITY_PROJECT_ID && (
+          <Script
+            id="microsoft-clarity"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","${CLARITY_PROJECT_ID}");`,
+            }}
+          />
         )}
       </body>
     </html>
