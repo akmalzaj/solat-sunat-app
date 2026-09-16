@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import { SiteHeader } from "@/components/site-header";
 import { CatalogView } from "@/components/discovery/catalog-view";
 import { guides } from "@/content/registry";
+
+// Declared on the page, not the layout: layout-level metadata is inherited by
+// every route, and the noindex sample guide must not pick up a canonical
+// (noindex + canonical to elsewhere is a conflicting indexing signal).
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function HomePage() {
   return (

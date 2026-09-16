@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { ToolsView } from "@/components/tools/tools-view";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/alatan/" },
   title: "Alatan Pembelajaran Dan Persediaan Ibadah",
   description: "Alatan visual dan bantuan persediaan ibadah.",
 };

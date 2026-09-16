@@ -30,3 +30,25 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# Serve the PWA manifest with its spec media type — without this it lands as
+# application/octet-stream, which stricter install prompts and tooling reject.
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+
+# 301 the default Netlify subdomain to the primary domain. Domain *aliases*
+# (www -> apex) redirect automatically, but the default *.netlify.app hostname
+# does not — it serves content directly, which duplicates every page unless
+# this rule exists. `force = true` is required: the static export publishes
+# real files, and without force Netlify serves the matching file before ever
+# evaluating the redirect. Scoped to the exact production hostname so deploy
+# previews and branch deploys (their own *.netlify.app subdomains) are
+# unaffected.
+# See: https://answers.netlify.com/t/redirect-from-netlify-subdomain-to-custom-primary-domain-not-working/10458
+[[redirects]]
+  from = "https://solatwiki.netlify.app/*"
+  to = "https://solat.wiki/:splat"
+  status = 301
+  force = true

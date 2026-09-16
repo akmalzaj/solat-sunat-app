@@ -18,10 +18,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // The structural sample is a test fixture, and unreviewed guidance must not
   // surface in search indexes — keep both out even though their routes stay
   // statically generated for the tests (sitemap.ts excludes them the same way).
+  // No canonical on the hidden branch: a self-canonical alongside noindex sends
+  // conflicting signals, and these pages must not consolidate into anything.
   if (guide.slug === "contoh-struktur" || guide.reviewStatus !== "approved") {
     return { title: guide.title, robots: { index: false, follow: false } };
   }
-  return { title: guide.title };
+  return {
+    title: guide.title,
+    alternates: { canonical: `/solat/${guide.slug}/` },
+  };
 }
 
 export default async function GuidePage({ params }: PageProps) {

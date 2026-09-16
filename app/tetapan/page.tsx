@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SettingsView } from "@/components/settings/settings-view";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/tetapan/" },
   title: "Tetapan Sistem & Sumber Fiqh",
   description: "Tetapan paparan, metodologi fiqh, dan maklumat sumber rujukan.",
 };

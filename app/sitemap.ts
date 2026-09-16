@@ -9,7 +9,9 @@ import { SITE_URL } from "../lib/site.ts";
 export const dynamic = "force-static";
 
 // Static content surfaces; URLs follow next.config.ts `trailingSlash: true`.
-const STATIC_PATHS = ["", "/alatan/", "/bantuan/", "/simpanan/", "/tetapan/"];
+// The home entry is "/" (not "") so the sitemap URL matches the page's
+// canonical (https://solat.wiki/) byte for byte.
+const STATIC_PATHS = ["/", "/alatan/", "/bantuan/", "/simpanan/", "/tetapan/"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticEntries: MetadataRoute.Sitemap = STATIC_PATHS.map((path) => ({

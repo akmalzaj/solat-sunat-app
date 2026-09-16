@@ -5,6 +5,7 @@ import { BookmarksView } from "@/components/bookmarks/bookmarks-view";
 import { guides } from "@/content/registry";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/simpanan/" },
   title: "Simpanan Panduan Luar Talian (Offline)",
   description: "Senarai panduan solat sunat yang disimpan untuk capaian pantas tanpa sambungan internet.",
 };

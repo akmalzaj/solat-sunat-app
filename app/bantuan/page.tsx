@@ -4,6 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { sources } from "@/content/registry";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/bantuan/" },
   title: "Bantuan, Metodologi & Sumber",
   description: "Metodologi penyusunan panduan ibadah, daftar sumber rujukan muktabar, dan saluran maklum balas.",
 };

@@ -132,8 +132,10 @@ test("Audit: guide pages let the layout title template append the site suffix", 
     "utf8",
   );
   assert.ok(
-    pageSource.includes("return { title: guide.title };"),
-    "generateMetadata must return the bare title; the root layout template adds '| Panduan Solat Sunat'",
+    // Regex over an exact substring: the repo mixes LF and CRLF, so a plain
+    // includes("...\n...") breaks purely on line endings.
+    /title: guide\.title,\r?\n\s*alternates: \{ canonical: `\/solat\/\$\{guide\.slug\}\/` \}/.test(pageSource),
+    "generateMetadata must return the bare title for approved guides (layout template adds the suffix), anchored to the multi-line return that also carries the canonical",
   );
   assert.ok(!pageSource.includes("${guide.title} | Panduan Solat Sunat"));
 });
