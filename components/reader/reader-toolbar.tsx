@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import type { FontSizeScale } from "@/lib/preferences";
 
@@ -30,6 +31,130 @@ export function ReaderToolbar({
   onToggleKhusyuk,
 }: ReaderToolbarProps) {
   const [displayDrawerOpen, setDisplayDrawerOpen] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+
+  const closeDisplayDrawer = useCallback(() => {
+    setDisplayDrawerOpen(false);
+    triggerRef.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (!displayDrawerOpen) return;
+    // Move focus into the dialog so keyboard users are not stranded on the trigger.
+    dialogRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeDisplayDrawer();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    // The trigger is hidden at >=640px; never leave a hidden dialog open.
+    const desktopQuery = window.matchMedia("(min-width: 640px)");
+    const onDesktopChange = () => setDisplayDrawerOpen(false);
+    desktopQuery.addEventListener("change", onDesktopChange);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      desktopQuery.removeEventListener("change", onDesktopChange);
+    };
+  }, [displayDrawerOpen, closeDisplayDrawer]);
+
+  const handleDialogKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key !== "Tab") return;
+    const focusables = dialogRef.current?.querySelectorAll<HTMLElement>(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+    );
+    if (!focusables || focusables.length === 0) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  };
+
+  const displayDrawer = displayDrawerOpen && (
+    <>
+      <div
+        className="display-popover-backdrop"
+        onClick={closeDisplayDrawer}
+        aria-hidden="true"
+      />
+      <div
+        className="display-popover"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Tetapan paparan bacaan"
+        ref={dialogRef}
+        onKeyDown={handleDialogKeyDown}
+      >
+        <div className="popover-row">
+          <span className="popover-label">Saiz Fon Arab:</span>
+          <div className="font-size-pills" role="group" aria-label="Saiz fon Arab">
+            <button
+              type="button"
+              className={`pill-btn ${fontSize === "kecil" ? "active" : ""}`}
+              onClick={() => onChangeFontSize("kecil")}
+              aria-pressed={fontSize === "kecil"}
+            >
+              Kecil
+            </button>
+            <button
+              type="button"
+              className={`pill-btn ${fontSize === "biasa" ? "active" : ""}`}
+              onClick={() => onChangeFontSize("biasa")}
+              aria-pressed={fontSize === "biasa"}
+            >
+              Biasa
+            </button>
+            <button
+              type="button"
+              className={`pill-btn ${fontSize === "besar" ? "active" : ""}`}
+              onClick={() => onChangeFontSize("besar")}
+              aria-pressed={fontSize === "besar"}
+            >
+              Besar
+            </button>
+          </div>
+        </div>
+
+        <div className="popover-row">
+          <span className="popover-label">Teks Rumi:</span>
+          <button
+            type="button"
+            className={`toggle-switch-btn ${showRumi ? "active" : ""}`}
+            onClick={onToggleRumi}
+            aria-pressed={showRumi}
+          >
+            {showRumi ? "Dipaparkan" : "Disorok"}
+          </button>
+        </div>
+
+        <div className="popover-row">
+          <span className="popover-label">Terjemahan Melayu:</span>
+          <button
+            type="button"
+            className={`toggle-switch-btn ${showTranslation ? "active" : ""}`}
+            onClick={onToggleTranslation}
+            aria-pressed={showTranslation}
+          >
+            {showTranslation ? "Dipaparkan" : "Disorok"}
+          </button>
+        </div>
+
+        <button
+          type="button"
+          className="popover-close-btn"
+          onClick={closeDisplayDrawer}
+        >
+          Tutup Pilihan
+        </button>
+      </div>
+    </>
+  );
 
   return (
     <header className="sticky-reader-toolbar" role="region" aria-label="Alat bantuan pembaca">
@@ -52,6 +177,7 @@ export function ReaderToolbar({
               onClick={() => setDisplayDrawerOpen((prev) => !prev)}
               aria-label="Pilihan paparan dan saiz tulisan"
               aria-expanded={displayDrawerOpen}
+              ref={triggerRef}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <circle cx="12" cy="12" r="3" />
@@ -60,69 +186,9 @@ export function ReaderToolbar({
               <span>Paparan</span>
             </button>
 
-            {/* Accessible Popover Drawer on Mobile */}
-            {displayDrawerOpen && (
-              <div className="display-popover" role="dialog" aria-label="Tetapan paparan bacaan">
-                <div className="popover-row">
-                  <span className="popover-label">Saiz Fon Arab:</span>
-                  <div className="font-size-pills" role="group" aria-label="Saiz fon Arab">
-                    <button
-                      type="button"
-                      className={`pill-btn ${fontSize === "kecil" ? "active" : ""}`}
-                      onClick={() => onChangeFontSize("kecil")}
-                    >
-                      Kecil
-                    </button>
-                    <button
-                      type="button"
-                      className={`pill-btn ${fontSize === "biasa" ? "active" : ""}`}
-                      onClick={() => onChangeFontSize("biasa")}
-                    >
-                      Biasa
-                    </button>
-                    <button
-                      type="button"
-                      className={`pill-btn ${fontSize === "besar" ? "active" : ""}`}
-                      onClick={() => onChangeFontSize("besar")}
-                    >
-                      Besar
-                    </button>
-                  </div>
-                </div>
-
-                <div className="popover-row">
-                  <span className="popover-label">Teks Rumi:</span>
-                  <button
-                    type="button"
-                    className={`toggle-switch-btn ${showRumi ? "active" : ""}`}
-                    onClick={onToggleRumi}
-                    aria-pressed={showRumi}
-                  >
-                    {showRumi ? "Dipaparkan" : "Disorok"}
-                  </button>
-                </div>
-
-                <div className="popover-row">
-                  <span className="popover-label">Terjemahan Melayu:</span>
-                  <button
-                    type="button"
-                    className={`toggle-switch-btn ${showTranslation ? "active" : ""}`}
-                    onClick={onToggleTranslation}
-                    aria-pressed={showTranslation}
-                  >
-                    {showTranslation ? "Dipaparkan" : "Disorok"}
-                  </button>
-                </div>
-
-                <button
-                  type="button"
-                  className="popover-close-btn"
-                  onClick={() => setDisplayDrawerOpen(false)}
-                >
-                  Tutup Pilihan
-                </button>
-              </div>
-            )}
+            {/* Accessible modal, portaled to <body> so it escapes the sticky
+                toolbar's stacking context (the bottom nav stays under it). */}
+            {displayDrawer && createPortal(displayDrawer, document.body)}
           </div>
 
           {/* Desktop/Tablet Inline Display Controls (>= 640px) */}
