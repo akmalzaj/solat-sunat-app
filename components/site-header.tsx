@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -14,8 +15,21 @@ export function SiteHeader() {
   return (
     <header className="topbar" role="banner">
       <div className="shell topbar-content">
-        <Link className="brand" href="/" aria-label="Halaman Utama SolatWiki">
-          SolatWiki
+        <Link
+          className="brand"
+          href="/"
+          aria-label="Panduan Solat Sunat - Ke Laman Utama"
+        >
+          <Image
+            src="/SolatWiki_mark.png"
+            alt=""
+            width={36}
+            height={36}
+            priority
+            className="brand-logo"
+            aria-hidden="true"
+          />
+          <span className="brand-text">SolatWiki</span>
         </Link>
         <nav className="nav-desktop" aria-label="Navigasi utama">
           <Link href="/" className={`nav-link ${isUtama ? "active" : ""}`} aria-current={isUtama ? "page" : undefined}>Utama</Link>
