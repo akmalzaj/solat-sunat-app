@@ -14,7 +14,11 @@ function source(relativePath) {
 
 test("Phase 1 uses a static Next.js export and generates a deployable precache worker", () => {
   assert.match(source("next.config.ts"), /output:\s*["']export["']/);
-  assert.match(source("package.json"), /"build": "next build && node scripts\/build-service-worker\.mjs"/);
+  // The build chain: export -> RSC payload adapter -> precache worker -> JS budget gate.
+  const build = JSON.parse(source("package.json")).scripts.build;
+  assert.ok(build.startsWith("next build"));
+  assert.ok(build.indexOf("scripts/fix-static-export-rsc.mjs") < build.indexOf("scripts/build-service-worker.mjs"));
+  assert.ok(build.includes("scripts/check-bundle-budget.mjs"));
   assert.match(source("scripts/build-service-worker.mjs"), /path\.join\(outputDirectory, "sw\.js"\)/);
   assert.match(source("app/sw.ts"), /__STATIC_ASSET_MANIFEST__/);
 });

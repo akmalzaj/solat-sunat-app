@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "prebuild": "npm run generate-registry",
-    "build": "next build && node scripts/build-service-worker.mjs",
+    "build": "next build && node scripts/fix-static-export-rsc.mjs && node scripts/build-service-worker.mjs && node scripts/check-bundle-budget.mjs",
     "generate-registry": "node --experimental-strip-types scripts/generate-registry.mjs",
     "dev": "next dev",
     "lint": "eslint .",
@@ -24,6 +24,7 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@playwright/test": "1.63.0",
     "@tailwindcss/postcss": "4.1.18",
     "@types/node": "26.5.1",
