@@ -18,6 +18,7 @@ playwright-report/
 test-results/
 playwright/screenshots/
 *.tsbuildinfo
+.playwright-mcp/
 
 # Generated files
 next-env.d.ts
