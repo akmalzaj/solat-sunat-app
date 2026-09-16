@@ -1,0 +1,32 @@
+# Netlify build configuration for SolatWiki (Next.js 16, static export).
+# The Next.js runtime (OpenNext adapter) is provisioned automatically by
+# Netlify's framework detection — pinning @netlify/plugin-nextjs here would
+# opt the site out of automatic adapter updates, so it is intentionally omitted.
+# See: https://docs.netlify.com/integrations/frameworks/next-js/overview/
+#
+# This app uses `output: "export"` (next.config.ts), but the publish directory
+# is still ".next": the adapter reads the build config from .next, detects the
+# static export, copies out/ into the publish dir, and swaps it in post-build
+# (copyStaticExport/publishStaticDir in opennextjs-netlify). Serving "out"
+# directly would only work with NETLIFY_NEXT_PLUGIN_SKIP=true — a legacy path
+# we deliberately avoid.
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # prebuild runs `node --experimental-strip-types scripts/generate-registry.mjs`,
+  # which requires Node >= 22.6.
+  NODE_VERSION = "22"
+
+# Host-level security headers (audit item — see _ProjectDocs deployment
+# guideline section 9.2).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
